@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>_2.BUS</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\**" />
+    <Compile Remove="Sevices\**" />
+    <Compile Remove="Utilitites\**" />
+    <EmbeddedResource Remove="Features\**" />
+    <EmbeddedResource Remove="Sevices\**" />
+    <EmbeddedResource Remove="Utilitites\**" />
+    <None Remove="Features\**" />
+    <None Remove="Sevices\**" />
+    <None Remove="Utilitites\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\1.DAL\1.DAL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Feature\" />
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+
+</Project>

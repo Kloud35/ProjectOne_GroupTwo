@@ -1,0 +1,17 @@
+﻿using _1.DAL.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1.DAL.IRepository
+{
+    public interface IThucAnChiTietRepository
+    {
+        bool Add(ThucAnChiTiet obj);
+        bool Update(ThucAnChiTiet obj);
+        bool Delete(ThucAnChiTiet obj);
+        List<ThucAnChiTiet> GetAll();
+    }
+}
