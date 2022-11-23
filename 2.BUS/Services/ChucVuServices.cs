@@ -34,7 +34,10 @@ namespace _2.BUS.Services
 
         public bool Delete(ChucVuView obj)
         {
-            throw new NotImplementedException();
+            if(obj == null) return false;
+            var x = _iChucVuRepository.GetAll().FirstOrDefault(x=>x.Id == obj.Id);
+            _iChucVuRepository.Delete(x);
+            return true;
         }
 
         public List<ChucVuView> GetAll()
@@ -51,7 +54,12 @@ namespace _2.BUS.Services
 
         public bool Update(ChucVuView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iChucVuRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            x.Ten = obj.Ten;
+            x.Ma = obj.Ma;
+            _iChucVuRepository.Update(x);
+            return true;
         }
     }
 }

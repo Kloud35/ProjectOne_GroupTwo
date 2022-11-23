@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbt_XuatXu = new RJCodeAdvance.RJControls.RJTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbt_Ten = new RJCodeAdvance.RJControls.RJTextBox();
@@ -41,13 +43,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Show = new RJCodeAdvance.RJControls.RJButton();
             this.tbt_Search = new RJCodeAdvance.RJControls.RJTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tbt_XuatXu = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -64,6 +64,37 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(146, 277);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Xuất xứ";
+            // 
+            // tbt_XuatXu
+            // 
+            this.tbt_XuatXu.BackColor = System.Drawing.SystemColors.Window;
+            this.tbt_XuatXu.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbt_XuatXu.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbt_XuatXu.BorderRadius = 0;
+            this.tbt_XuatXu.BorderSize = 2;
+            this.tbt_XuatXu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbt_XuatXu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbt_XuatXu.Location = new System.Drawing.Point(146, 301);
+            this.tbt_XuatXu.Margin = new System.Windows.Forms.Padding(4);
+            this.tbt_XuatXu.Multiline = false;
+            this.tbt_XuatXu.Name = "tbt_XuatXu";
+            this.tbt_XuatXu.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbt_XuatXu.PasswordChar = false;
+            this.tbt_XuatXu.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbt_XuatXu.PlaceholderText = "";
+            this.tbt_XuatXu.Size = new System.Drawing.Size(312, 35);
+            this.tbt_XuatXu.TabIndex = 4;
+            this.tbt_XuatXu.Texts = "";
+            this.tbt_XuatXu.UnderlinedStyle = false;
             // 
             // label2
             // 
@@ -160,6 +191,7 @@
             this.btn_Clear.TextColor = System.Drawing.Color.White;
             this.btn_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Xoa
             // 
@@ -181,6 +213,7 @@
             this.btn_Xoa.TextColor = System.Drawing.Color.White;
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Them
             // 
@@ -202,6 +235,7 @@
             this.btn_Them.TextColor = System.Drawing.Color.White;
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Sua
             // 
@@ -223,12 +257,13 @@
             this.btn_Sua.TextColor = System.Drawing.Color.White;
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btn_Show);
             this.groupBox3.Controls.Add(this.tbt_Search);
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dtgv_Show);
             this.groupBox3.Location = new System.Drawing.Point(6, 369);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1221, 327);
@@ -256,6 +291,7 @@
             this.btn_Show.TextColor = System.Drawing.Color.White;
             this.btn_Show.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Show.UseVisualStyleBackColor = false;
+            this.btn_Show.Click += new System.EventHandler(this.btn_Show_Click);
             // 
             // tbt_Search
             // 
@@ -279,46 +315,16 @@
             this.tbt_Search.Texts = "";
             this.tbt_Search.UnderlinedStyle = false;
             // 
-            // dataGridView1
+            // dtgv_Show
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1209, 240);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tbt_XuatXu
-            // 
-            this.tbt_XuatXu.BackColor = System.Drawing.SystemColors.Window;
-            this.tbt_XuatXu.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.tbt_XuatXu.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.tbt_XuatXu.BorderRadius = 0;
-            this.tbt_XuatXu.BorderSize = 2;
-            this.tbt_XuatXu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbt_XuatXu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_XuatXu.Location = new System.Drawing.Point(146, 301);
-            this.tbt_XuatXu.Margin = new System.Windows.Forms.Padding(4);
-            this.tbt_XuatXu.Multiline = false;
-            this.tbt_XuatXu.Name = "tbt_XuatXu";
-            this.tbt_XuatXu.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbt_XuatXu.PasswordChar = false;
-            this.tbt_XuatXu.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbt_XuatXu.PlaceholderText = "";
-            this.tbt_XuatXu.Size = new System.Drawing.Size(312, 35);
-            this.tbt_XuatXu.TabIndex = 4;
-            this.tbt_XuatXu.Texts = "";
-            this.tbt_XuatXu.UnderlinedStyle = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(146, 277);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Xuất xứ";
+            this.dtgv_Show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_Show.Location = new System.Drawing.Point(6, 81);
+            this.dtgv_Show.Name = "dtgv_Show";
+            this.dtgv_Show.RowHeadersWidth = 51;
+            this.dtgv_Show.RowTemplate.Height = 29;
+            this.dtgv_Show.Size = new System.Drawing.Size(1209, 240);
+            this.dtgv_Show.TabIndex = 0;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // QLGiongLoai
             // 
@@ -333,7 +339,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -353,7 +359,7 @@
         private GroupBox groupBox3;
         private RJCodeAdvance.RJControls.RJButton btn_Show;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Search;
-        private DataGridView dataGridView1;
+        private DataGridView dtgv_Show;
         private Label label3;
         private RJCodeAdvance.RJControls.RJTextBox tbt_XuatXu;
     }

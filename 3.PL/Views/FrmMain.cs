@@ -24,7 +24,7 @@ namespace _3.PL.Views
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            DisableButton();
+            //DisableButton();
         }
         private void DisableButton()
         {
@@ -84,7 +84,6 @@ namespace _3.PL.Views
             ViewNhanVien viewNhanVien = new ViewNhanVien();
             viewNhanVien.Title = new ViewNhanVien.GetTitle(GetTitle);
             OpenUserControl(viewNhanVien);
-
         }
 
         private void btn_ThuCung_Click(object sender, EventArgs e)
@@ -141,7 +140,6 @@ namespace _3.PL.Views
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.OnLogin = new FrmLogin.Login(Login);
             frmLogin.ShowDialog();
-           
         }
 
         private void btn_NhanVien_MouseHover(object sender, EventArgs e)

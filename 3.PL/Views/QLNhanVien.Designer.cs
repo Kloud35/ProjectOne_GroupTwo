@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_TrangThai = new RJCodeAdvance.RJControls.RJComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbt_Email = new RJCodeAdvance.RJControls.RJTextBox();
             this.btn_ChonAnh = new RJCodeAdvance.RJControls.RJButton();
@@ -70,7 +71,6 @@
             this.btn_Xoa = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Sua = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Them = new RJCodeAdvance.RJControls.RJButton();
-            this.cbb_TrangThai = new RJCodeAdvance.RJControls.RJComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Image)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -119,6 +119,28 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // cbb_TrangThai
+            // 
+            this.cbb_TrangThai.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbb_TrangThai.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbb_TrangThai.BorderSize = 1;
+            this.cbb_TrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbb_TrangThai.ForeColor = System.Drawing.Color.DimGray;
+            this.cbb_TrangThai.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbb_TrangThai.Items.AddRange(new object[] {
+            "Hoạt động",
+            "Không hoạt động"});
+            this.cbb_TrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cbb_TrangThai.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbb_TrangThai.Location = new System.Drawing.Point(995, 144);
+            this.cbb_TrangThai.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbb_TrangThai.Name = "cbb_TrangThai";
+            this.cbb_TrangThai.Padding = new System.Windows.Forms.Padding(1);
+            this.cbb_TrangThai.Size = new System.Drawing.Size(202, 38);
+            this.cbb_TrangThai.TabIndex = 41;
+            this.cbb_TrangThai.Texts = "";
             // 
             // label15
             // 
@@ -649,6 +671,7 @@
             this.dtgv_Show.RowTemplate.Height = 29;
             this.dtgv_Show.Size = new System.Drawing.Size(1209, 167);
             this.dtgv_Show.TabIndex = 0;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // groupBox2
             // 
@@ -704,6 +727,7 @@
             this.btn_Xoa.TextColor = System.Drawing.Color.White;
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
@@ -725,6 +749,7 @@
             this.btn_Sua.TextColor = System.Drawing.Color.White;
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Them
             // 
@@ -747,25 +772,6 @@
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Them.UseVisualStyleBackColor = false;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
-            // 
-            // cbb_TrangThai
-            // 
-            this.cbb_TrangThai.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbb_TrangThai.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbb_TrangThai.BorderSize = 1;
-            this.cbb_TrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbb_TrangThai.ForeColor = System.Drawing.Color.DimGray;
-            this.cbb_TrangThai.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbb_TrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbb_TrangThai.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbb_TrangThai.Location = new System.Drawing.Point(995, 144);
-            this.cbb_TrangThai.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbb_TrangThai.Name = "cbb_TrangThai";
-            this.cbb_TrangThai.Padding = new System.Windows.Forms.Padding(1);
-            this.cbb_TrangThai.Size = new System.Drawing.Size(202, 38);
-            this.cbb_TrangThai.TabIndex = 41;
-            this.cbb_TrangThai.Texts = "";
             // 
             // QLNhanVien
             // 
