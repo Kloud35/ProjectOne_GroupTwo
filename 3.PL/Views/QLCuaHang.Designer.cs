@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gb_TT = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbt_DiaChi = new RJCodeAdvance.RJControls.RJTextBox();
@@ -45,29 +45,29 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Show = new RJCodeAdvance.RJControls.RJButton();
             this.tbt_Search = new RJCodeAdvance.RJControls.RJTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
+            this.dtgv_Show = new System.Windows.Forms.DataGridView();
+            this.gb_TT.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gb_TT
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.tbt_DiaChi);
-            this.groupBox1.Controls.Add(this.tbt_Sdt);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbt_Ten);
-            this.groupBox1.Controls.Add(this.tbt_Ma);
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(701, 357);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin";
+            this.gb_TT.Controls.Add(this.label4);
+            this.gb_TT.Controls.Add(this.label3);
+            this.gb_TT.Controls.Add(this.tbt_DiaChi);
+            this.gb_TT.Controls.Add(this.tbt_Sdt);
+            this.gb_TT.Controls.Add(this.label2);
+            this.gb_TT.Controls.Add(this.label1);
+            this.gb_TT.Controls.Add(this.tbt_Ten);
+            this.gb_TT.Controls.Add(this.tbt_Ma);
+            this.gb_TT.Location = new System.Drawing.Point(3, 3);
+            this.gb_TT.Name = "gb_TT";
+            this.gb_TT.Size = new System.Drawing.Size(701, 357);
+            this.gb_TT.TabIndex = 6;
+            this.gb_TT.TabStop = false;
+            this.gb_TT.Text = "Thông tin";
             // 
             // label4
             // 
@@ -226,6 +226,7 @@
             this.btn_Clear.TextColor = System.Drawing.Color.White;
             this.btn_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Xoa
             // 
@@ -247,6 +248,7 @@
             this.btn_Xoa.TextColor = System.Drawing.Color.White;
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Them
             // 
@@ -290,12 +292,13 @@
             this.btn_Sua.TextColor = System.Drawing.Color.White;
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btn_Show);
             this.groupBox3.Controls.Add(this.tbt_Search);
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dtgv_Show);
             this.groupBox3.Location = new System.Drawing.Point(3, 366);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1221, 327);
@@ -323,6 +326,7 @@
             this.btn_Show.TextColor = System.Drawing.Color.White;
             this.btn_Show.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Show.UseVisualStyleBackColor = false;
+            this.btn_Show.Click += new System.EventHandler(this.btn_Show_Click);
             // 
             // tbt_Search
             // 
@@ -345,16 +349,18 @@
             this.tbt_Search.TabIndex = 1;
             this.tbt_Search.Texts = "";
             this.tbt_Search.UnderlinedStyle = false;
+            this.tbt_Search._TextChanged += new System.EventHandler(this.tbt_Search__TextChanged);
             // 
-            // dataGridView1
+            // dtgv_Show
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1209, 240);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgv_Show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_Show.Location = new System.Drawing.Point(6, 81);
+            this.dtgv_Show.Name = "dtgv_Show";
+            this.dtgv_Show.RowHeadersWidth = 51;
+            this.dtgv_Show.RowTemplate.Height = 29;
+            this.dtgv_Show.Size = new System.Drawing.Size(1209, 240);
+            this.dtgv_Show.TabIndex = 0;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // QLCuaHang
             // 
@@ -362,21 +368,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gb_TT);
             this.Name = "QLCuaHang";
             this.Size = new System.Drawing.Size(1227, 696);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gb_TT.ResumeLayout(false);
+            this.gb_TT.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox gb_TT;
         private Label label2;
         private Label label1;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Ten;
@@ -389,7 +395,7 @@
         private GroupBox groupBox3;
         private RJCodeAdvance.RJControls.RJButton btn_Show;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Search;
-        private DataGridView dataGridView1;
+        private DataGridView dtgv_Show;
         private Label label4;
         private Label label3;
         private RJCodeAdvance.RJControls.RJTextBox tbt_DiaChi;

@@ -56,6 +56,7 @@
             this.dtgv_DoChoi = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dtgv_ThucAn = new System.Windows.Forms.DataGridView();
+            this.ptb_Scan = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_GioHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_HoaDon)).BeginInit();
@@ -66,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoChoi)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ThucAn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Scan)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_TaoHoaDon
@@ -78,9 +80,9 @@
             this.btn_TaoHoaDon.FlatAppearance.BorderSize = 0;
             this.btn_TaoHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_TaoHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btn_TaoHoaDon.Location = new System.Drawing.Point(17, 24);
+            this.btn_TaoHoaDon.Location = new System.Drawing.Point(811, 479);
             this.btn_TaoHoaDon.Name = "btn_TaoHoaDon";
-            this.btn_TaoHoaDon.Size = new System.Drawing.Size(188, 50);
+            this.btn_TaoHoaDon.Size = new System.Drawing.Size(132, 46);
             this.btn_TaoHoaDon.TabIndex = 22;
             this.btn_TaoHoaDon.Text = "Tạo hóa đơn";
             this.btn_TaoHoaDon.TextColor = System.Drawing.Color.White;
@@ -109,10 +111,10 @@
             // dtgv_HoaDon
             // 
             this.dtgv_HoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_HoaDon.Location = new System.Drawing.Point(225, 64);
+            this.dtgv_HoaDon.Location = new System.Drawing.Point(504, 63);
             this.dtgv_HoaDon.Name = "dtgv_HoaDon";
             this.dtgv_HoaDon.RowHeadersWidth = 51;
-            this.dtgv_HoaDon.Size = new System.Drawing.Size(506, 123);
+            this.dtgv_HoaDon.Size = new System.Drawing.Size(261, 123);
             this.dtgv_HoaDon.TabIndex = 20;
             // 
             // rbn_DaThanhToan
@@ -151,7 +153,7 @@
             // rbn_ChoThanhToan
             // 
             this.rbn_ChoThanhToan.AutoSize = true;
-            this.rbn_ChoThanhToan.Location = new System.Drawing.Point(244, 24);
+            this.rbn_ChoThanhToan.Location = new System.Drawing.Point(629, 3);
             this.rbn_ChoThanhToan.Name = "rbn_ChoThanhToan";
             this.rbn_ChoThanhToan.Size = new System.Drawing.Size(136, 24);
             this.rbn_ChoThanhToan.TabIndex = 16;
@@ -446,10 +448,21 @@
             this.dtgv_ThucAn.Size = new System.Drawing.Size(560, 133);
             this.dtgv_ThucAn.TabIndex = 0;
             // 
+            // ptb_Scan
+            // 
+            this.ptb_Scan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ptb_Scan.Location = new System.Drawing.Point(40, 3);
+            this.ptb_Scan.Name = "ptb_Scan";
+            this.ptb_Scan.Size = new System.Drawing.Size(338, 184);
+            this.ptb_Scan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_Scan.TabIndex = 26;
+            this.ptb_Scan.TabStop = false;
+            // 
             // QLGioHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.ptb_Scan);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -463,6 +476,8 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "QLGioHang";
             this.Size = new System.Drawing.Size(1227, 727);
+            this.Load += new System.EventHandler(this.QLGioHang_Load);
+            this.Leave += new System.EventHandler(this.QLGioHang_Leave);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_GioHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_HoaDon)).EndInit();
@@ -474,6 +489,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_DoChoi)).EndInit();
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_ThucAn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Scan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,5 +525,6 @@
         private DataGridView dtgv_DoChoi;
         private GroupBox groupBox5;
         private DataGridView dtgv_ThucAn;
+        private PictureBox ptb_Scan;
     }
 }

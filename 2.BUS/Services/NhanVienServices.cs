@@ -44,7 +44,7 @@ namespace _2.BUS.Services
                 TrangThai = obj.TrangThai,
                 IdCuaHang = obj.IdCh,
                 IdChucVu = obj.IdCv
-                
+
             };
             _iNhanVienRepository.Add(x);
             return true;
@@ -52,7 +52,10 @@ namespace _2.BUS.Services
 
         public bool Delete(NhanVienView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iNhanVienRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            _iNhanVienRepository.Delete(x);
+            return true;
         }
 
         public List<NhanVienView> GetAll()
@@ -63,8 +66,13 @@ namespace _2.BUS.Services
                         select new NhanVienView
                         {
                             Id = a.Id,
+                            IdCh = a.IdCuaHang,
+                            IdCv = a.IdChucVu,
                             ChucVu = b.Ten,
                             CuaHang = c.Ten,
+                            Ho = a.Ho,
+                            TenDem = a.TenDem,
+                            Ten = a.Ten,
                             HoVaTen = a.Ho + " " + a.TenDem + " " + a.Ten,
                             NgaySinh = a.NgaySinh,
                             GioiTinh = a.GioiTinh,
@@ -91,12 +99,31 @@ namespace _2.BUS.Services
             {
                 return false;
             }
-            
+
         }
 
         public bool Update(NhanVienView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iNhanVienRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            x.Id = obj.Id;
+            x.Ma = obj.Ma;
+            x.Ho = obj.Ho;
+            x.TenDem = obj.TenDem;
+            x.Ten = obj.Ten;
+            x.NgaySinh = obj.NgaySinh;
+            x.GioiTinh = obj.GioiTinh;
+            x.Sdt = obj.Sdt;
+            x.Email = obj.Email;
+            x.DiaChi = obj.DiaChi;
+            x.ThanhPho = obj.ThanhPho;
+            x.QuocGia = obj.QuocGia;
+            x.MatKhau = obj.MatKhau;
+            x.TrangThai = obj.TrangThai;
+            x.IdCuaHang = obj.IdCh;
+            x.IdChucVu = obj.IdCv;
+            _iNhanVienRepository.Update(x);
+            return true;
         }
     }
 }

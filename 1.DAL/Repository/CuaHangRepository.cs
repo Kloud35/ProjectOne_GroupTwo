@@ -37,7 +37,7 @@ namespace _1.DAL.Repository
             return _dbContext.CuaHang.ToList();
         }
 
-        public bool Uppdate(CuaHang obj)
+        public bool Update(CuaHang obj)
         {
             if (obj == null) return false;
             _dbContext.Update(obj);

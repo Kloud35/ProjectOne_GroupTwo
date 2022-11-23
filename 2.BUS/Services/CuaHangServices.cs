@@ -36,7 +36,10 @@ namespace _2.BUS.Services
 
         public bool Delete(CuaHangView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iCuaHangRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            _iCuaHangRepository.Delete(x);
+            return true;
         }
 
         public List<CuaHangView> GetAll()
@@ -55,7 +58,14 @@ namespace _2.BUS.Services
 
         public bool Update(CuaHangView obj)
         {
-            throw new NotImplementedException();
+            if(obj == null) return false;
+            var x = _iCuaHangRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            x.Ten = obj.Ten;
+            x.Ma = obj.Ma;
+            x.DiaChi = obj.DiaChi;
+            x.Sdt = obj.Sdt;
+            _iCuaHangRepository.Update(x);
+            return true;
         }
     }
 }

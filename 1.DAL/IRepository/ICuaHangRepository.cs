@@ -10,7 +10,7 @@ namespace _1.DAL.IRepository
     public interface ICuaHangRepository
     {
         bool Add(CuaHang obj);
-        bool Uppdate(CuaHang obj);
+        bool Update(CuaHang obj);
         bool Delete(CuaHang obj);
         List<CuaHang> GetAll();
 
