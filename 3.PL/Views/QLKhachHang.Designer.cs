@@ -36,7 +36,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btn_Show = new RJCodeAdvance.RJControls.RJButton();
             this.tbt_Search = new RJCodeAdvance.RJControls.RJTextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.tbt_Ma = new RJCodeAdvance.RJControls.RJTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,6 +100,7 @@
             this.btn_Clear.TextColor = System.Drawing.Color.White;
             this.btn_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Xoa
             // 
@@ -121,6 +122,7 @@
             this.btn_Xoa.TextColor = System.Drawing.Color.White;
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
@@ -142,6 +144,7 @@
             this.btn_Sua.TextColor = System.Drawing.Color.White;
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Them
             // 
@@ -163,12 +166,13 @@
             this.btn_Them.TextColor = System.Drawing.Color.White;
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btn_Show);
             this.groupBox3.Controls.Add(this.tbt_Search);
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dtgv_Show);
             this.groupBox3.Location = new System.Drawing.Point(6, 470);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1221, 254);
@@ -196,6 +200,7 @@
             this.btn_Show.TextColor = System.Drawing.Color.White;
             this.btn_Show.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Show.UseVisualStyleBackColor = false;
+            this.btn_Show.Click += new System.EventHandler(this.btn_Show_Click);
             // 
             // tbt_Search
             // 
@@ -219,15 +224,15 @@
             this.tbt_Search.Texts = "";
             this.tbt_Search.UnderlinedStyle = false;
             // 
-            // dataGridView1
+            // dtgv_Show
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 81);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1209, 167);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgv_Show.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgv_Show.Location = new System.Drawing.Point(6, 81);
+            this.dtgv_Show.Name = "dtgv_Show";
+            this.dtgv_Show.RowHeadersWidth = 51;
+            this.dtgv_Show.RowTemplate.Height = 29;
+            this.dtgv_Show.Size = new System.Drawing.Size(1209, 167);
+            this.dtgv_Show.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -612,7 +617,7 @@
             this.Size = new System.Drawing.Size(1227, 727);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -629,7 +634,7 @@
         private GroupBox groupBox3;
         private RJCodeAdvance.RJControls.RJButton btn_Show;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Search;
-        private DataGridView dataGridView1;
+        private DataGridView dtgv_Show;
         private GroupBox groupBox1;
         private Label label13;
         private Label label12;

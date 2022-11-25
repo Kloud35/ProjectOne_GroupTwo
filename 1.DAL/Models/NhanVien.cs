@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,6 +23,7 @@ namespace _1.DAL.Models
         public string QuocGia { get; set; }
         public string MatKhau { get; set; }
         public int TrangThai { get; set; }
+        public byte[] Image { get; set; }
         public Guid IdChucVu { get; set; }
         public Guid IdCuaHang { get; set; }
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rjTextBox2 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbt_Search = new RJCodeAdvance.RJControls.RJTextBox();
             this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.btn_Show = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -38,6 +38,8 @@
             this.btn_Sua = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Them = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbb_TrangThai = new RJCodeAdvance.RJControls.RJComboBox();
             this.btn_ChonAnh = new RJCodeAdvance.RJControls.RJButton();
             this.ptb_Image = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
             this.cbb_GiongLoai = new RJCodeAdvance.RJControls.RJComboBox();
             this.tbt_Ten = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbt_Ma = new RJCodeAdvance.RJControls.RJTextBox();
-            this.cbb_TrangThai = new RJCodeAdvance.RJControls.RJComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -72,7 +72,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.rjTextBox2);
+            this.groupBox3.Controls.Add(this.tbt_Search);
             this.groupBox3.Controls.Add(this.dtgv_Show);
             this.groupBox3.Controls.Add(this.btn_Show);
             this.groupBox3.Location = new System.Drawing.Point(3, 409);
@@ -82,27 +82,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Data";
             // 
-            // rjTextBox2
+            // tbt_Search
             // 
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox2.BorderRadius = 0;
-            this.rjTextBox2.BorderSize = 2;
-            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(24, 41);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox2.Multiline = false;
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox2.PlaceholderText = "Nhập tên để tìm kiếm";
-            this.rjTextBox2.Size = new System.Drawing.Size(312, 35);
-            this.rjTextBox2.TabIndex = 5;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlinedStyle = false;
+            this.tbt_Search.BackColor = System.Drawing.SystemColors.Window;
+            this.tbt_Search.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbt_Search.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbt_Search.BorderRadius = 0;
+            this.tbt_Search.BorderSize = 2;
+            this.tbt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbt_Search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbt_Search.Location = new System.Drawing.Point(24, 41);
+            this.tbt_Search.Margin = new System.Windows.Forms.Padding(4);
+            this.tbt_Search.Multiline = false;
+            this.tbt_Search.Name = "tbt_Search";
+            this.tbt_Search.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbt_Search.PasswordChar = false;
+            this.tbt_Search.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbt_Search.PlaceholderText = "Nhập tên để tìm kiếm";
+            this.tbt_Search.Size = new System.Drawing.Size(312, 35);
+            this.tbt_Search.TabIndex = 5;
+            this.tbt_Search.Texts = "";
+            this.tbt_Search.UnderlinedStyle = false;
             // 
             // dtgv_Show
             // 
@@ -134,6 +134,7 @@
             this.btn_Show.TextColor = System.Drawing.Color.White;
             this.btn_Show.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Show.UseVisualStyleBackColor = false;
+            this.btn_Show.Click += new System.EventHandler(this.btn_Show_Click);
             // 
             // groupBox2
             // 
@@ -141,7 +142,7 @@
             this.groupBox2.Controls.Add(this.btn_Xoa);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Them);
-            this.groupBox2.Location = new System.Drawing.Point(3, 328);
+            this.groupBox2.Location = new System.Drawing.Point(9, 328);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1215, 85);
             this.groupBox2.TabIndex = 6;
@@ -168,6 +169,7 @@
             this.btn_Clear.TextColor = System.Drawing.Color.White;
             this.btn_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Xoa
             // 
@@ -189,6 +191,7 @@
             this.btn_Xoa.TextColor = System.Drawing.Color.White;
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // btn_Sua
             // 
@@ -210,6 +213,7 @@
             this.btn_Sua.TextColor = System.Drawing.Color.White;
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Them
             // 
@@ -231,6 +235,7 @@
             this.btn_Them.TextColor = System.Drawing.Color.White;
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // groupBox1
             // 
@@ -266,6 +271,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(815, 175);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 20);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Trạng thái";
+            // 
+            // cbb_TrangThai
+            // 
+            this.cbb_TrangThai.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbb_TrangThai.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbb_TrangThai.BorderSize = 1;
+            this.cbb_TrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbb_TrangThai.ForeColor = System.Drawing.Color.DimGray;
+            this.cbb_TrangThai.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbb_TrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.cbb_TrangThai.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbb_TrangThai.Location = new System.Drawing.Point(815, 196);
+            this.cbb_TrangThai.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbb_TrangThai.Name = "cbb_TrangThai";
+            this.cbb_TrangThai.Padding = new System.Windows.Forms.Padding(1);
+            this.cbb_TrangThai.Size = new System.Drawing.Size(271, 38);
+            this.cbb_TrangThai.TabIndex = 38;
+            this.cbb_TrangThai.Texts = "";
+            // 
             // btn_ChonAnh
             // 
             this.btn_ChonAnh.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -283,6 +316,7 @@
             this.btn_ChonAnh.Text = "Chọn ảnh";
             this.btn_ChonAnh.TextColor = System.Drawing.Color.White;
             this.btn_ChonAnh.UseVisualStyleBackColor = false;
+            this.btn_ChonAnh.Click += new System.EventHandler(this.btn_ChonAnh_Click);
             // 
             // ptb_Image
             // 
@@ -606,34 +640,6 @@
             this.tbt_Ma.Texts = "";
             this.tbt_Ma.UnderlinedStyle = false;
             // 
-            // cbb_TrangThai
-            // 
-            this.cbb_TrangThai.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbb_TrangThai.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbb_TrangThai.BorderSize = 1;
-            this.cbb_TrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbb_TrangThai.ForeColor = System.Drawing.Color.DimGray;
-            this.cbb_TrangThai.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.cbb_TrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.cbb_TrangThai.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbb_TrangThai.Location = new System.Drawing.Point(815, 196);
-            this.cbb_TrangThai.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbb_TrangThai.Name = "cbb_TrangThai";
-            this.cbb_TrangThai.Padding = new System.Windows.Forms.Padding(1);
-            this.cbb_TrangThai.Size = new System.Drawing.Size(271, 38);
-            this.cbb_TrangThai.TabIndex = 38;
-            this.cbb_TrangThai.Texts = "";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(815, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 20);
-            this.label6.TabIndex = 39;
-            this.label6.Text = "Trạng thái";
-            // 
             // QLThuCung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -643,6 +649,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "QLThuCung";
             this.Size = new System.Drawing.Size(1227, 696);
+            this.Load += new System.EventHandler(this.QLThuCung_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -655,7 +662,7 @@
 
         #endregion
         private GroupBox groupBox3;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox2;
+        private RJCodeAdvance.RJControls.RJTextBox tbt_Search;
         private DataGridView dtgv_Show;
         private RJCodeAdvance.RJControls.RJButton btn_Show;
         private GroupBox groupBox2;

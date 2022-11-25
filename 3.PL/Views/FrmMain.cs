@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +20,7 @@ namespace _3.PL.Views
         public FrmMain()
         {
             InitializeComponent();
-            _iNhanVienServices = new NhanVienServices();
+            _iNhanVienServices = new NhanVienServices();     
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -37,6 +38,14 @@ namespace _3.PL.Views
             btn_GioHang.Visible = false;
             btn_ThongKe.Visible = false;
             btn_TaiKhoan.Visible = false;
+        }
+        private Image ConvertBytesToImage(byte[] bytes)
+        {
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+
+                return Image.FromStream(ms);
+            }
         }
 
         private void OpenUserControl(UserControl userControl)
@@ -71,6 +80,12 @@ namespace _3.PL.Views
                 btn_ThongKe.Visible = false;
                 btn_TaiKhoan.Visible = true;
             }
+            
+            ptb_Avata.Image = ConvertBytesToImage(viewLogin.Image);
+            lbl_TenNv.Text ="Chào "+ viewLogin.Ten;
+            btn_Login.Image = Resources.logout_24;
+            btn_Login.Text = "         Đăng xuất";
+            lbl_Login.Text = "";
         }
 
         private void GetTitle(string title)
@@ -137,9 +152,25 @@ namespace _3.PL.Views
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            FrmLogin frmLogin = new FrmLogin();
-            frmLogin.OnLogin = new FrmLogin.Login(Login);
-            frmLogin.ShowDialog();
+            if(btn_Login.Text == "         Đăng nhập")
+            {
+                FrmLogin frmLogin = new FrmLogin();
+                frmLogin.OnLogin = new FrmLogin.Login(Login);
+                frmLogin.ShowDialog();
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn chắc chắn muốn đăng xuất ?","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if(result == DialogResult.Yes)
+                {
+                    DisableButton();
+                    btn_Login.Image = Resources.login_24;
+                    btn_Login.Text = "         Đăng nhập";
+                    lbl_TenNv.Text = "Shop thú cưng";
+                    ptb_Avata.Image = Resources._829207;
+                    lbl_Login.Text = "Đăng nhập để sử dụng";
+                }
+            }
         }
 
         private void btn_NhanVien_MouseHover(object sender, EventArgs e)

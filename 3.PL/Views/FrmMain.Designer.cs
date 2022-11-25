@@ -32,7 +32,7 @@
             this.pn_Control = new System.Windows.Forms.Panel();
             this.btn_TaiKhoan = new RJCodeAdvance.RJControls.RJButton();
             this.btn_ThongKe = new RJCodeAdvance.RJControls.RJButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_Login = new System.Windows.Forms.Label();
             this.btn_GioHang = new RJCodeAdvance.RJControls.RJButton();
             this.btn_HoaDon = new RJCodeAdvance.RJControls.RJButton();
             this.btn_KhachHang = new RJCodeAdvance.RJControls.RJButton();
@@ -64,7 +64,7 @@
             this.pn_Control.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.pn_Control.Controls.Add(this.btn_TaiKhoan);
             this.pn_Control.Controls.Add(this.btn_ThongKe);
-            this.pn_Control.Controls.Add(this.label1);
+            this.pn_Control.Controls.Add(this.lbl_Login);
             this.pn_Control.Controls.Add(this.btn_GioHang);
             this.pn_Control.Controls.Add(this.btn_HoaDon);
             this.pn_Control.Controls.Add(this.btn_KhachHang);
@@ -126,19 +126,19 @@
             this.btn_ThongKe.UseVisualStyleBackColor = false;
             this.btn_ThongKe.Click += new System.EventHandler(this.btn_ThongKe_Click);
             // 
-            // label1
+            // lbl_Login
             // 
-            this.label1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 728);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 26);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Đăng nhập để sử dụng";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.lbl_Login.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.lbl_Login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_Login.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lbl_Login.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Login.ForeColor = System.Drawing.Color.White;
+            this.lbl_Login.Location = new System.Drawing.Point(0, 728);
+            this.lbl_Login.Name = "lbl_Login";
+            this.lbl_Login.Size = new System.Drawing.Size(247, 26);
+            this.lbl_Login.TabIndex = 13;
+            this.lbl_Login.Text = "Đăng nhập để sử dụng";
+            this.lbl_Login.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // btn_GioHang
             // 
@@ -460,7 +460,7 @@
         private RJCodeAdvance.RJControls.RJButton btn_KhachHang;
         private RJCodeAdvance.RJControls.RJButton btn_ThucAn;
         private RJCodeAdvance.RJControls.RJButton btn_DoChoi;
-        private Label label1;
+        private Label lbl_Login;
         private RJCodeAdvance.RJControls.RJButton btn_GioHang;
         private RJCodeAdvance.RJControls.RJButton btn_TaiKhoan;
         private RJCodeAdvance.RJControls.RJButton btn_ThongKe;

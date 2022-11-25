@@ -1,6 +1,7 @@
 ﻿using _2.BUS.IServices;
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
+using _3.PL.Properties;
 using SixLabors.ImageSharp.Drawing.Processing;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Net.Mail;
+using System.Net;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MimeKit;
+using MailKit;
+using System.Drawing.Imaging;
 
 namespace _3.PL.Views
 {
@@ -21,12 +27,14 @@ namespace _3.PL.Views
         IChucVuServices _iChucVuServices;
         ICuaHangServices _iCuaHangServices;
         Guid currentId;
+
         public QLNhanVien()
         {
             InitializeComponent();
             _iNhanVienServices = new NhanVienServices();
             _iChucVuServices = new ChucVuServices();
             _iCuaHangServices = new CuaHangServices();
+
         }
 
         private void QLNhanVien_Load(object sender, EventArgs e)
@@ -39,22 +47,23 @@ namespace _3.PL.Views
         {
             dtgv_Show.Rows.Clear();
             int stt = 1;
-            dtgv_Show.ColumnCount = 14;
+            dtgv_Show.ColumnCount = 15;
             dtgv_Show.Columns[0].Name = "STT";
             dtgv_Show.Columns[1].Name = "ID";
             dtgv_Show.Columns[1].Visible = false;
-            dtgv_Show.Columns[2].Name = "Họ và tên";
-            dtgv_Show.Columns[3].Name = "Ngày sinh";
-            dtgv_Show.Columns[4].Name = "Giới tính";
-            dtgv_Show.Columns[5].Name = "Sđt";
-            dtgv_Show.Columns[6].Name = "Email";
-            dtgv_Show.Columns[7].Name = "Mật khẩu";
-            dtgv_Show.Columns[8].Name = "Chức vụ";
-            dtgv_Show.Columns[9].Name = "Cửa hàng";
-            dtgv_Show.Columns[10].Name = "Địa chỉ";
-            dtgv_Show.Columns[11].Name = "Thành phố";
-            dtgv_Show.Columns[12].Name = "Quốc gia";
-            dtgv_Show.Columns[13].Name = "Trạng thái";
+            dtgv_Show.Columns[2].Name = "Mã";
+            dtgv_Show.Columns[3].Name = "Họ và tên";
+            dtgv_Show.Columns[4].Name = "Ngày sinh";
+            dtgv_Show.Columns[5].Name = "Giới tính";
+            dtgv_Show.Columns[6].Name = "Sđt";
+            dtgv_Show.Columns[7].Name = "Email";
+            dtgv_Show.Columns[8].Name = "Mật khẩu";
+            dtgv_Show.Columns[9].Name = "Chức vụ";
+            dtgv_Show.Columns[10].Name = "Cửa hàng";
+            dtgv_Show.Columns[11].Name = "Địa chỉ";
+            dtgv_Show.Columns[12].Name = "Thành phố";
+            dtgv_Show.Columns[13].Name = "Quốc gia";
+            dtgv_Show.Columns[14].Name = "Trạng thái";
             var list = _iNhanVienServices.GetAll();
             if (tbt_Search.Texts != "")
             {
@@ -62,9 +71,10 @@ namespace _3.PL.Views
             }
             foreach (var item in list)
             {
-                dtgv_Show.Rows.Add(stt++, item.Id, item.HoVaTen, item.NgaySinh, item.GioiTinh, item.Sdt, item.Email, item.MatKhau, item.ChucVu, item.CuaHang, item.DiaChi, item.ThanhPho, item.QuocGia, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+                dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.HoVaTen, item.NgaySinh, item.GioiTinh, item.Sdt, item.Email, item.MatKhau, item.ChucVu, item.CuaHang, item.DiaChi, item.ThanhPho, item.QuocGia, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
             }
         }
+
         private void LoadToCombobox()
         {
             foreach (var item in _iChucVuServices.GetAll())
@@ -76,8 +86,56 @@ namespace _3.PL.Views
                 cbb_CuaHang.Items.Add(item.Ten);
             }
         }
+        
+        public void SendMail(string sendTo, string body)
+        {
+            try
+            {
+                string mail = "khanhnnph28375@fpt.edu.vn";
+                SmtpClient client = new SmtpClient();
+                //setup SMTP Host Here
+                client.Host = "smtp.gmail.com";
+                client.Port = 587;
+                client.UseDefaultCredentials = false;
+                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential(mail,"Kh@nhlazy2033");
+                //converte string to MailAdress
 
+                MailAddress to = new MailAddress(sendTo);
+                MailAddress from = new MailAddress(mail);
+                MailMessage msg = new MailMessage();
+                //set up message settings
 
+                msg.Subject = "GỬI MẬT KHẨU CHO NHÂN VIÊN MỚI";
+                msg.SubjectEncoding = Encoding.UTF8;
+                msg.Body = body;
+                msg.BodyEncoding = Encoding.UTF8;
+                msg.From = from;
+                msg.To.Add(to);
+                // Enviar E-mail
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.Send(msg);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Unexpected Error: " + error);
+            }
+        }
+        private byte[] ConvertImageToBytes(Image image)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                image.Save(ms, ImageFormat.Bmp);
+                return ms.ToArray();
+            }
+        }
+        private Image ConvertBytesToImage(byte[] bytes)
+        {
+            using (MemoryStream ms = new MemoryStream(bytes))
+            {
+                return Bitmap.FromStream(ms);
+            }
+        }
         private void btn_Show_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -102,13 +160,14 @@ namespace _3.PL.Views
                 MatKhau = tbt_MatKhau.Texts,
                 TrangThai = cbb_TrangThai.SelectedIndex,
                 IdCh = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_CuaHang.Texts)).Id,
-                IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id
+                IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id,
+                Image = ConvertImageToBytes(ptb_Image.Image)
             };
             if (_iNhanVienServices.Add(x))
             {
                 MessageBox.Show("Thêm thành công");
                 LoadData();
-                
+                SendMail(tbt_Email.Texts, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
             }
             else
             {
@@ -119,8 +178,8 @@ namespace _3.PL.Views
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn sửa?","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if(result == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
                 var x = _iNhanVienServices.GetAll().FirstOrDefault(x => x.Id == currentId);
                 x.Ma = tbt_Ma.Texts;
@@ -138,6 +197,10 @@ namespace _3.PL.Views
                 x.TrangThai = cbb_TrangThai.SelectedIndex;
                 x.IdCh = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_CuaHang.Texts)).Id;
                 x.IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id;
+                if(ptb_Image.Image != ConvertBytesToImage(x.Image))
+                {
+                    x.Image = ConvertImageToBytes(ptb_Image.Image);
+                }
                 if (_iNhanVienServices.Update(x))
                 {
                     MessageBox.Show("Sửa thành công");
@@ -148,7 +211,7 @@ namespace _3.PL.Views
                     MessageBox.Show("Sửa thất bại");
                 }
             }
-            
+
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
@@ -168,7 +231,27 @@ namespace _3.PL.Views
                 }
             }
         }
-
+        private void Clear()
+        {
+            tbt_DiaChi.Texts = "";
+            tbt_Email.Texts = "";
+            tbt_Ho.Texts = "";
+            tbt_Ma.Texts = "";
+            tbt_MatKhau.Texts = "";
+            tbt_QuocGia.Texts = "";
+            tbt_Sdt.Texts = "";
+            tbt_Search.Texts = "";
+            tbt_Ten.Texts = "";
+            tbt_TenDem.Texts = "";
+            tbt_ThanhPho.Texts = "";
+            dtp_NgaySinh.Value = DateTime.Now;
+            cbb_ChucVu.Texts = "";
+            cbb_CuaHang.Texts = "";
+            rbn_GtNam.Checked = false;
+            rbn_GtNu.Checked = false;
+            cbb_TrangThai.Texts = "";
+            ptb_Image.Image = Resources.illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010;
+        }
         private void dtgv_Show_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgv_Show.CurrentCell != null && dtgv_Show.CurrentCell.Value != null)
@@ -204,7 +287,23 @@ namespace _3.PL.Views
                 }
                 cbb_ChucVu.Texts = x.ChucVu;
                 cbb_CuaHang.Texts = x.CuaHang;
+                ptb_Image.Image = ConvertBytesToImage(x.Image);
             }
+        }
+
+        private void btn_ChonAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ptb_Image.Image = new Bitmap(fileDialog.FileName);
+            }
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }

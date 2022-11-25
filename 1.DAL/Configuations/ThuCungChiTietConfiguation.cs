@@ -23,6 +23,7 @@ namespace _1.DAL.Configuations
             builder.Property(x => x.TrangThai).HasColumnType("int").IsRequired();
             builder.Property(x => x.GiaNhap).HasColumnType("decimal").IsRequired();
             builder.Property(x => x.GiaBan).HasColumnType("decimal").IsRequired();
+            builder.Property(x => x.Image).HasColumnType("VARBINARY(MAX)").IsRequired();
             builder.HasOne(x => x.ThuCung).WithMany().HasForeignKey(x => x.IdThuCung);
             builder.HasOne(x => x.GiongLoai).WithMany().HasForeignKey(x => x.IdGiongLoai);
             builder.HasOne(x => x.MauSac).WithMany().HasForeignKey(x => x.IdMauSac);

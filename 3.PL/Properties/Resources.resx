@@ -151,6 +151,9 @@
   <data name="FPT_Polytechnic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FPT_Polytechnic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\illustration-profile-icon-avatar-inhabitant-male-illustration-profile-icon-avata-237916010.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="literature_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\literature-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

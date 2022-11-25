@@ -80,7 +80,7 @@
             this.btn_TaoHoaDon.FlatAppearance.BorderSize = 0;
             this.btn_TaoHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_TaoHoaDon.ForeColor = System.Drawing.Color.White;
-            this.btn_TaoHoaDon.Location = new System.Drawing.Point(811, 479);
+            this.btn_TaoHoaDon.Location = new System.Drawing.Point(49, 13);
             this.btn_TaoHoaDon.Name = "btn_TaoHoaDon";
             this.btn_TaoHoaDon.Size = new System.Drawing.Size(132, 46);
             this.btn_TaoHoaDon.TabIndex = 22;
@@ -102,19 +102,19 @@
             // dtgv_GioHang
             // 
             this.dtgv_GioHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_GioHang.Location = new System.Drawing.Point(23, 20);
+            this.dtgv_GioHang.Location = new System.Drawing.Point(6, 26);
             this.dtgv_GioHang.Name = "dtgv_GioHang";
             this.dtgv_GioHang.RowHeadersWidth = 51;
-            this.dtgv_GioHang.Size = new System.Drawing.Size(691, 131);
+            this.dtgv_GioHang.Size = new System.Drawing.Size(736, 144);
             this.dtgv_GioHang.TabIndex = 14;
             // 
             // dtgv_HoaDon
             // 
             this.dtgv_HoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_HoaDon.Location = new System.Drawing.Point(504, 63);
+            this.dtgv_HoaDon.Location = new System.Drawing.Point(302, 63);
             this.dtgv_HoaDon.Name = "dtgv_HoaDon";
             this.dtgv_HoaDon.RowHeadersWidth = 51;
-            this.dtgv_HoaDon.Size = new System.Drawing.Size(261, 123);
+            this.dtgv_HoaDon.Size = new System.Drawing.Size(463, 123);
             this.dtgv_HoaDon.TabIndex = 20;
             // 
             // rbn_DaThanhToan
@@ -131,7 +131,7 @@
             // rbn_DaHuy
             // 
             this.rbn_DaHuy.AutoSize = true;
-            this.rbn_DaHuy.Location = new System.Drawing.Point(504, 24);
+            this.rbn_DaHuy.Location = new System.Drawing.Point(520, 24);
             this.rbn_DaHuy.Name = "rbn_DaHuy";
             this.rbn_DaHuy.Size = new System.Drawing.Size(79, 24);
             this.rbn_DaHuy.TabIndex = 18;
@@ -142,7 +142,7 @@
             // rbn_All
             // 
             this.rbn_All.AutoSize = true;
-            this.rbn_All.Location = new System.Drawing.Point(403, 24);
+            this.rbn_All.Location = new System.Drawing.Point(444, 24);
             this.rbn_All.Name = "rbn_All";
             this.rbn_All.Size = new System.Drawing.Size(70, 24);
             this.rbn_All.TabIndex = 17;
@@ -153,7 +153,7 @@
             // rbn_ChoThanhToan
             // 
             this.rbn_ChoThanhToan.AutoSize = true;
-            this.rbn_ChoThanhToan.Location = new System.Drawing.Point(629, 3);
+            this.rbn_ChoThanhToan.Location = new System.Drawing.Point(302, 24);
             this.rbn_ChoThanhToan.Name = "rbn_ChoThanhToan";
             this.rbn_ChoThanhToan.Size = new System.Drawing.Size(136, 24);
             this.rbn_ChoThanhToan.TabIndex = 16;
@@ -407,6 +407,7 @@
             this.dtgv_ThuCung.RowTemplate.Height = 29;
             this.dtgv_ThuCung.Size = new System.Drawing.Size(736, 130);
             this.dtgv_ThuCung.TabIndex = 0;
+            this.dtgv_ThuCung.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtgv_ThuCung_CellMouseDoubleClick);
             // 
             // groupBox4
             // 
@@ -421,19 +422,19 @@
             // dtgv_DoChoi
             // 
             this.dtgv_DoChoi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_DoChoi.Location = new System.Drawing.Point(6, 54);
+            this.dtgv_DoChoi.Location = new System.Drawing.Point(6, 32);
             this.dtgv_DoChoi.Name = "dtgv_DoChoi";
             this.dtgv_DoChoi.RowHeadersWidth = 51;
             this.dtgv_DoChoi.RowTemplate.Height = 29;
-            this.dtgv_DoChoi.Size = new System.Drawing.Size(560, 133);
+            this.dtgv_DoChoi.Size = new System.Drawing.Size(560, 155);
             this.dtgv_DoChoi.TabIndex = 0;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dtgv_ThucAn);
-            this.groupBox5.Location = new System.Drawing.Point(623, 531);
+            this.groupBox5.Location = new System.Drawing.Point(623, 537);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(582, 193);
+            this.groupBox5.Size = new System.Drawing.Size(582, 187);
             this.groupBox5.TabIndex = 25;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Thức ăn";
@@ -441,19 +442,19 @@
             // dtgv_ThucAn
             // 
             this.dtgv_ThucAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgv_ThucAn.Location = new System.Drawing.Point(16, 54);
+            this.dtgv_ThucAn.Location = new System.Drawing.Point(16, 26);
             this.dtgv_ThucAn.Name = "dtgv_ThucAn";
             this.dtgv_ThucAn.RowHeadersWidth = 51;
             this.dtgv_ThucAn.RowTemplate.Height = 29;
-            this.dtgv_ThucAn.Size = new System.Drawing.Size(560, 133);
+            this.dtgv_ThucAn.Size = new System.Drawing.Size(560, 155);
             this.dtgv_ThucAn.TabIndex = 0;
             // 
             // ptb_Scan
             // 
             this.ptb_Scan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ptb_Scan.Location = new System.Drawing.Point(40, 3);
+            this.ptb_Scan.Location = new System.Drawing.Point(40, 72);
             this.ptb_Scan.Name = "ptb_Scan";
-            this.ptb_Scan.Size = new System.Drawing.Size(338, 184);
+            this.ptb_Scan.Size = new System.Drawing.Size(202, 115);
             this.ptb_Scan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Scan.TabIndex = 26;
             this.ptb_Scan.TabStop = false;

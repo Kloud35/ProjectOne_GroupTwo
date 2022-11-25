@@ -77,35 +77,43 @@ namespace _3.PL.Views
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            var x = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Id == currentId);
-            x.Ten = tbt_Ten.Texts;
-            x.DiaChi = tbt_DiaChi.Texts;
-            x.Ma = tbt_Ma.Texts;
-            x.Sdt = tbt_Sdt.Texts;
-            if (_iCuaHangServices.Update(x))
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Sửa thành công");
-                LoadData();
-                Clear();
-            }
-            else
-            {
-                MessageBox.Show("Sửa thất bại");
+                var x = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Id == currentId);
+                x.Ten = tbt_Ten.Texts;
+                x.DiaChi = tbt_DiaChi.Texts;
+                x.Ma = tbt_Ma.Texts;
+                x.Sdt = tbt_Sdt.Texts;
+                if (_iCuaHangServices.Update(x))
+                {
+                    MessageBox.Show("Sửa thành công");
+                    LoadData();
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại");
+                }
             }
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            var x = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Id == currentId);
-            if (_iCuaHangServices.Delete(x))
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                MessageBox.Show("Xóa thành công");
-                LoadData();
-                Clear();
-            }
-            else
-            {
-                MessageBox.Show("Xóa thất bại");
+                var x = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Id == currentId);
+                if (_iCuaHangServices.Delete(x))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadData();
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
             }
         }
 
