@@ -1,14 +1,17 @@
-﻿using System;
+﻿using _1.DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _1.DAL.Models
+namespace _2.BUS.ViewModels
 {
-    public class ThuCungChiTiet
+    public class ThuCungView
     {
-        public Guid Id { get; set; }
+        public Guid IdTCCT { get; set; }
+        public string Ma { get; set; }
+        public string Ten { get; set; }
         public Guid IdThuCung { get; set; }
         public Guid IdMauSac { get; set; }
         public Guid IdGiongLoai { get; set; }
@@ -20,9 +23,8 @@ namespace _1.DAL.Models
         public int TrangThai { get; set; }
         public decimal GiaNhap { get; set; }
         public decimal GiaBan { get; set; }
+        public string MauSac { get; set; }
+        public string GiongLoai { get; set; }
         public byte[] Image { get; set; }
-        public virtual ThuCung ThuCung { get; set;}
-        public virtual MauSac MauSac { get; set; }
-        public virtual GiongLoai GiongLoai { get; set;}
     }
 }

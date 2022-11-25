@@ -190,10 +190,12 @@
             this.btn_ChonAnh.Text = "Chọn ảnh";
             this.btn_ChonAnh.TextColor = System.Drawing.Color.White;
             this.btn_ChonAnh.UseVisualStyleBackColor = false;
+            this.btn_ChonAnh.Click += new System.EventHandler(this.btn_ChonAnh_Click);
             // 
             // ptb_Image
             // 
             this.ptb_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptb_Image.Image = global::_3.PL.Properties.Resources.illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010;
             this.ptb_Image.Location = new System.Drawing.Point(958, 251);
             this.ptb_Image.Name = "ptb_Image";
             this.ptb_Image.Size = new System.Drawing.Size(170, 78);
@@ -706,6 +708,7 @@
             this.btn_Clear.TextColor = System.Drawing.Color.White;
             this.btn_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Xoa
             // 

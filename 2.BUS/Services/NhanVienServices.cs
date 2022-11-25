@@ -43,8 +43,8 @@ namespace _2.BUS.Services
                 MatKhau = obj.MatKhau,
                 TrangThai = obj.TrangThai,
                 IdCuaHang = obj.IdCh,
-                IdChucVu = obj.IdCv
-
+                IdChucVu = obj.IdCv,
+                Image = obj.Image
             };
             _iNhanVienRepository.Add(x);
             return true;
@@ -70,6 +70,7 @@ namespace _2.BUS.Services
                             IdCv = a.IdChucVu,
                             ChucVu = b.Ten,
                             CuaHang = c.Ten,
+                            Ma = a.Ma,
                             Ho = a.Ho,
                             TenDem = a.TenDem,
                             Ten = a.Ten,
@@ -82,7 +83,8 @@ namespace _2.BUS.Services
                             DiaChi = a.DiaChi,
                             ThanhPho = a.ThanhPho,
                             QuocGia = a.QuocGia,
-                            TrangThai = a.TrangThai
+                            TrangThai = a.TrangThai,
+                            Image = a.Image
                         }
                         ).ToList();
             return list;
@@ -122,6 +124,7 @@ namespace _2.BUS.Services
             x.TrangThai = obj.TrangThai;
             x.IdCuaHang = obj.IdCh;
             x.IdChucVu = obj.IdCv;
+            x.Image = obj.Image;
             _iNhanVienRepository.Update(x);
             return true;
         }

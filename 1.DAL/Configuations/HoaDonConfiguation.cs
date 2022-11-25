@@ -22,14 +22,15 @@ namespace _1.DAL.Configuations
                 HasColumnType("Datetime").IsRequired();
             builder.Property(x => x.NgayThanhToan).HasColumnName("NgayThanhToan").
                 HasColumnType("Datetime").IsRequired();
-            builder.Property(x => x.NgayNhanHang).HasColumnName("NgayNhanHang").
-                HasColumnType("Datetime").IsRequired();
             builder.Property(x => x.NgayGiaoHang).HasColumnName("NgayGiaoHang").
                 HasColumnType("Datetime").IsRequired(); 
             builder.Property(x => x.NgayNhan).HasColumnName("NgayNhan").
                 HasColumnType("Datetime").IsRequired();
+            builder.Property(x => x.TienCoc).HasColumnType("decimal");
+            builder.Property(x => x.TienShip).HasColumnType("decimal");
+            builder.Property(x => x.PhanTramGiamGia).HasColumnType("decimal");
             builder.Property(x => x.TenNguoiNhan).HasColumnName("TenNguoiNhan").HasColumnType("nvarchar(30)").IsRequired();
-            builder.Property(x => x.TinhTrang).HasColumnName("TinhTrang").HasColumnType("nvarchar(100)").IsRequired();
+            builder.Property(x => x.TinhTrang).HasColumnName("TinhTrang").HasColumnType("int").IsRequired();
             builder.Property(x => x.DiaChi).HasColumnName("DiaChi").HasColumnType("varchar(100)").IsRequired();
             builder.Property(x => x.Sdt).HasColumnName("Sdt").HasColumnType("varchar(11)").IsRequired();
             builder.HasOne(x => x.KhachHang).WithMany().HasForeignKey(x => x.IdKhachHang);

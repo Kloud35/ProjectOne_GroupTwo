@@ -16,6 +16,8 @@
   <ItemGroup>
     <PackageReference Include="AForge.Video.DirectShow" Version="2.2.5" />
     <PackageReference Include="BarCode" Version="2022.10.9871" />
+    <PackageReference Include="MailKit" Version="3.4.2" />
+    <PackageReference Include="MimeKit" Version="3.4.2" />
     <PackageReference Include="RJCodeAdvance.RJControls" Version="1.0.0" />
     <PackageReference Include="ZXing.Net" Version="0.16.8" />
   </ItemGroup>

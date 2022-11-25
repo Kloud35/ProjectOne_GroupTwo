@@ -183,6 +183,17 @@ namespace _3.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010 {
+            get {
+                object obj = ResourceManager.GetObject("illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_" +
+                        "237916010", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap literature_24 {
             get {
                 object obj = ResourceManager.GetObject("literature_24", resourceCulture);
