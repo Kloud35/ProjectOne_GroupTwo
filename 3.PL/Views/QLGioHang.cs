@@ -26,6 +26,7 @@ namespace _3.PL.Views
         IKhachHangServices _iKhachHangServices;
         IHoaDonServices _iHoaDonServices;
         NhanVienView nv;
+        List<HoaDonChiTietView> hdct;
         public QLGioHang()
         {
             InitializeComponent();
@@ -35,7 +36,9 @@ namespace _3.PL.Views
             _iThuCungServices = new ThuCungServices();
             _iKhachHangServices = new KhachHangServices();
             _iHoaDonServices = new HoaDonServices();
+            hdct = new List<HoaDonChiTietView>();
         }
+        
         public void GetNhanVien(NhanVienView nhanVienView)
         {
             nv = nhanVienView;
@@ -117,6 +120,36 @@ namespace _3.PL.Views
 
         private void LoadData()
         {
+            dtgv_HoaDon.Columns.Clear();
+            //Hóa đơn
+            dtgv_HoaDon.ColumnCount = 5;
+            dtgv_HoaDon.Columns[0].Name = "ID";
+            dtgv_HoaDon.Columns[0].Visible = false;
+            dtgv_HoaDon.Columns[1].Name = "Mã hóa đơn";
+            dtgv_HoaDon.Columns[2].Name = "Tên nhân viên";
+            dtgv_HoaDon.Columns[3].Name = "Ngày tạo";
+            dtgv_HoaDon.Columns[4].Name = "Trạng thái";
+            //Thú cưng
+            dtgv_ThuCung.ColumnCount = 3;
+            dtgv_ThuCung.Columns[0].Name = "ID";
+            dtgv_ThuCung.Columns[0].Visible = false;
+            dtgv_ThuCung.Columns[1].Name = "Tên";
+            dtgv_ThuCung.Columns[2].Name = "Image";
+            dtgv_ThuCung.Columns[2].ValueType = typeof(Image);
+            //Thức ăn
+            dtgv_ThucAn.ColumnCount = 3;
+            dtgv_ThucAn.Columns[0].Name = "ID";
+            dtgv_ThucAn.Columns[0].Visible = false;
+            dtgv_ThucAn.Columns[1].Name = "Tên";
+            dtgv_ThucAn.Columns[2].Name = "Image";
+            dtgv_ThucAn.Columns[2].ValueType = typeof(Image);
+            //Đồ chơi
+            dtgv_DoChoi.ColumnCount = 3;
+            dtgv_DoChoi.Columns[0].Name = "ID";
+            dtgv_DoChoi.Columns[0].Visible = false;
+            dtgv_DoChoi.Columns[1].Name = "Tên";
+            dtgv_DoChoi.Columns[2].Name = "Image";
+            dtgv_DoChoi.Columns[2].ValueType = typeof(Image);
             foreach (var x in _iThuCungServices.GetAll())
             {
                 Image image = resizeImage(50, 50, x.Image);
@@ -132,9 +165,9 @@ namespace _3.PL.Views
                 Image image = resizeImage(50, 50, x.Image);
                 dtgv_DoChoi.Rows.Add(x.Id, x.Ten, image);
             }
-            foreach(var x in _iHoaDonServices.GetAll())
+            foreach (var x in _iHoaDonServices.GetAll())
             {
-                dtgv_HoaDon.Rows.Add(x.Ma, x.TenNv, x.TinhTrang);
+                dtgv_HoaDon.Rows.Add(x.Id,x.Ma, x.TenNv,x.NgayTao, x.TinhTrang == 0 ? "Chưa thanh toán ..." : "Đã thanh toán");
             }
         }
 
@@ -145,10 +178,8 @@ namespace _3.PL.Views
 
         private void btn_TaoHoaDon_Click(object sender, EventArgs e)
         {
-            
+
             var khvl = _iKhachHangServices.GetAll().FirstOrDefault(x => x.Ma == "KH00");
-
-
             var x = new HoaDonView()
             {
                 Id = Guid.NewGuid(),
@@ -161,11 +192,11 @@ namespace _3.PL.Views
                 TienShip = 0,
                 TenNguoiNhan = khvl.HoVaTen,
                 IdKhachHang = khvl.Id,
-                IdNhanVien = nv.Id,
+                IdNhanVien = _iNhanVienServices.GetAll().FirstOrDefault(x => x.Ma == "admin").Id,
                 DiaChi = khvl.DiaChi,
                 TinhTrang = 0,
                 Sdt = khvl.Sdt,
-                PhanTramGiamGia = Convert.ToDecimal(tbt_PTGiamGia.Text)
+                PhanTramGiamGia = 0
             };
             if (_iHoaDonServices.Add(x))
             {

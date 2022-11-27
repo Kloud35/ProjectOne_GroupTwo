@@ -134,7 +134,6 @@ namespace _3.PL.Views
             
             OpenUserControl(new QLGioHang());
             lbl_Title.Text = "Giỏ hàng";
-            Push(nv);
         }
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
