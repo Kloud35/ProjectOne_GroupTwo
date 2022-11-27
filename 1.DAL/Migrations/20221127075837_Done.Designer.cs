@@ -12,8 +12,8 @@ using _1.DAL.Models;
 namespace _1.DAL.Migrations
 {
     [DbContext(typeof(PetShopDbContext))]
-    [Migration("20221124133440_test")]
-    partial class test
+    [Migration("20221127075837_Done")]
+    partial class Done
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -95,6 +95,10 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Barcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("GiaBan")
                         .HasColumnType("int")
                         .HasColumnName("GiaBan");
@@ -105,6 +109,10 @@ namespace _1.DAL.Migrations
 
                     b.Property<Guid>("IdDoChoi")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Loai")
                         .IsRequired()
@@ -371,9 +379,9 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdCuaHang")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte[]>("Image")
+                    b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("VARBINARY(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ma")
                         .IsRequired()
@@ -443,6 +451,10 @@ namespace _1.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Barcode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("GiaBan")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
@@ -453,6 +465,10 @@ namespace _1.DAL.Migrations
 
                     b.Property<Guid>("IdThucAn")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Loai")
                         .IsRequired()
@@ -523,9 +539,9 @@ namespace _1.DAL.Migrations
                     b.Property<Guid>("IdThuCung")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<byte[]>("Image")
+                    b.Property<string>("Image")
                         .IsRequired()
-                        .HasColumnType("VARBINARY(MAX)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");

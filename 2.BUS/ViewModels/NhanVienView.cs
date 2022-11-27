@@ -27,6 +27,6 @@ namespace _2.BUS.ViewModels
         public int TrangThai { get; set; }
         public string ChucVu { get; set; }
         public string CuaHang { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
     }
 }

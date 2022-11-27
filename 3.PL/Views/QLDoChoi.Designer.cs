@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbt_ImagePath = new RJCodeAdvance.RJControls.RJTextBox();
+            this.btn_AddBarcode = new RJCodeAdvance.RJControls.RJButton();
+            this.ptb_Barcode = new System.Windows.Forms.PictureBox();
+            this.btn_ChonAnh = new RJCodeAdvance.RJControls.RJButton();
+            this.ptb_Image = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tbt_Nsx = new RJCodeAdvance.RJControls.RJTextBox();
@@ -53,6 +59,8 @@
             this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.btn_Show = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Barcode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Image)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).BeginInit();
@@ -60,6 +68,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.tbt_ImagePath);
+            this.groupBox1.Controls.Add(this.btn_AddBarcode);
+            this.groupBox1.Controls.Add(this.ptb_Barcode);
+            this.groupBox1.Controls.Add(this.btn_ChonAnh);
+            this.groupBox1.Controls.Add(this.ptb_Image);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbt_Nsx);
@@ -76,15 +90,103 @@
             this.groupBox1.Controls.Add(this.tbt_Ma);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(753, 400);
+            this.groupBox1.Size = new System.Drawing.Size(870, 400);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(522, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(126, 23);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Ảnh Minh Họa :";
+            // 
+            // tbt_ImagePath
+            // 
+            this.tbt_ImagePath.BackColor = System.Drawing.SystemColors.Window;
+            this.tbt_ImagePath.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbt_ImagePath.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbt_ImagePath.BorderRadius = 0;
+            this.tbt_ImagePath.BorderSize = 2;
+            this.tbt_ImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbt_ImagePath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbt_ImagePath.Location = new System.Drawing.Point(655, 18);
+            this.tbt_ImagePath.Margin = new System.Windows.Forms.Padding(4);
+            this.tbt_ImagePath.Multiline = false;
+            this.tbt_ImagePath.Name = "tbt_ImagePath";
+            this.tbt_ImagePath.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbt_ImagePath.PasswordChar = false;
+            this.tbt_ImagePath.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbt_ImagePath.PlaceholderText = "";
+            this.tbt_ImagePath.Size = new System.Drawing.Size(107, 35);
+            this.tbt_ImagePath.TabIndex = 24;
+            this.tbt_ImagePath.Texts = "";
+            this.tbt_ImagePath.UnderlinedStyle = false;
+            // 
+            // btn_AddBarcode
+            // 
+            this.btn_AddBarcode.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_AddBarcode.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_AddBarcode.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_AddBarcode.BorderRadius = 0;
+            this.btn_AddBarcode.BorderSize = 0;
+            this.btn_AddBarcode.FlatAppearance.BorderSize = 0;
+            this.btn_AddBarcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddBarcode.ForeColor = System.Drawing.Color.White;
+            this.btn_AddBarcode.Location = new System.Drawing.Point(780, 203);
+            this.btn_AddBarcode.Name = "btn_AddBarcode";
+            this.btn_AddBarcode.Size = new System.Drawing.Size(84, 39);
+            this.btn_AddBarcode.TabIndex = 23;
+            this.btn_AddBarcode.Text = "Add code";
+            this.btn_AddBarcode.TextColor = System.Drawing.Color.White;
+            this.btn_AddBarcode.UseVisualStyleBackColor = false;
+            this.btn_AddBarcode.Click += new System.EventHandler(this.btn_AddBarcode_Click);
+            // 
+            // ptb_Barcode
+            // 
+            this.ptb_Barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptb_Barcode.Location = new System.Drawing.Point(554, 247);
+            this.ptb_Barcode.Name = "ptb_Barcode";
+            this.ptb_Barcode.Size = new System.Drawing.Size(310, 135);
+            this.ptb_Barcode.TabIndex = 22;
+            this.ptb_Barcode.TabStop = false;
+            // 
+            // btn_ChonAnh
+            // 
+            this.btn_ChonAnh.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_ChonAnh.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_ChonAnh.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_ChonAnh.BorderRadius = 0;
+            this.btn_ChonAnh.BorderSize = 0;
+            this.btn_ChonAnh.FlatAppearance.BorderSize = 0;
+            this.btn_ChonAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ChonAnh.ForeColor = System.Drawing.Color.White;
+            this.btn_ChonAnh.Location = new System.Drawing.Point(780, 18);
+            this.btn_ChonAnh.Name = "btn_ChonAnh";
+            this.btn_ChonAnh.Size = new System.Drawing.Size(84, 38);
+            this.btn_ChonAnh.TabIndex = 21;
+            this.btn_ChonAnh.Text = "Open";
+            this.btn_ChonAnh.TextColor = System.Drawing.Color.White;
+            this.btn_ChonAnh.UseVisualStyleBackColor = false;
+            this.btn_ChonAnh.Click += new System.EventHandler(this.btn_ChonAnh_Click);
+            // 
+            // ptb_Image
+            // 
+            this.ptb_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptb_Image.Location = new System.Drawing.Point(554, 62);
+            this.ptb_Image.Name = "ptb_Image";
+            this.ptb_Image.Size = new System.Drawing.Size(310, 135);
+            this.ptb_Image.TabIndex = 20;
+            this.ptb_Image.TabStop = false;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(374, 33);
+            this.label1.Location = new System.Drawing.Point(311, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 19;
@@ -108,7 +210,7 @@
             this.tbt_Nsx.BorderSize = 2;
             this.tbt_Nsx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_Nsx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_Nsx.Location = new System.Drawing.Point(374, 57);
+            this.tbt_Nsx.Location = new System.Drawing.Point(311, 57);
             this.tbt_Nsx.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_Nsx.Multiline = false;
             this.tbt_Nsx.Name = "tbt_Nsx";
@@ -116,7 +218,7 @@
             this.tbt_Nsx.PasswordChar = false;
             this.tbt_Nsx.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_Nsx.PlaceholderText = "";
-            this.tbt_Nsx.Size = new System.Drawing.Size(312, 35);
+            this.tbt_Nsx.Size = new System.Drawing.Size(236, 35);
             this.tbt_Nsx.TabIndex = 17;
             this.tbt_Nsx.Texts = "";
             this.tbt_Nsx.UnderlinedStyle = false;
@@ -138,7 +240,7 @@
             this.tbt_SoLuong.PasswordChar = false;
             this.tbt_SoLuong.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_SoLuong.PlaceholderText = "";
-            this.tbt_SoLuong.Size = new System.Drawing.Size(312, 35);
+            this.tbt_SoLuong.Size = new System.Drawing.Size(236, 35);
             this.tbt_SoLuong.TabIndex = 16;
             this.tbt_SoLuong.Texts = "";
             this.tbt_SoLuong.UnderlinedStyle = false;
@@ -146,7 +248,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(374, 177);
+            this.label5.Location = new System.Drawing.Point(311, 177);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 15;
@@ -155,7 +257,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(374, 105);
+            this.label6.Location = new System.Drawing.Point(311, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 20);
             this.label6.TabIndex = 14;
@@ -170,7 +272,7 @@
             this.tbt_GiaBan.BorderSize = 2;
             this.tbt_GiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_GiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_GiaBan.Location = new System.Drawing.Point(374, 201);
+            this.tbt_GiaBan.Location = new System.Drawing.Point(311, 201);
             this.tbt_GiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_GiaBan.Multiline = false;
             this.tbt_GiaBan.Name = "tbt_GiaBan";
@@ -178,7 +280,7 @@
             this.tbt_GiaBan.PasswordChar = false;
             this.tbt_GiaBan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_GiaBan.PlaceholderText = "";
-            this.tbt_GiaBan.Size = new System.Drawing.Size(312, 35);
+            this.tbt_GiaBan.Size = new System.Drawing.Size(234, 35);
             this.tbt_GiaBan.TabIndex = 13;
             this.tbt_GiaBan.Texts = "";
             this.tbt_GiaBan.UnderlinedStyle = false;
@@ -192,7 +294,7 @@
             this.tbt_GiaNhap.BorderSize = 2;
             this.tbt_GiaNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_GiaNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_GiaNhap.Location = new System.Drawing.Point(374, 129);
+            this.tbt_GiaNhap.Location = new System.Drawing.Point(311, 129);
             this.tbt_GiaNhap.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_GiaNhap.Multiline = false;
             this.tbt_GiaNhap.Name = "tbt_GiaNhap";
@@ -200,7 +302,7 @@
             this.tbt_GiaNhap.PasswordChar = false;
             this.tbt_GiaNhap.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_GiaNhap.PlaceholderText = "";
-            this.tbt_GiaNhap.Size = new System.Drawing.Size(312, 35);
+            this.tbt_GiaNhap.Size = new System.Drawing.Size(236, 35);
             this.tbt_GiaNhap.TabIndex = 12;
             this.tbt_GiaNhap.Texts = "";
             this.tbt_GiaNhap.UnderlinedStyle = false;
@@ -240,7 +342,7 @@
             this.tbt_Loai.PasswordChar = false;
             this.tbt_Loai.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_Loai.PlaceholderText = "";
-            this.tbt_Loai.Size = new System.Drawing.Size(312, 35);
+            this.tbt_Loai.Size = new System.Drawing.Size(236, 35);
             this.tbt_Loai.TabIndex = 9;
             this.tbt_Loai.Texts = "";
             this.tbt_Loai.UnderlinedStyle = false;
@@ -262,7 +364,7 @@
             this.tbt_Ten.PasswordChar = false;
             this.tbt_Ten.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_Ten.PlaceholderText = "";
-            this.tbt_Ten.Size = new System.Drawing.Size(312, 35);
+            this.tbt_Ten.Size = new System.Drawing.Size(236, 35);
             this.tbt_Ten.TabIndex = 8;
             this.tbt_Ten.Texts = "";
             this.tbt_Ten.UnderlinedStyle = false;
@@ -293,7 +395,7 @@
             this.tbt_Ma.PasswordChar = false;
             this.tbt_Ma.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_Ma.PlaceholderText = "";
-            this.tbt_Ma.Size = new System.Drawing.Size(312, 35);
+            this.tbt_Ma.Size = new System.Drawing.Size(236, 35);
             this.tbt_Ma.TabIndex = 5;
             this.tbt_Ma.Texts = "";
             this.tbt_Ma.UnderlinedStyle = false;
@@ -304,9 +406,9 @@
             this.groupBox2.Controls.Add(this.btn_Them);
             this.groupBox2.Controls.Add(this.btn_Sua);
             this.groupBox2.Controls.Add(this.btn_Xoa);
-            this.groupBox2.Location = new System.Drawing.Point(768, 3);
+            this.groupBox2.Location = new System.Drawing.Point(879, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(456, 400);
+            this.groupBox2.Size = new System.Drawing.Size(345, 409);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chức năng";
@@ -322,7 +424,7 @@
             this.btn_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Clear.ForeColor = System.Drawing.Color.White;
             this.btn_Clear.Image = global::_3.PL.Properties.Resources.empty_filter_24;
-            this.btn_Clear.Location = new System.Drawing.Point(139, 332);
+            this.btn_Clear.Location = new System.Drawing.Point(79, 353);
             this.btn_Clear.Name = "btn_Clear";
             this.btn_Clear.Size = new System.Drawing.Size(188, 50);
             this.btn_Clear.TabIndex = 3;
@@ -344,7 +446,7 @@
             this.btn_Them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Them.ForeColor = System.Drawing.Color.White;
             this.btn_Them.Image = global::_3.PL.Properties.Resources.add_file_24;
-            this.btn_Them.Location = new System.Drawing.Point(139, 42);
+            this.btn_Them.Location = new System.Drawing.Point(79, 18);
             this.btn_Them.Name = "btn_Them";
             this.btn_Them.Size = new System.Drawing.Size(188, 50);
             this.btn_Them.TabIndex = 0;
@@ -366,7 +468,7 @@
             this.btn_Sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Sua.ForeColor = System.Drawing.Color.White;
             this.btn_Sua.Image = global::_3.PL.Properties.Resources.edit_12_24;
-            this.btn_Sua.Location = new System.Drawing.Point(139, 129);
+            this.btn_Sua.Location = new System.Drawing.Point(79, 114);
             this.btn_Sua.Name = "btn_Sua";
             this.btn_Sua.Size = new System.Drawing.Size(188, 50);
             this.btn_Sua.TabIndex = 1;
@@ -388,7 +490,7 @@
             this.btn_Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Xoa.ForeColor = System.Drawing.Color.White;
             this.btn_Xoa.Image = global::_3.PL.Properties.Resources.delete_24;
-            this.btn_Xoa.Location = new System.Drawing.Point(139, 219);
+            this.btn_Xoa.Location = new System.Drawing.Point(79, 217);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(188, 50);
             this.btn_Xoa.TabIndex = 2;
@@ -476,6 +578,8 @@
             this.Load += new System.EventHandler(this.QLDoChoi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Barcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_Image)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
@@ -509,5 +613,11 @@
         private RJCodeAdvance.RJControls.RJTextBox rjTextBox2;
         private DataGridView dtgv_Show;
         private RJCodeAdvance.RJControls.RJButton btn_Show;
+        private RJCodeAdvance.RJControls.RJButton btn_ChonAnh;
+        private PictureBox ptb_Image;
+        private Label label4;
+        private RJCodeAdvance.RJControls.RJTextBox tbt_ImagePath;
+        private RJCodeAdvance.RJControls.RJButton btn_AddBarcode;
+        private PictureBox ptb_Barcode;
     }
 }

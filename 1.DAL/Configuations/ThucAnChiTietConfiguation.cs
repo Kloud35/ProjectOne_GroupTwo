@@ -21,6 +21,8 @@ namespace _1.DAL.Configuations
             builder.Property(x => x.GiaNhap).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(x => x.Nsx).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(x => x.SoLuongTon).HasColumnType("nvarchar(50)").IsRequired();
+            builder.Property(x => x.Image).HasColumnType("nvarchar(max)").IsRequired();
+            builder.Property(x => x.Barcode).HasColumnType("nvarchar(max)").IsRequired();
             builder.HasOne(x => x.ThucAn).WithMany().HasForeignKey(x => x.IdThucAn);
 
         }

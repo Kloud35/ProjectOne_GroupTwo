@@ -21,6 +21,7 @@ namespace _3.PL.Views
         IMauSacService _iMauSacService;
         IGiongLoaiServices _iGiongLoaiServices;
         Guid _id;
+        string imgLocation;
         public QLThuCung()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace _3.PL.Views
             {
                 IdTCCT = Guid.NewGuid(),
                 IdThuCung = Guid.NewGuid(),
-                IdMauSac = _iMauSacService.GetAll().FirstOrDefault(x=>x.Ten == cbb_MauSac.Texts).Id,
+                IdMauSac = _iMauSacService.GetAll().FirstOrDefault(x => x.Ten == cbb_MauSac.Texts).Id,
                 IdGiongLoai = _iGiongLoaiServices.GetAll().FirstOrDefault(x => x.Ten == cbb_GiongLoai.Texts).Id,
                 Ma = tbt_Ma.Texts,
                 Ten = tbt_Ten.Texts,
@@ -48,7 +49,7 @@ namespace _3.PL.Views
                 GiaNhap = Convert.ToDecimal(tbt_GiaNhap.Texts),
                 GiaBan = Convert.ToDecimal(tbt_GiaBan.Texts),
                 TrangThai = cbb_TrangThai.SelectedIndex,
-                Image = ConvertImageToBytes(ptb_Image.Image)
+                Image = imgLocation
             };
             if (_iThuCungSv.Add(x))
             {
@@ -88,7 +89,7 @@ namespace _3.PL.Views
             foreach (var x in list)
             {
                 dtgv_Show.Rows.Add(stt++, x.IdTCCT, x.Ma, x.Ten, x.GiongLoai, x.MauSac, x.CanNang,
-                                    x.ChieuDai, x.GioiTinh, x.SoLuong, x.GiaNhap, x.GiaBan, x.TrangThai);
+                                    x.ChieuDai, x.GioiTinh, x.SoLuong, x.GiaNhap, x.GiaBan, x.TrangThai == 0 ? "Khỏe mạnh" : "Ốm");
             }
         }
         private void LoadToCombobox()
@@ -102,23 +103,7 @@ namespace _3.PL.Views
                 cbb_GiongLoai.Items.Add(x.Ten);
             }
         }
-        private void dtgv_Show_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            _id = Guid.Parse(dtgv_Show.CurrentRow.Cells[1].Value.ToString());
-            var TC = _iThuCungSv.GetAll().FirstOrDefault(p => p.IdTCCT.Equals(_id));
-            tbt_Ma.Texts = TC.Ma;
-            tbt_Ten.Texts = TC.Ten;
-            cbb_GiongLoai.Texts = TC.GiongLoai;
-            cbb_MauSac.Texts = TC.MauSac;
-            tbt_CanNang.Texts = TC.CanNang.ToString();
-            tbt_ChieuDai.Texts = TC.ChieuDai.ToString();
-            TC.GioiTinh = (rbn_GtDuc.Checked ? "Đực" : "Cái");
-            tbt_SoLuong.Texts = TC.SoLuong.ToString();
-            tbt_GiaNhap.Texts = TC.GiaNhap.ToString();
-            tbt_GiaBan.Texts = TC.GiaNhap.ToString();
-            cbb_TrangThai.Texts = TC.TrangThai.ToString();
-            ptb_Image.Image = ConvertBytesToImage(TC.Image);
-        }
+
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
@@ -129,7 +114,7 @@ namespace _3.PL.Views
             cbb_MauSac.Texts = "";
             tbt_CanNang.Texts = "";
             tbt_ChieuDai.Texts = "";
-            rbn_GtCai.Checked =false;
+            rbn_GtCai.Checked = false;
             rbn_GtDuc.Checked = false;
             tbt_SoLuong.Texts = "";
             tbt_GiaBan.Texts = "";
@@ -157,8 +142,8 @@ namespace _3.PL.Views
             x.SoLuong = Convert.ToInt32(tbt_SoLuong.Texts);
             x.GiaNhap = Convert.ToDecimal(tbt_GiaNhap.Texts);
             x.GiaBan = Convert.ToDecimal(tbt_GiaBan.Texts);
-            x.TrangThai = Convert.ToInt32(cbb_TrangThai.Texts);
-            x.Image = ConvertImageToBytes(ptb_Image.Image);
+            x.TrangThai = cbb_TrangThai.SelectedIndex;
+            x.Image = imgLocation;
 
             if (_iThuCungSv.Update(x))
             {
@@ -190,22 +175,7 @@ namespace _3.PL.Views
                 MessageBox.Show("Xóa thất bại");
             }
         }
-        private byte[] ConvertImageToBytes(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                return ms.ToArray();
-            }
-        }
-        private Image ConvertBytesToImage(byte[] bytes)
-        {
-            using (MemoryStream ms = new MemoryStream(bytes))
-            {
 
-                return Image.FromStream(ms);
-            }
-        }
         private void btn_ChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -213,6 +183,29 @@ namespace _3.PL.Views
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Image.Image = new Bitmap(fileDialog.FileName);
+                imgLocation = fileDialog.FileName;
+            }
+        }
+
+        private void dtgv_Show_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(dtgv_Show.CurrentCell != null && dtgv_Show.CurrentCell.Value != null)
+            {
+                _id = Guid.Parse(dtgv_Show.CurrentRow.Cells[1].Value.ToString());
+                var TC = _iThuCungSv.GetAll().FirstOrDefault(p => p.IdTCCT.Equals(_id));
+                tbt_Ma.Texts = TC.Ma;
+                tbt_Ten.Texts = TC.Ten;
+                cbb_GiongLoai.Texts = TC.GiongLoai;
+                cbb_MauSac.Texts = TC.MauSac;
+                tbt_CanNang.Texts = TC.CanNang.ToString();
+                tbt_ChieuDai.Texts = TC.ChieuDai.ToString();
+                TC.GioiTinh = (rbn_GtDuc.Checked ? "Đực" : "Cái");
+                tbt_SoLuong.Texts = TC.SoLuong.ToString();
+                tbt_GiaNhap.Texts = TC.GiaNhap.ToString();
+                tbt_GiaBan.Texts = TC.GiaBan.ToString();
+                cbb_TrangThai.SelectedIndex = TC.TrangThai;
+                ptb_Image.Image = new Bitmap(TC.Image);
+                imgLocation = TC.Image;
             }
         }
     }

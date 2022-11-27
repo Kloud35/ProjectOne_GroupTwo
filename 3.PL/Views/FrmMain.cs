@@ -17,16 +17,20 @@ namespace _3.PL.Views
     public partial class FrmMain : Form
     {
         INhanVienServices _iNhanVienServices;
+        NhanVienView nv;
         public FrmMain()
         {
             InitializeComponent();
-            _iNhanVienServices = new NhanVienServices();     
+            _iNhanVienServices = new NhanVienServices();
+            
         }
-
         private void FrmMain_Load(object sender, EventArgs e)
         {
             //DisableButton();
+            
         }
+        public delegate void PushNhanVien(NhanVienView nhanVienView);
+        public PushNhanVien Push;
         private void DisableButton()
         {
             btn_NhanVien.Visible = false;
@@ -39,14 +43,7 @@ namespace _3.PL.Views
             btn_ThongKe.Visible = false;
             btn_TaiKhoan.Visible = false;
         }
-        private Image ConvertBytesToImage(byte[] bytes)
-        {
-            using (MemoryStream ms = new MemoryStream(bytes))
-            {
-
-                return Image.FromStream(ms);
-            }
-        }
+        
 
         private void OpenUserControl(UserControl userControl)
         {
@@ -80,8 +77,8 @@ namespace _3.PL.Views
                 btn_ThongKe.Visible = false;
                 btn_TaiKhoan.Visible = true;
             }
-            
-            ptb_Avata.Image = ConvertBytesToImage(viewLogin.Image);
+            nv = viewLogin;
+            ptb_Avata.Image = new Bitmap(viewLogin.Image);
             lbl_TenNv.Text ="Chào "+ viewLogin.Ten;
             btn_Login.Image = Resources.logout_24;
             btn_Login.Text = "         Đăng xuất";
@@ -134,6 +131,7 @@ namespace _3.PL.Views
 
         private void btn_GioHang_Click(object sender, EventArgs e)
         {
+            
             OpenUserControl(new QLGioHang());
             lbl_Title.Text = "Giỏ hàng";
         }
@@ -169,6 +167,9 @@ namespace _3.PL.Views
                     lbl_TenNv.Text = "Shop thú cưng";
                     ptb_Avata.Image = Resources._829207;
                     lbl_Login.Text = "Đăng nhập để sử dụng";
+                    lbl_Title.Text = "Dự án quản lý cửa hàng bán thú cưng - Nhóm 2";
+                    pn_Desktop.Controls.Clear();
+                    pn_Desktop.Controls.Add(ptb_OngVang);
                 }
             }
         }

@@ -63,6 +63,16 @@ namespace _3.PL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _15442_NQJS04 {
+            get {
+                object obj = ResourceManager.GetObject("_15442_NQJS04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _829207 {
             get {
                 object obj = ResourceManager.GetObject("_829207", resourceCulture);

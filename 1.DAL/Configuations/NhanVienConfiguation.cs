@@ -28,7 +28,7 @@ namespace _1.DAL.Configuations
             builder.Property(x => x.QuocGia).HasColumnType("nvarchar(50)").IsRequired();
             builder.Property(x => x.MatKhau).HasColumnType("nvarchar(30)").IsRequired();
             builder.Property(x => x.TrangThai).HasColumnType("int").IsRequired();
-            builder.Property(x => x.Image).HasColumnType("VARBINARY(MAX)").IsRequired();
+            builder.Property(x => x.Image).HasColumnType("nvarchar(max)").IsRequired();
 
             builder.HasOne(x => x.CuaHang)
                 .WithMany()

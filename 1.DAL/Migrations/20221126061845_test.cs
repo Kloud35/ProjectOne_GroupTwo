@@ -142,7 +142,7 @@ namespace _1.DAL.Migrations
                     QuocGia = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     MatKhau = table.Column<string>(type: "nvarchar(30)", nullable: false),
                     TrangThai = table.Column<int>(type: "int", nullable: false),
-                    Image = table.Column<byte[]>(type: "VARBINARY(MAX)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdChucVu = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdCuaHang = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -173,7 +173,9 @@ namespace _1.DAL.Migrations
                     GiaNhap = table.Column<int>(type: "int", nullable: false),
                     GiaBan = table.Column<int>(type: "int", nullable: false),
                     SoLuongTon = table.Column<int>(type: "int", nullable: false),
-                    Nsx = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                    Nsx = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -196,7 +198,9 @@ namespace _1.DAL.Migrations
                     GiaNhap = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     GiaBan = table.Column<string>(type: "nvarchar(50)", nullable: false),
                     SoLuongTon = table.Column<string>(type: "nvarchar(50)", nullable: false),
-                    Nsx = table.Column<string>(type: "nvarchar(50)", nullable: false)
+                    Nsx = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Barcode = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -225,7 +229,7 @@ namespace _1.DAL.Migrations
                     TrangThai = table.Column<int>(type: "int", nullable: false),
                     GiaNhap = table.Column<decimal>(type: "decimal", nullable: false),
                     GiaBan = table.Column<decimal>(type: "decimal", nullable: false),
-                    Image = table.Column<byte[]>(type: "VARBINARY(MAX)", nullable: false)
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

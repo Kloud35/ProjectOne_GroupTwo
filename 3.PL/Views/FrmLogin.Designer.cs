@@ -34,8 +34,6 @@
             this.btn_Login = new RJCodeAdvance.RJControls.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.tgb_NhoMk = new RJCodeAdvance.RJControls.RJToggleButton();
-            this.label3 = new System.Windows.Forms.Label();
             this.lbl_QuenMk = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,29 +130,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Mật khẩu";
             // 
-            // tgb_NhoMk
-            // 
-            this.tgb_NhoMk.AutoSize = true;
-            this.tgb_NhoMk.Location = new System.Drawing.Point(60, 325);
-            this.tgb_NhoMk.MinimumSize = new System.Drawing.Size(45, 22);
-            this.tgb_NhoMk.Name = "tgb_NhoMk";
-            this.tgb_NhoMk.OffBackColor = System.Drawing.Color.Gray;
-            this.tgb_NhoMk.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.tgb_NhoMk.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.tgb_NhoMk.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.tgb_NhoMk.Size = new System.Drawing.Size(45, 22);
-            this.tgb_NhoMk.TabIndex = 6;
-            this.tgb_NhoMk.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(111, 327);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 20);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Nhớ mật khẩu";
-            // 
             // lbl_QuenMk
             // 
             this.lbl_QuenMk.AutoSize = true;
@@ -182,8 +157,6 @@
             this.ClientSize = new System.Drawing.Size(449, 537);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_QuenMk);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tgb_NhoMk);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Login);
@@ -208,8 +181,6 @@
         private RJCodeAdvance.RJControls.RJButton btn_Login;
         private Label label1;
         private Label label2;
-        private RJCodeAdvance.RJControls.RJToggleButton tgb_NhoMk;
-        private Label label3;
         private Label lbl_QuenMk;
         private Label label5;
     }

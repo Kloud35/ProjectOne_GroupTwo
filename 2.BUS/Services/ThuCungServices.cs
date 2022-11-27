@@ -91,7 +91,7 @@ namespace _2.BUS.Services
                         GiaNhap = a.GiaNhap,
                         GiaBan = a.GiaBan,
                         MauSac = c.Ten,
-                        GiongLoai = c.Ten,
+                        GiongLoai = d.Ten,
                         Image = a.Image
                     }).ToList();
             return list;

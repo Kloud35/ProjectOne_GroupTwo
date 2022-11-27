@@ -26,6 +26,8 @@ namespace _1.DAL.Configuations
                 HasColumnType("int").IsRequired();
             builder.Property(x => x.Nsx).HasColumnName("Nsx").
                 HasColumnType("nvarchar(100)").IsRequired();
+            builder.Property(x => x.Image).HasColumnType("nvarchar(max)").IsRequired();
+            builder.Property(x => x.Barcode).HasColumnType("nvarchar(max)").IsRequired();
             builder.HasOne(x => x.DoChoi).WithMany().HasForeignKey(x => x.IdDoChoi);
         }
     }

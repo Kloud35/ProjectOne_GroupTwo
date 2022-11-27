@@ -113,6 +113,7 @@
             this.dtgv_Show.RowTemplate.Height = 29;
             this.dtgv_Show.Size = new System.Drawing.Size(1203, 195);
             this.dtgv_Show.TabIndex = 4;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // btn_Show
             // 
@@ -274,7 +275,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(815, 175);
+            this.label6.Location = new System.Drawing.Point(706, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 20);
             this.label6.TabIndex = 39;
@@ -289,9 +290,12 @@
             this.cbb_TrangThai.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbb_TrangThai.ForeColor = System.Drawing.Color.DimGray;
             this.cbb_TrangThai.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.cbb_TrangThai.Items.AddRange(new object[] {
+            "Khỏe mạnh",
+            "Ốm"});
             this.cbb_TrangThai.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.cbb_TrangThai.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbb_TrangThai.Location = new System.Drawing.Point(815, 196);
+            this.cbb_TrangThai.Location = new System.Drawing.Point(697, 196);
             this.cbb_TrangThai.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbb_TrangThai.Name = "cbb_TrangThai";
             this.cbb_TrangThai.Padding = new System.Windows.Forms.Padding(1);
@@ -309,7 +313,7 @@
             this.btn_ChonAnh.FlatAppearance.BorderSize = 0;
             this.btn_ChonAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ChonAnh.ForeColor = System.Drawing.Color.White;
-            this.btn_ChonAnh.Location = new System.Drawing.Point(1125, 261);
+            this.btn_ChonAnh.Location = new System.Drawing.Point(1134, 240);
             this.btn_ChonAnh.Name = "btn_ChonAnh";
             this.btn_ChonAnh.Size = new System.Drawing.Size(81, 50);
             this.btn_ChonAnh.TabIndex = 37;
@@ -321,9 +325,10 @@
             // ptb_Image
             // 
             this.ptb_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptb_Image.Location = new System.Drawing.Point(864, 240);
+            this.ptb_Image.Image = global::_3.PL.Properties.Resources._15442_NQJS04;
+            this.ptb_Image.Location = new System.Drawing.Point(984, 26);
             this.ptb_Image.Name = "ptb_Image";
-            this.ptb_Image.Size = new System.Drawing.Size(222, 78);
+            this.ptb_Image.Size = new System.Drawing.Size(222, 194);
             this.ptb_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Image.TabIndex = 36;
             this.ptb_Image.TabStop = false;
@@ -331,7 +336,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(815, 99);
+            this.label5.Location = new System.Drawing.Point(697, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 35;
@@ -340,7 +345,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(815, 25);
+            this.label3.Location = new System.Drawing.Point(697, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 34;
@@ -349,7 +354,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(446, 240);
+            this.label2.Location = new System.Drawing.Point(374, 240);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 20);
             this.label2.TabIndex = 33;
@@ -364,7 +369,7 @@
             this.tbt_GiaBan.BorderSize = 2;
             this.tbt_GiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_GiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_GiaBan.Location = new System.Drawing.Point(815, 123);
+            this.tbt_GiaBan.Location = new System.Drawing.Point(697, 123);
             this.tbt_GiaBan.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_GiaBan.Multiline = false;
             this.tbt_GiaBan.Name = "tbt_GiaBan";
@@ -386,7 +391,7 @@
             this.tbt_GiaNhap.BorderSize = 2;
             this.tbt_GiaNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_GiaNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_GiaNhap.Location = new System.Drawing.Point(815, 47);
+            this.tbt_GiaNhap.Location = new System.Drawing.Point(697, 47);
             this.tbt_GiaNhap.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_GiaNhap.Multiline = false;
             this.tbt_GiaNhap.Name = "tbt_GiaNhap";
@@ -408,7 +413,7 @@
             this.tbt_SoLuong.BorderSize = 2;
             this.tbt_SoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_SoLuong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_SoLuong.Location = new System.Drawing.Point(446, 264);
+            this.tbt_SoLuong.Location = new System.Drawing.Point(374, 261);
             this.tbt_SoLuong.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_SoLuong.Multiline = false;
             this.tbt_SoLuong.Name = "tbt_SoLuong";
@@ -424,7 +429,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(447, 175);
+            this.label8.Location = new System.Drawing.Point(374, 175);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 29;
@@ -434,7 +439,7 @@
             // 
             this.rbn_GtCai.AutoSize = true;
             this.rbn_GtCai.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbn_GtCai.Location = new System.Drawing.Point(606, 209);
+            this.rbn_GtCai.Location = new System.Drawing.Point(509, 209);
             this.rbn_GtCai.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbn_GtCai.Name = "rbn_GtCai";
             this.rbn_GtCai.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -449,7 +454,7 @@
             // 
             this.rbn_GtDuc.AutoSize = true;
             this.rbn_GtDuc.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbn_GtDuc.Location = new System.Drawing.Point(447, 209);
+            this.rbn_GtDuc.Location = new System.Drawing.Point(378, 209);
             this.rbn_GtDuc.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbn_GtDuc.Name = "rbn_GtDuc";
             this.rbn_GtDuc.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -463,7 +468,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(446, 99);
+            this.label12.Location = new System.Drawing.Point(374, 99);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(71, 20);
             this.label12.TabIndex = 26;
@@ -472,7 +477,7 @@
             // label
             // 
             this.label.AutoSize = true;
-            this.label.Location = new System.Drawing.Point(446, 23);
+            this.label.Location = new System.Drawing.Point(374, 23);
             this.label.Name = "label";
             this.label.Size = new System.Drawing.Size(71, 20);
             this.label.TabIndex = 25;
@@ -523,7 +528,7 @@
             this.tbt_ChieuDai.BorderSize = 2;
             this.tbt_ChieuDai.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_ChieuDai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_ChieuDai.Location = new System.Drawing.Point(446, 123);
+            this.tbt_ChieuDai.Location = new System.Drawing.Point(374, 123);
             this.tbt_ChieuDai.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_ChieuDai.Multiline = false;
             this.tbt_ChieuDai.Name = "tbt_ChieuDai";
@@ -545,7 +550,7 @@
             this.tbt_CanNang.BorderSize = 2;
             this.tbt_CanNang.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_CanNang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_CanNang.Location = new System.Drawing.Point(446, 47);
+            this.tbt_CanNang.Location = new System.Drawing.Point(374, 47);
             this.tbt_CanNang.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_CanNang.Multiline = false;
             this.tbt_CanNang.Name = "tbt_CanNang";
