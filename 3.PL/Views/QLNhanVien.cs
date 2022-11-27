@@ -27,7 +27,7 @@ namespace _3.PL.Views
         IChucVuServices _iChucVuServices;
         ICuaHangServices _iCuaHangServices;
         Guid currentId;
-
+        string imgLocation;
         public QLNhanVien()
         {
             InitializeComponent();
@@ -115,27 +115,14 @@ namespace _3.PL.Views
                 // Enviar E-mail
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.Send(msg);
+                MessageBox.Show("Đã gửi tài khoản mật khẩu đến email nhân viên");
             }
             catch (Exception error)
             {
                 MessageBox.Show("Unexpected Error: " + error);
             }
         }
-        private byte[] ConvertImageToBytes(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                image.Save(ms, ImageFormat.Bmp);
-                return ms.ToArray();
-            }
-        }
-        private Image ConvertBytesToImage(byte[] bytes)
-        {
-            using (MemoryStream ms = new MemoryStream(bytes))
-            {
-                return Bitmap.FromStream(ms);
-            }
-        }
+        
         private void btn_Show_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -161,7 +148,7 @@ namespace _3.PL.Views
                 TrangThai = cbb_TrangThai.SelectedIndex,
                 IdCh = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_CuaHang.Texts)).Id,
                 IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id,
-                Image = ConvertImageToBytes(ptb_Image.Image)
+                Image = imgLocation,
             };
             if (_iNhanVienServices.Add(x))
             {
@@ -197,10 +184,7 @@ namespace _3.PL.Views
                 x.TrangThai = cbb_TrangThai.SelectedIndex;
                 x.IdCh = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_CuaHang.Texts)).Id;
                 x.IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id;
-                if(ptb_Image.Image != ConvertBytesToImage(x.Image))
-                {
-                    x.Image = ConvertImageToBytes(ptb_Image.Image);
-                }
+                x.Image = imgLocation;
                 if (_iNhanVienServices.Update(x))
                 {
                     MessageBox.Show("Sửa thành công");
@@ -287,7 +271,8 @@ namespace _3.PL.Views
                 }
                 cbb_ChucVu.Texts = x.ChucVu;
                 cbb_CuaHang.Texts = x.CuaHang;
-                ptb_Image.Image = ConvertBytesToImage(x.Image);
+                ptb_Image.Image = Image.FromFile(x.Image);
+                imgLocation = x.Image;
             }
         }
 
@@ -297,7 +282,8 @@ namespace _3.PL.Views
             fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                ptb_Image.Image = new Bitmap(fileDialog.FileName);
+                ptb_Image.Image = Image.FromFile(fileDialog.FileName);
+                imgLocation = fileDialog.FileName;
             }
         }
 

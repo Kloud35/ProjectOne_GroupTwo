@@ -15,6 +15,9 @@ namespace _1.DAL.Models
         public decimal GiaBan { get; set; }
         public int SoLuongTon { get; set; }
         public string Nsx { get; set; }
+        public string Image { get; set; }
+        public string Barcode { get; set; }
+
         public virtual ThucAn ThucAn { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace _1.DAL.Models
         public string QuocGia { get; set; }
         public string MatKhau { get; set; }
         public int TrangThai { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public Guid IdChucVu { get; set; }
         public Guid IdCuaHang { get; set; }
 

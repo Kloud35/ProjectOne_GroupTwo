@@ -33,7 +33,7 @@ namespace _3.PL.Views
         private void btn_Login_Click(object sender, EventArgs e)
         {
             viewLogin = _iNhanVienServices.GetAll().FirstOrDefault(x => x.Sdt == tbt_Sdt.Texts && x.MatKhau == tbt_MatKhau.Texts);
-            
+
             if (_iNhanVienServices.Login(viewLogin))
             {
                 MessageBox.Show("Đăng nhập thành công");

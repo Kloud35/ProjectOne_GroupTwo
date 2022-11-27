@@ -18,6 +18,8 @@ namespace _3.PL.Views
     {
         IDoChoiServices _iDoChoiServices;
         Guid _id;
+        private string imgLocation;
+        private string barcodeLocation;
         public QLDoChoi()
         {
             InitializeComponent();
@@ -68,7 +70,9 @@ namespace _3.PL.Views
                 GiaNhap = Convert.ToInt32(tbt_GiaNhap.Texts),
                 GiaBan = Convert.ToInt32(tbt_GiaBan.Texts),
                 Ma = tbt_Ma.Texts,
-                Ten = tbt_Ten.Texts
+                Ten = tbt_Ten.Texts,
+                Image = imgLocation,
+                Barcode = barcodeLocation
             };
             if (_iDoChoiServices.Add(y))
             {
@@ -101,7 +105,8 @@ namespace _3.PL.Views
             x.GiaBan = Convert.ToDecimal(tbt_GiaBan.Texts);
             x.SoLuongTon = Convert.ToInt32(tbt_SoLuong.Texts);
             x.Nsx = tbt_Nsx.Texts;
-
+            x.Image = imgLocation;
+            x.Barcode = barcodeLocation;
             if (_iDoChoiServices.Update(x))
             {
                 MessageBox.Show("Sửa thành công");
@@ -126,6 +131,8 @@ namespace _3.PL.Views
                 tbt_GiaNhap.Texts = obj.GiaNhap.ToString();
                 tbt_SoLuong.Texts = obj.SoLuongTon.ToString();
                 tbt_Nsx.Texts = obj.Nsx;
+                ptb_Image.Image = Image.FromFile(obj.Image);
+                ptb_Barcode.Image = Image.FromFile(obj.Barcode);
             }
         }
 
@@ -140,6 +147,28 @@ namespace _3.PL.Views
             else
             {
                 MessageBox.Show("Xóa thất bại");
+            }
+        }
+
+        private void btn_ChonAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ptb_Image.Image = Image.FromFile(fileDialog.FileName);
+                imgLocation = fileDialog.FileName;
+            }
+        }
+
+        private void btn_AddBarcode_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                ptb_Barcode.Image = Image.FromFile(fileDialog.FileName);
+                barcodeLocation = fileDialog.FileName;
             }
         }
     }

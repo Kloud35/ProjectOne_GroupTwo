@@ -30,6 +30,7 @@ namespace _3.PL.Views
             dtgv_Show.ColumnCount = 5;
             dtgv_Show.Columns[0].Name = "STT";
             dtgv_Show.Columns[1].Name = "ID";
+            dtgv_Show.Columns[1].Visible = false;
             dtgv_Show.Columns[2].Name = "Mã";
             dtgv_Show.Columns[3].Name = "Tên";
             dtgv_Show.Columns[4].Name = "Xuất xứ";
@@ -67,6 +68,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Thêm thành công");
                 LoadData();
+                Clear();
             }
             else
             {
@@ -83,6 +85,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Sửa thành công");
                 LoadData();
+                Clear();
             }
             else
             {
@@ -108,7 +111,7 @@ namespace _3.PL.Views
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
-
+            Clear();
         }
 
         private void btn_Show_Click(object sender, EventArgs e)

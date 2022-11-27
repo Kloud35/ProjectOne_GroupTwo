@@ -93,7 +93,7 @@ namespace _2.BUS.Services
         public bool Login(NhanVienView obj)
         {
             if (obj == null) return false;
-            if (_iNhanVienRepository.GetAll().FirstOrDefault(x => x.Sdt == obj.Sdt && x.MatKhau == obj.MatKhau) != null)
+            if (_iNhanVienRepository.GetAll().FirstOrDefault(x => x.Sdt == obj.Sdt && x.MatKhau == obj.MatKhau && x.TrangThai == 0) != null)
             {
                 return true;
             }

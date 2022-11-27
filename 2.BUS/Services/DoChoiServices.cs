@@ -39,7 +39,8 @@ namespace _2.BUS.Services
                 GiaBan = obj.GiaBan,
                 SoLuongTon = obj.SoLuongTon,
                 Nsx = obj.Nsx,
-
+                Image = obj.Image,
+                Barcode = obj.Barcode
             };
             _iDoChoiRepository.Add(y);
             _iDoChoiChiTietRepository.Add(x);
@@ -73,6 +74,8 @@ namespace _2.BUS.Services
                         GiaBan = a.GiaBan,
                         Nsx = a.Nsx,
                         SoLuongTon = a.SoLuongTon,
+                        Image = a.Image,
+                        Barcode = a.Barcode
                     }).ToList();
             return list;
         }
@@ -89,9 +92,11 @@ namespace _2.BUS.Services
             p.GiaBan = obj.GiaBan;
             p.Nsx = obj.Nsx;
             p.SoLuongTon = obj.SoLuongTon;
+            p.Image = obj.Image;
+            p.Barcode = obj.Barcode;
             _iDoChoiRepository.Update(x);
             _iDoChoiChiTietRepository.Update(p);
             return true;
-        }
+        }   
     }
 }

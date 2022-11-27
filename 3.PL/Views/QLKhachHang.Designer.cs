@@ -43,7 +43,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,7 +54,6 @@
             this.rbn_GtNu = new RJCodeAdvance.RJControls.RJRadioButton();
             this.rbn_GtNam = new RJCodeAdvance.RJControls.RJRadioButton();
             this.dtp_NgaySinh = new RJCodeAdvance.RJControls.RJDatePicker();
-            this.tbt_MatKhau = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbt_Sdt = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbt_Ten = new RJCodeAdvance.RJControls.RJTextBox();
             this.tbt_TenDem = new RJCodeAdvance.RJControls.RJTextBox();
@@ -241,7 +239,6 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
@@ -253,7 +250,6 @@
             this.groupBox1.Controls.Add(this.rbn_GtNu);
             this.groupBox1.Controls.Add(this.rbn_GtNam);
             this.groupBox1.Controls.Add(this.dtp_NgaySinh);
-            this.groupBox1.Controls.Add(this.tbt_MatKhau);
             this.groupBox1.Controls.Add(this.tbt_Sdt);
             this.groupBox1.Controls.Add(this.tbt_Ten);
             this.groupBox1.Controls.Add(this.tbt_TenDem);
@@ -269,7 +265,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(872, 185);
+            this.label13.Location = new System.Drawing.Point(872, 112);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(69, 20);
             this.label13.TabIndex = 27;
@@ -278,7 +274,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(872, 119);
+            this.label12.Location = new System.Drawing.Point(872, 43);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 20);
             this.label12.TabIndex = 26;
@@ -287,7 +283,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(875, 43);
+            this.label11.Location = new System.Drawing.Point(487, 260);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 20);
             this.label11.TabIndex = 25;
@@ -296,7 +292,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(489, 261);
+            this.label8.Location = new System.Drawing.Point(487, 185);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 22;
@@ -305,20 +301,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(489, 186);
+            this.label7.Location = new System.Drawing.Point(487, 112);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 20);
             this.label7.TabIndex = 21;
             this.label7.Text = "Ngày sinh";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(489, 113);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Mật khẩu";
             // 
             // label5
             // 
@@ -374,7 +361,7 @@
             this.tbt_QuocGia.BorderSize = 2;
             this.tbt_QuocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_QuocGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_QuocGia.Location = new System.Drawing.Point(872, 209);
+            this.tbt_QuocGia.Location = new System.Drawing.Point(872, 134);
             this.tbt_QuocGia.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_QuocGia.Multiline = false;
             this.tbt_QuocGia.Name = "tbt_QuocGia";
@@ -382,7 +369,7 @@
             this.tbt_QuocGia.PasswordChar = false;
             this.tbt_QuocGia.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_QuocGia.PlaceholderText = "";
-            this.tbt_QuocGia.Size = new System.Drawing.Size(246, 35);
+            this.tbt_QuocGia.Size = new System.Drawing.Size(259, 35);
             this.tbt_QuocGia.TabIndex = 13;
             this.tbt_QuocGia.Texts = "";
             this.tbt_QuocGia.UnderlinedStyle = false;
@@ -396,7 +383,7 @@
             this.tbt_ThanhPho.BorderSize = 2;
             this.tbt_ThanhPho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_ThanhPho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_ThanhPho.Location = new System.Drawing.Point(872, 140);
+            this.tbt_ThanhPho.Location = new System.Drawing.Point(872, 67);
             this.tbt_ThanhPho.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_ThanhPho.Multiline = false;
             this.tbt_ThanhPho.Name = "tbt_ThanhPho";
@@ -404,7 +391,7 @@
             this.tbt_ThanhPho.PasswordChar = false;
             this.tbt_ThanhPho.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_ThanhPho.PlaceholderText = "";
-            this.tbt_ThanhPho.Size = new System.Drawing.Size(246, 35);
+            this.tbt_ThanhPho.Size = new System.Drawing.Size(259, 35);
             this.tbt_ThanhPho.TabIndex = 12;
             this.tbt_ThanhPho.Texts = "";
             this.tbt_ThanhPho.UnderlinedStyle = false;
@@ -418,7 +405,7 @@
             this.tbt_DiaChi.BorderSize = 2;
             this.tbt_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_DiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_DiaChi.Location = new System.Drawing.Point(872, 67);
+            this.tbt_DiaChi.Location = new System.Drawing.Point(489, 284);
             this.tbt_DiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_DiaChi.Multiline = false;
             this.tbt_DiaChi.Name = "tbt_DiaChi";
@@ -426,7 +413,7 @@
             this.tbt_DiaChi.PasswordChar = false;
             this.tbt_DiaChi.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbt_DiaChi.PlaceholderText = "";
-            this.tbt_DiaChi.Size = new System.Drawing.Size(246, 35);
+            this.tbt_DiaChi.Size = new System.Drawing.Size(259, 35);
             this.tbt_DiaChi.TabIndex = 11;
             this.tbt_DiaChi.Texts = "";
             this.tbt_DiaChi.UnderlinedStyle = false;
@@ -435,7 +422,7 @@
             // 
             this.rbn_GtNu.AutoSize = true;
             this.rbn_GtNu.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbn_GtNu.Location = new System.Drawing.Point(607, 282);
+            this.rbn_GtNu.Location = new System.Drawing.Point(613, 220);
             this.rbn_GtNu.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbn_GtNu.Name = "rbn_GtNu";
             this.rbn_GtNu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -450,7 +437,7 @@
             // 
             this.rbn_GtNam.AutoSize = true;
             this.rbn_GtNam.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbn_GtNam.Location = new System.Drawing.Point(489, 282);
+            this.rbn_GtNam.Location = new System.Drawing.Point(487, 220);
             this.rbn_GtNam.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbn_GtNam.Name = "rbn_GtNam";
             this.rbn_GtNam.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -466,35 +453,13 @@
             this.dtp_NgaySinh.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtp_NgaySinh.BorderSize = 0;
             this.dtp_NgaySinh.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtp_NgaySinh.Location = new System.Drawing.Point(489, 209);
+            this.dtp_NgaySinh.Location = new System.Drawing.Point(489, 135);
             this.dtp_NgaySinh.MinimumSize = new System.Drawing.Size(0, 35);
             this.dtp_NgaySinh.Name = "dtp_NgaySinh";
             this.dtp_NgaySinh.Size = new System.Drawing.Size(259, 35);
             this.dtp_NgaySinh.SkinColor = System.Drawing.Color.MediumSlateBlue;
             this.dtp_NgaySinh.TabIndex = 6;
             this.dtp_NgaySinh.TextColor = System.Drawing.Color.White;
-            // 
-            // tbt_MatKhau
-            // 
-            this.tbt_MatKhau.BackColor = System.Drawing.SystemColors.Window;
-            this.tbt_MatKhau.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.tbt_MatKhau.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.tbt_MatKhau.BorderRadius = 0;
-            this.tbt_MatKhau.BorderSize = 2;
-            this.tbt_MatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbt_MatKhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_MatKhau.Location = new System.Drawing.Point(489, 134);
-            this.tbt_MatKhau.Margin = new System.Windows.Forms.Padding(4);
-            this.tbt_MatKhau.Multiline = false;
-            this.tbt_MatKhau.Name = "tbt_MatKhau";
-            this.tbt_MatKhau.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.tbt_MatKhau.PasswordChar = false;
-            this.tbt_MatKhau.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.tbt_MatKhau.PlaceholderText = "";
-            this.tbt_MatKhau.Size = new System.Drawing.Size(259, 35);
-            this.tbt_MatKhau.TabIndex = 5;
-            this.tbt_MatKhau.Texts = "";
-            this.tbt_MatKhau.UnderlinedStyle = false;
             // 
             // tbt_Sdt
             // 
@@ -527,7 +492,7 @@
             this.tbt_Ten.BorderSize = 2;
             this.tbt_Ten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_Ten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_Ten.Location = new System.Drawing.Point(151, 282);
+            this.tbt_Ten.Location = new System.Drawing.Point(155, 284);
             this.tbt_Ten.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_Ten.Multiline = false;
             this.tbt_Ten.Name = "tbt_Ten";
@@ -641,7 +606,6 @@
         private Label label11;
         private Label label8;
         private Label label7;
-        private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
@@ -653,7 +617,6 @@
         private RJCodeAdvance.RJControls.RJRadioButton rbn_GtNu;
         private RJCodeAdvance.RJControls.RJRadioButton rbn_GtNam;
         private RJCodeAdvance.RJControls.RJDatePicker dtp_NgaySinh;
-        private RJCodeAdvance.RJControls.RJTextBox tbt_MatKhau;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Sdt;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Ten;
         private RJCodeAdvance.RJControls.RJTextBox tbt_TenDem;

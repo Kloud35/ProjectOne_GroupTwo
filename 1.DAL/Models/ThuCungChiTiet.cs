@@ -20,7 +20,7 @@ namespace _1.DAL.Models
         public int TrangThai { get; set; }
         public decimal GiaNhap { get; set; }
         public decimal GiaBan { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
         public virtual ThuCung ThuCung { get; set;}
         public virtual MauSac MauSac { get; set; }
         public virtual GiongLoai GiongLoai { get; set;}

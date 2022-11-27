@@ -25,6 +25,6 @@ namespace _2.BUS.ViewModels
         public decimal GiaBan { get; set; }
         public string MauSac { get; set; }
         public string GiongLoai { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
     }
 }

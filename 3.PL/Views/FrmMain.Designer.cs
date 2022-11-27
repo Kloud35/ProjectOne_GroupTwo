@@ -46,7 +46,7 @@
             this.pn_Title = new System.Windows.Forms.Panel();
             this.lbl_Title = new System.Windows.Forms.Label();
             this.pn_Desktop = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ptb_OngVang = new System.Windows.Forms.PictureBox();
             this.ddm_NhanVien = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chứcVụToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +55,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Avata)).BeginInit();
             this.pn_Title.SuspendLayout();
             this.pn_Desktop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_OngVang)).BeginInit();
             this.ddm_NhanVien.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -376,21 +376,21 @@
             // 
             // pn_Desktop
             // 
-            this.pn_Desktop.Controls.Add(this.pictureBox1);
+            this.pn_Desktop.Controls.Add(this.ptb_OngVang);
             this.pn_Desktop.Location = new System.Drawing.Point(246, 84);
             this.pn_Desktop.Name = "pn_Desktop";
             this.pn_Desktop.Size = new System.Drawing.Size(1227, 727);
             this.pn_Desktop.TabIndex = 2;
             // 
-            // pictureBox1
+            // ptb_OngVang
             // 
-            this.pictureBox1.Image = global::_3.PL.Properties.Resources.xx18198154_10208600482868814_3469513_n_png_Mic__4_CcyctRxZ_png_pagespeed_ic_4_CcyctRxZ;
-            this.pictureBox1.Location = new System.Drawing.Point(702, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(435, 587);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.ptb_OngVang.Image = global::_3.PL.Properties.Resources.xx18198154_10208600482868814_3469513_n_png_Mic__4_CcyctRxZ_png_pagespeed_ic_4_CcyctRxZ;
+            this.ptb_OngVang.Location = new System.Drawing.Point(702, 62);
+            this.ptb_OngVang.Name = "ptb_OngVang";
+            this.ptb_OngVang.Size = new System.Drawing.Size(435, 587);
+            this.ptb_OngVang.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptb_OngVang.TabIndex = 0;
+            this.ptb_OngVang.TabStop = false;
             // 
             // ddm_NhanVien
             // 
@@ -440,7 +440,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Avata)).EndInit();
             this.pn_Title.ResumeLayout(false);
             this.pn_Desktop.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptb_OngVang)).EndInit();
             this.ddm_NhanVien.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -465,7 +465,7 @@
         private RJCodeAdvance.RJControls.RJButton btn_TaiKhoan;
         private RJCodeAdvance.RJControls.RJButton btn_ThongKe;
         private Label lbl_Title;
-        private PictureBox pictureBox1;
+        private PictureBox ptb_OngVang;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddm_NhanVien;
         private ToolStripMenuItem nhânViênToolStripMenuItem;
         private ToolStripMenuItem chứcVụToolStripMenuItem;
