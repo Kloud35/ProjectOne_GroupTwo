@@ -11,32 +11,32 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class HoaDonChiTietServices : IHoaDonChiTietServices
+    public class HDTACTServices : IHDTACTServices
     {
-        IHoaDonChiTietRepository _iHoaDonChiTietRepository;
+        IHoaDonThucAnCTRepository _iHoaDonThucAnCTRepository;
         IHoaDonRepository _iHoaDonRepository;
-        IThuCungChiTietRepository _iThuCungChiTietRepository;
-        IThuCungRepository _iThuCungRepository;
-        public HoaDonChiTietServices()
+        IThucAnChiTietRepository _iThucAnChiTietRepository;
+        IThucAnRepository _iThucAnRepository;
+        public HDTACTServices()
         {
-            _iHoaDonChiTietRepository = new HoaDonChiTietRepository();
+            _iHoaDonThucAnCTRepository = new HoaDonThucAnCTRepository();
             _iHoaDonRepository = new HoaDonRepository();
-            _iThuCungChiTietRepository = new ThuCungChiTietRepository();
-            _iThuCungRepository = new ThuCungRepository();
+            _iThucAnChiTietRepository = new ThucAnChiTietRepository();
+            _iThucAnRepository = new ThucAnRepository();
         }
 
         public bool Add(HoaDonChiTietView obj)
         {
             if (obj == null) return false;
-            var x = new HoaDonChiTiet()
+            var x = new HoaDonThucAnChiTiet()
             {
                 Id = obj.Id,
                 IdHoaDon = obj.IdHoaDon,
-                IdThuCungChiTiet = obj.IdSp,
+                IdThucAnChiTiet = obj.IdSp,
                 SoLuong = obj.SoLuong,
                 DonGia = obj.DonGia,
             };
-            _iHoaDonChiTietRepository.Add(x);
+            _iHoaDonThucAnCTRepository.Add(x);
             return true;
         }
 
@@ -47,15 +47,15 @@ namespace _2.BUS.Services
 
         public List<HoaDonChiTietView> GetAll()
         {
-            var list = (from a in _iHoaDonChiTietRepository.GetAll()
+            var list = (from a in _iHoaDonThucAnCTRepository.GetAll()
                         join b in _iHoaDonRepository.GetAll() on a.IdHoaDon equals b.Id
-                        join c in _iThuCungChiTietRepository.GetAll() on a.IdThuCungChiTiet equals c.Id
-                        join d in _iThuCungRepository.GetAll() on c.IdThuCung equals d.Id
+                        join c in _iThucAnChiTietRepository.GetAll() on a.IdThucAnChiTiet equals c.Id
+                        join d in _iThucAnRepository.GetAll() on c.IdThucAn equals d.Id
                         select new HoaDonChiTietView()
                         {
                             Id = a.Id,
                             IdHoaDon = b.Id,
-                            IdSp = a.IdThuCungChiTiet,
+                            IdSp = c.Id,
                             SoLuong = a.SoLuong,
                             DonGia = a.DonGia,
                             TongTien = a.SoLuong * a.DonGia,

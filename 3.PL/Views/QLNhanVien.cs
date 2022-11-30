@@ -2,22 +2,10 @@
 using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using _3.PL.Properties;
-using SixLabors.ImageSharp.Drawing.Processing;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using MimeKit;
-using MailKit;
-using System.Drawing.Imaging;
 
 namespace _3.PL.Views
 {
@@ -279,7 +267,7 @@ namespace _3.PL.Views
         private void btn_ChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *png";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Image.Image = Image.FromFile(fileDialog.FileName);

@@ -152,6 +152,7 @@
             this.ptb_Barcode.Location = new System.Drawing.Point(554, 247);
             this.ptb_Barcode.Name = "ptb_Barcode";
             this.ptb_Barcode.Size = new System.Drawing.Size(310, 135);
+            this.ptb_Barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Barcode.TabIndex = 22;
             this.ptb_Barcode.TabStop = false;
             // 
@@ -180,6 +181,7 @@
             this.ptb_Image.Location = new System.Drawing.Point(554, 62);
             this.ptb_Image.Name = "ptb_Image";
             this.ptb_Image.Size = new System.Drawing.Size(310, 135);
+            this.ptb_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Image.TabIndex = 20;
             this.ptb_Image.TabStop = false;
             // 
@@ -544,6 +546,7 @@
             this.dtgv_Show.RowTemplate.Height = 29;
             this.dtgv_Show.Size = new System.Drawing.Size(1215, 217);
             this.dtgv_Show.TabIndex = 4;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // btn_Show
             // 

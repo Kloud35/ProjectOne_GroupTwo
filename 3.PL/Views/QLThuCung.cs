@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
-using SixLabors.ImageSharp.Drawing.Processing;
 
 namespace _3.PL.Views
 {
@@ -179,7 +178,7 @@ namespace _3.PL.Views
         private void btn_ChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Image.Image = new Bitmap(fileDialog.FileName);

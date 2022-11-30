@@ -165,6 +165,7 @@
             this.btn_Clear.TextColor = System.Drawing.Color.White;
             this.btn_Clear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clear.UseVisualStyleBackColor = false;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Them
             // 
@@ -186,6 +187,7 @@
             this.btn_Them.TextColor = System.Drawing.Color.White;
             this.btn_Them.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Them.UseVisualStyleBackColor = false;
+            this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
             // btn_Sua
             // 
@@ -207,6 +209,7 @@
             this.btn_Sua.TextColor = System.Drawing.Color.White;
             this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Sua.UseVisualStyleBackColor = false;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
             // 
             // btn_Xoa
             // 
@@ -228,6 +231,7 @@
             this.btn_Xoa.TextColor = System.Drawing.Color.White;
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // groupBox1
             // 
@@ -315,6 +319,7 @@
             this.ptb_Barcode.Location = new System.Drawing.Point(554, 247);
             this.ptb_Barcode.Name = "ptb_Barcode";
             this.ptb_Barcode.Size = new System.Drawing.Size(310, 135);
+            this.ptb_Barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Barcode.TabIndex = 22;
             this.ptb_Barcode.TabStop = false;
             // 
@@ -343,6 +348,7 @@
             this.ptb_Image.Location = new System.Drawing.Point(554, 62);
             this.ptb_Image.Name = "ptb_Image";
             this.ptb_Image.Size = new System.Drawing.Size(310, 135);
+            this.ptb_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Image.TabIndex = 20;
             this.ptb_Image.TabStop = false;
             // 

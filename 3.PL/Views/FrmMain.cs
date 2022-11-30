@@ -26,7 +26,7 @@ namespace _3.PL.Views
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //DisableButton();
+            DisableButton();
             
         }
         public delegate void PushNhanVien(NhanVienView nhanVienView);
@@ -132,7 +132,7 @@ namespace _3.PL.Views
         private void btn_GioHang_Click(object sender, EventArgs e)
         {
             
-            OpenUserControl(new QLGioHang());
+            OpenUserControl(new QLGioHang(nv));
             lbl_Title.Text = "Giỏ hàng";
         }
 

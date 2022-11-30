@@ -24,6 +24,8 @@ namespace _1.DAL.Models
         public DbSet<DoChoi> DoChoi { get; set; }
         public DbSet<GiongLoai> GiongLoai { get; set; }
         public DbSet<HoaDonChiTiet> HoaDonChiTiet { get; set; }
+        public DbSet<HoaDonDoChoiChiTiet> HoaDonDoChoiChiTiet { get; set; }
+        public DbSet<HoaDonThucAnChiTiet> HoaDonThucAnChiTiet { get; set; }
         public DbSet<HoaDon> HoaDon { get; set; }
         public DbSet<KhachHang> KhachHang { get; set; }
         public DbSet<MauSac> MauSac { get; set; }

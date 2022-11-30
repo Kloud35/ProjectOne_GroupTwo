@@ -107,7 +107,7 @@ namespace _2.BUS.Services
             p.IdMauSac = obj.IdMauSac;
             p.IdGiongLoai = obj.IdGiongLoai;
             p.CanNang = obj.CanNang;
-            p.ChieuDai = obj.GiaNhap;
+            p.ChieuDai = obj.ChieuDai;
             p.GioiTinh = obj.GioiTinh;
             p.Tuoi = obj.Tuoi;
             p.SoLuong = obj.SoLuong;
