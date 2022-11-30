@@ -11,10 +11,10 @@ namespace _2.BUS.ViewModels
     {
         public Guid Id { get; set; }
         public Guid IdHoaDon { get; set; }
-        public Guid IdThuCungChiTiet { get; set; }
-        public Guid IdThucAnChiTiet { get; set; }
-        public Guid IdDoChoiChiTiet { get; set; }
+        public Guid IdSp { get; set; }
+        public string Ten { get; set; }
         public int SoLuong { get; set; }
         public decimal DonGia { get; set; }
+        public decimal TongTien { get; set; }
     }
 }

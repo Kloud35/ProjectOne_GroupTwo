@@ -64,6 +64,7 @@ namespace _3.PL.Views
             var y = new DoChoiView()
             {
                 Id = Guid.NewGuid(),
+                IdDoChoi = Guid.NewGuid(),
                 Loai = tbt_Loai.Texts,
                 Nsx = tbt_Nsx.Texts,
                 SoLuongTon = Convert.ToInt32(tbt_SoLuong.Texts),
@@ -133,6 +134,9 @@ namespace _3.PL.Views
                 tbt_Nsx.Texts = obj.Nsx;
                 ptb_Image.Image = Image.FromFile(obj.Image);
                 ptb_Barcode.Image = Image.FromFile(obj.Barcode);
+                tbt_ImagePath.Texts = obj.Image;
+                imgLocation = obj.Image;
+                barcodeLocation = obj.Barcode;
             }
         }
 
@@ -153,18 +157,19 @@ namespace _3.PL.Views
         private void btn_ChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp;*.png)|*.jpg; *.jpeg; *.gif; *.bmp;*.png";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Image.Image = Image.FromFile(fileDialog.FileName);
                 imgLocation = fileDialog.FileName;
+                tbt_ImagePath.Texts = imgLocation;
             }
         }
 
         private void btn_AddBarcode_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp, *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Barcode.Image = Image.FromFile(fileDialog.FileName);

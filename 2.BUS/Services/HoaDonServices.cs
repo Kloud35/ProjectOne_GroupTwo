@@ -16,11 +16,17 @@ namespace _2.BUS.Services
         IHoaDonRepository _iHoaDonRepository;
         IKhachHangRepository _iKhachHangRepository;
         INhanVienRepository _iNhanVienRepository;
+        IHoaDonChiTietRepository _iHoaDonChiTietRepository;
+        IHoaDonDoChoiCTRepository _iHoaDonDoChoiCTRepository;
+        IHoaDonThucAnCTRepository _iHoaDonThucAnCTRepository;
         public HoaDonServices()
         {
             _iHoaDonRepository = new HoaDonRepository();
             _iKhachHangRepository = new KhachHangRepository();
             _iNhanVienRepository = new NhanVienRepository();
+            _iHoaDonChiTietRepository = new HoaDonChiTietRepository();
+            _iHoaDonDoChoiCTRepository = new HoaDonDoChoiCTRepository();
+            _iHoaDonThucAnCTRepository = new HoaDonThucAnCTRepository();
         }
 
         public bool Add(HoaDonView obj)

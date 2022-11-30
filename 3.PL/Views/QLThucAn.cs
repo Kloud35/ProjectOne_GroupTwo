@@ -142,29 +142,42 @@ namespace _3.PL.Views
                 tbt_Nsx.Texts = obj.Nsx;
                 ptb_Image.Image = Image.FromFile(obj.Image);
                 ptb_Barcode.Image = Image.FromFile(obj.Image);
+                imgLocation = obj.Image;
+                barcodeLocation = obj.Barcode;
             }
         }
 
         private void btn_ChonAnh_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Image.Image = Image.FromFile(fileDialog.FileName);
                 imgLocation = fileDialog.FileName;
+                tbt_ImagePath.Texts = imgLocation;
             }
         }
 
         private void btn_AddBarcode_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 ptb_Barcode.Image = Image.FromFile(fileDialog.FileName);
                 barcodeLocation = fileDialog.FileName;
             }
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            tbt_Ma.Texts = "";
+            tbt_Ten.Texts = "";
+            tbt_Loai.Texts = "";
+            tbt_SoLuong.Texts = "";
+            tbt_GiaNhap.Texts = "";
+            tbt_GiaBan.Texts = "";
         }
     }
 }
