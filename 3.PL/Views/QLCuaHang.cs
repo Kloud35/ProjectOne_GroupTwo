@@ -120,6 +120,7 @@ namespace _3.PL.Views
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             Clear();
+            dtgv_Show.Rows.Clear();
         }
 
         private void dtgv_Show_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -142,7 +143,25 @@ namespace _3.PL.Views
 
         private void tbt_Search__TextChanged(object sender, EventArgs e)
         {
-            LoadData();
+            dtgv_Show.Rows.Clear();
+            int stt = 1;
+            dtgv_Show.ColumnCount = 6;
+            dtgv_Show.Columns[0].Name = "STT";
+            dtgv_Show.Columns[1].Name = "ID";
+            dtgv_Show.Columns[1].Visible = false;
+            dtgv_Show.Columns[2].Name = "Mã";
+            dtgv_Show.Columns[3].Name = "Tên";
+            dtgv_Show.Columns[4].Name = "Địa chỉ";
+            dtgv_Show.Columns[5].Name = "SĐT";
+            var list = _iCuaHangServices.GetAll();
+            if (tbt_Search.Texts != "")
+            {
+                list = _iCuaHangServices.GetAll().Where(x => x.Ma.ToLower().Contains(tbt_Search.Texts.ToLower())).ToList();
+            }
+            foreach (var item in list)
+            {
+                dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.Ten, item.DiaChi, item.Sdt);
+            }
         }
     }
 }

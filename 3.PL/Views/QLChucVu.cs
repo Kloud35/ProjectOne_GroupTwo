@@ -67,10 +67,12 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Thêm thành công");
                 LoadData();
+                CLear();
             }
             else
             {
                 MessageBox.Show("Thêm thất bại");
+                CLear();
             }
         }
 
@@ -83,6 +85,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Sửa thành công");
                 LoadData();
+                CLear();
             }
             else
             {
@@ -97,6 +100,7 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Xóa thành công");
                 LoadData();
+                CLear();
             }
             else
             {
@@ -107,6 +111,7 @@ namespace _3.PL.Views
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             CLear();
+            dtgv_Show.Rows.Clear();
         }
 
         private void btn_Show_Click(object sender, EventArgs e)
@@ -116,7 +121,23 @@ namespace _3.PL.Views
 
         private void tbt_Search__TextChanged(object sender, EventArgs e)
         {
-            LoadData();
+            dtgv_Show.Rows.Clear();
+            int stt = 1;
+            dtgv_Show.ColumnCount = 4;
+            dtgv_Show.Columns[0].Name = "STT";
+            dtgv_Show.Columns[1].Name = "ID";
+            dtgv_Show.Columns[1].Visible = false;
+            dtgv_Show.Columns[2].Name = "Mã";
+            dtgv_Show.Columns[3].Name = "Tên";
+            var list = _iChucVuServices.GetAll();
+            if (tbt_Search.Texts != "")
+            {
+                list = _iChucVuServices.GetAll().Where(x => x.Ten.ToLower().Contains(tbt_Search.Texts.ToLower())).ToList();
+            }
+            foreach (var item in list)
+            {
+                dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.Ten);
+            }
         }
 
         private void dtgv_Show_CellClick(object sender, DataGridViewCellEventArgs e)

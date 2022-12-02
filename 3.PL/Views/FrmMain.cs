@@ -26,7 +26,7 @@ namespace _3.PL.Views
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            DisableButton();
+          //  DisableButton();
             
         }
         public delegate void PushNhanVien(NhanVienView nhanVienView);

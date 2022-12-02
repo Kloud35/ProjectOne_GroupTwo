@@ -32,9 +32,10 @@ namespace _2.BUS.Services
             return true;
         }
 
-        public bool Delete(Guid id)
+        public bool Delete(MauSacView obj)
         {
-            var x = _imauSacRepository.GetAll().FirstOrDefault(p => p.Id == id);
+            if (obj == null) return false;
+            var x = _imauSacRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
             _imauSacRepository.Delete(x);
             return true;
         }
@@ -53,10 +54,10 @@ namespace _2.BUS.Services
 
         public bool Update(MauSacView obj)
         {
-            var x = _imauSacRepository.GetAll().FirstOrDefault(p => p.Id == obj.Id);
-            x.Id = obj.Id;
-            x.Ma = obj.Ma;
+            if (obj == null) return false;
+            var x = _imauSacRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
             x.Ten = obj.Ten;
+            x.Ma = obj.Ma;
             _imauSacRepository.Update(x);
             return true;
         }
