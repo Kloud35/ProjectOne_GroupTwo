@@ -314,6 +314,7 @@
             this.tbt_Search.TabIndex = 1;
             this.tbt_Search.Texts = "";
             this.tbt_Search.UnderlinedStyle = false;
+            this.tbt_Search._TextChanged += new System.EventHandler(this.tbt_Search__TextChanged_1);
             // 
             // dtgv_Show
             // 
