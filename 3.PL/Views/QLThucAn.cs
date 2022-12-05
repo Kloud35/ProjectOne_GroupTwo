@@ -141,7 +141,7 @@ namespace _3.PL.Views
                 tbt_SoLuong.Texts = obj.SoLuongTon.ToString();
                 tbt_Nsx.Texts = obj.Nsx;
                 ptb_Image.Image = Image.FromFile(obj.Image);
-                ptb_Barcode.Image = Image.FromFile(obj.Image);
+                ptb_Barcode.Image = Image.FromFile(obj.Barcode);
                 imgLocation = obj.Image;
                 barcodeLocation = obj.Barcode;
             }

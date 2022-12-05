@@ -110,6 +110,7 @@
             this.dtgv_Show.RowTemplate.Height = 29;
             this.dtgv_Show.Size = new System.Drawing.Size(1215, 217);
             this.dtgv_Show.TabIndex = 4;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // btn_Show
             // 
@@ -579,6 +580,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "QLThucAn";
             this.Size = new System.Drawing.Size(1227, 727);
+            this.Load += new System.EventHandler(this.QLThucAn_Load);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
             this.groupBox2.ResumeLayout(false);

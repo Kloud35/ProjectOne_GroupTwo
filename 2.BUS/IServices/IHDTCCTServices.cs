@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.IServices
 {
-    public interface IHoaDonChiTietServices
+    public interface IHDTCCTServices
     {
         bool Add(HoaDonChiTietView obj);
         bool Update(HoaDonChiTietView obj);
