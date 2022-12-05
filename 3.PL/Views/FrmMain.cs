@@ -27,10 +27,9 @@ namespace _3.PL.Views
         private void FrmMain_Load(object sender, EventArgs e)
         {
             DisableButton();
-            
+                
         }
-        public delegate void PushNhanVien(NhanVienView nhanVienView);
-        public PushNhanVien Push;
+
         private void DisableButton()
         {
             btn_NhanVien.Visible = false;
@@ -132,8 +131,8 @@ namespace _3.PL.Views
         private void btn_GioHang_Click(object sender, EventArgs e)
         {
             
-            OpenUserControl(new QLGioHang(nv));
-            lbl_Title.Text = "Giỏ hàng";
+            OpenUserControl(new QLBanHang(nv));
+            lbl_Title.Text = "Bán hàng";
         }
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
@@ -144,7 +143,7 @@ namespace _3.PL.Views
 
         private void btn_TaiKhoan_Click(object sender, EventArgs e)
         {
-            FrmThongTinTaiKhoan frmThongTinTaiKhoan = new FrmThongTinTaiKhoan();
+            FrmThongTinTaiKhoan frmThongTinTaiKhoan = new FrmThongTinTaiKhoan(nv);
             frmThongTinTaiKhoan.ShowDialog();
         }
 
@@ -177,6 +176,11 @@ namespace _3.PL.Views
         private void btn_NhanVien_MouseHover(object sender, EventArgs e)
         {
             //this.ddm_NhanVien.Show(pn_Control, new Point(247, 267));
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+         
         }
     }
 }

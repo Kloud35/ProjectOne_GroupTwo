@@ -77,7 +77,7 @@
             this.pn_Control.Controls.Add(this.btn_Login);
             this.pn_Control.Location = new System.Drawing.Point(0, 1);
             this.pn_Control.Name = "pn_Control";
-            this.pn_Control.Size = new System.Drawing.Size(247, 814);
+            this.pn_Control.Size = new System.Drawing.Size(247, 976);
             this.pn_Control.TabIndex = 0;
             // 
             // btn_TaiKhoan
@@ -133,7 +133,7 @@
             this.lbl_Login.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lbl_Login.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.lbl_Login.ForeColor = System.Drawing.Color.White;
-            this.lbl_Login.Location = new System.Drawing.Point(0, 728);
+            this.lbl_Login.Location = new System.Drawing.Point(0, 890);
             this.lbl_Login.Name = "lbl_Login";
             this.lbl_Login.Size = new System.Drawing.Size(247, 26);
             this.lbl_Login.TabIndex = 13;
@@ -156,7 +156,7 @@
             this.btn_GioHang.Name = "btn_GioHang";
             this.btn_GioHang.Size = new System.Drawing.Size(247, 50);
             this.btn_GioHang.TabIndex = 11;
-            this.btn_GioHang.Text = "        Giỏ Hàng";
+            this.btn_GioHang.Text = "        Bán Hàng";
             this.btn_GioHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_GioHang.TextColor = System.Drawing.Color.White;
             this.btn_GioHang.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -343,7 +343,7 @@
             this.btn_Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Login.ForeColor = System.Drawing.Color.White;
             this.btn_Login.Image = global::_3.PL.Properties.Resources.login_24;
-            this.btn_Login.Location = new System.Drawing.Point(0, 754);
+            this.btn_Login.Location = new System.Drawing.Point(0, 916);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(247, 60);
             this.btn_Login.TabIndex = 2;
@@ -360,7 +360,7 @@
             this.pn_Title.Controls.Add(this.lbl_Title);
             this.pn_Title.Location = new System.Drawing.Point(246, 1);
             this.pn_Title.Name = "pn_Title";
-            this.pn_Title.Size = new System.Drawing.Size(1227, 82);
+            this.pn_Title.Size = new System.Drawing.Size(1518, 82);
             this.pn_Title.TabIndex = 1;
             // 
             // lbl_Title
@@ -379,7 +379,7 @@
             this.pn_Desktop.Controls.Add(this.ptb_OngVang);
             this.pn_Desktop.Location = new System.Drawing.Point(246, 84);
             this.pn_Desktop.Name = "pn_Desktop";
-            this.pn_Desktop.Size = new System.Drawing.Size(1227, 727);
+            this.pn_Desktop.Size = new System.Drawing.Size(1518, 893);
             this.pn_Desktop.TabIndex = 2;
             // 
             // ptb_OngVang
@@ -428,13 +428,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1475, 814);
+            this.ClientSize = new System.Drawing.Size(1767, 977);
             this.Controls.Add(this.pn_Desktop);
             this.Controls.Add(this.pn_Title);
             this.Controls.Add(this.pn_Control);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.pn_Control.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Avata)).EndInit();

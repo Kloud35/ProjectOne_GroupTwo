@@ -43,6 +43,7 @@ namespace _3.PL.Views
             dtgv_Show.Columns[7].Name = "Giá Bán";
             dtgv_Show.Columns[8].Name = "NSX";
             var list = _iDoChoiServices.GetAll();
+
             foreach (var item in list)
             {
                 dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.Ten, item.Loai, item.SoLuongTon, item.GiaNhap, item.GiaBan,item.Nsx);
@@ -176,5 +177,7 @@ namespace _3.PL.Views
                 barcodeLocation = fileDialog.FileName;
             }
         }
+
+        
     }
 }

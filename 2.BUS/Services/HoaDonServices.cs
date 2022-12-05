@@ -16,7 +16,7 @@ namespace _2.BUS.Services
         IHoaDonRepository _iHoaDonRepository;
         IKhachHangRepository _iKhachHangRepository;
         INhanVienRepository _iNhanVienRepository;
-        IHoaDonChiTietRepository _iHoaDonChiTietRepository;
+        IHoaDonThuCungCTepository _iHoaDonChiTietRepository;
         IHoaDonDoChoiCTRepository _iHoaDonDoChoiCTRepository;
         IHoaDonThucAnCTRepository _iHoaDonThucAnCTRepository;
         public HoaDonServices()
@@ -24,7 +24,7 @@ namespace _2.BUS.Services
             _iHoaDonRepository = new HoaDonRepository();
             _iKhachHangRepository = new KhachHangRepository();
             _iNhanVienRepository = new NhanVienRepository();
-            _iHoaDonChiTietRepository = new HoaDonChiTietRepository();
+            _iHoaDonChiTietRepository = new HoaDonThuCungCTRepository();
             _iHoaDonDoChoiCTRepository = new HoaDonDoChoiCTRepository();
             _iHoaDonThucAnCTRepository = new HoaDonThucAnCTRepository();
         }

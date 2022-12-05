@@ -231,6 +231,7 @@
             this.dtgv_Show.RowTemplate.Height = 29;
             this.dtgv_Show.Size = new System.Drawing.Size(1209, 167);
             this.dtgv_Show.TabIndex = 0;
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
             // 
             // groupBox1
             // 
