@@ -95,6 +95,7 @@ namespace _3.PL.Views
             tbt_SoLuong.Texts = "";
             tbt_GiaNhap.Texts = "";
             tbt_GiaBan.Texts = "";
+            dtgv_Show.Rows.Clear();
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
