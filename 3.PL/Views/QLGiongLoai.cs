@@ -64,16 +64,17 @@ namespace _3.PL.Views
                 Ten = tbt_Ten.Texts,
                 XuatXu = tbt_XuatXu.Texts
             };
-            if (_igiongLoaiServices.Add(x))
+            if (tbt_Ma.Texts == "" || tbt_Ten.Texts == "" || tbt_XuatXu.Texts == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin để thêm");
+            }
+            else if (_igiongLoaiServices.Add(x))
             {
                 MessageBox.Show("Thêm thành công");
                 LoadData();
                 Clear();
             }
-            else if (tbt_Ma.Texts == "" || tbt_Ten.Texts == "" || tbt_XuatXu.Texts == "")
-            {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin để thêm");
-            }else if(_igiongLoaiServices.GetAll().Any(x=> x.Ma == tbt_Ma.Texts))
+            else if (_igiongLoaiServices.GetAll().Any(x => x.Ma == tbt_Ma.Texts))
             {
                 MessageBox.Show("Mã giống loài này đã tồn tại");
                 MessageBox.Show("Thêm không thành công");
