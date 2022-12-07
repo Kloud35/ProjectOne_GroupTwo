@@ -89,6 +89,7 @@
             this.dtgv_HoaDonCt.RowTemplate.Height = 29;
             this.dtgv_HoaDonCt.Size = new System.Drawing.Size(1145, 188);
             this.dtgv_HoaDonCt.TabIndex = 0;
+            this.dtgv_HoaDonCt.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_HoaDonCt_CellContentClick);
             // 
             // Id
             // 
@@ -133,6 +134,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+       //     this.Name = "QLHoaDon";
             this.Size = new System.Drawing.Size(1227, 727);
             this.Load += new System.EventHandler(this.QLHoaDon_Load);
             this.groupBox1.ResumeLayout(false);
