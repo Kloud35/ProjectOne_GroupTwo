@@ -137,7 +137,7 @@ namespace _3.PL.Views
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-            OpenUserControl(new ViewNhanVien());
+            //OpenUserControl(new ViewNhanVien());
             lbl_Title.Text = "Thống kê";
         }
 

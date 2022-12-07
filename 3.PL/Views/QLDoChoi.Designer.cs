@@ -536,7 +536,7 @@
             this.tbt_search.TabIndex = 5;
             this.tbt_search.Texts = "";
             this.tbt_search.UnderlinedStyle = false;
-            this.tbt_search._TextChanged += new System.EventHandler(this.rjTextBox2__TextChanged);
+            this.tbt_search._TextChanged += new System.EventHandler(this.tbt_search__TextChanged);
             // 
             // dtgv_Show
             // 
