@@ -26,7 +26,7 @@ namespace _3.PL.Views
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            DisableButton();
+           DisableButton();
                 
         }
 
@@ -137,7 +137,7 @@ namespace _3.PL.Views
 
         private void btn_ThongKe_Click(object sender, EventArgs e)
         {
-            //OpenUserControl(new ViewNhanVien());
+            OpenUserControl(new ThongKe());
             lbl_Title.Text = "Thống kê";
         }
 

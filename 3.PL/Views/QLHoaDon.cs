@@ -97,5 +97,10 @@ namespace _3.PL.Views
         {
             LoadData();
         }
+
+        private void dtgv_HoaDonCt_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
