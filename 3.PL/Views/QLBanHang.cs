@@ -252,9 +252,15 @@ namespace _3.PL.Views
 
             id = Guid.Parse((string)((Button)sender).Tag);
             var tc = _iThuCungServices.GetAll().FirstOrDefault(t => t.IdTCCT == id);
+            
             if (tc.SoLuong <= 0)
             {
                 MessageBox.Show("Số lượng không đủ");
+            }
+            else if (hdct.FirstOrDefault(x => x.IdSp == tc.IdTCCT) != null)
+            {
+                hdct.FirstOrDefault(x => x.IdSp == tc.IdTCCT).SoLuong += 1;
+                LoadHDCT();
             }
             else
             {
@@ -279,6 +285,11 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Số lượng không đủ");
             }
+            else if (hdct.FirstOrDefault(x => x.IdSp == x.Id) != null)
+            {
+                hdct.FirstOrDefault(x => x.IdSp == x.Id).SoLuong += 1;
+                LoadHDCT();
+            }
             else
             {
                 HoaDonChiTietView hdctv = new HoaDonChiTietView();
@@ -301,6 +312,11 @@ namespace _3.PL.Views
             if (x.SoLuongTon <= 0)
             {
                 MessageBox.Show("Số lượng không đủ");
+            }
+            else if (hdct.FirstOrDefault(x => x.IdSp == x.Id) != null)
+            {
+                hdct.FirstOrDefault(x => x.IdSp == x.Id).SoLuong += 1;
+                LoadHDCT();
             }
             else
             {
@@ -333,8 +349,6 @@ namespace _3.PL.Views
             dtgv_HoaDonCt.Rows[i].Cells[4].Value = ChangeFormatMoney(thanhtien);
             giagoc = thanhtien;
         }
-
-
 
         private void dtgv_HoaDonCt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -481,6 +495,7 @@ namespace _3.PL.Views
                         hd.PhanTramGiamGia = Convert.ToDecimal(tbt_PTGiamGia.Texts);
                         hd.TinhTrang = 1;
                         hd.TienCoc = Convert.ToDecimal(tbt_TienKhachDua.Texts);
+                        hd.TienShip = Convert.ToDecimal(tbt_TienChuyenKhoan.Texts);
                         _iHoaDonServices.Update(hd);
                         MessageBox.Show("Thanh toán thành công");
                         LoadData();
@@ -685,7 +700,6 @@ namespace _3.PL.Views
                 x.TongTien = x.DonGia * x.SoLuong;
                 LoadHDCT();
                 ShowCongTru();
-                
             }
 
         }
@@ -694,7 +708,6 @@ namespace _3.PL.Views
         {
             if (idsp != Guid.Empty)
             {
-                
                 var x = hdct.FirstOrDefault(x => x.IdSp == idsp);
                 x.SoLuong -= 1;
                 x.TongTien = x.DonGia * x.SoLuong;
@@ -716,7 +729,15 @@ namespace _3.PL.Views
                     tbt_TienThua.Texts = ChangeFormatMoney(tienthua);
                 }
             }
-            
+        }
+
+        private void QLBanHang_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            if (videoCaptureDevice != null)
+            {
+                if (videoCaptureDevice.IsRunning)
+                    videoCaptureDevice.Stop();
+            }
         }
     }
 }
