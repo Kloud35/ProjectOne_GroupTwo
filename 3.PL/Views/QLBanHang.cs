@@ -206,6 +206,10 @@ namespace _3.PL.Views
                 btnTC.BackColor = SystemColors.Control;
                 btnTC.ForeColor = Color.Black;
                 btnTC.DoubleClick += new EventHandler(btnTC_Click);
+                if(x.SoLuong == 0)
+                {
+                    btnTC.Enabled = false;
+                }
                 this.flpn_ThuCung.Controls.Add(btnTC);
             }
             foreach (var x in _iThucAnServices.GetAll())
@@ -221,6 +225,10 @@ namespace _3.PL.Views
                 btnTA.BackColor = SystemColors.Control;
                 btnTA.ForeColor = Color.Black;
                 btnTA.DoubleClick += new EventHandler(btnTA_Click);
+                if (x.SoLuongTon == 0)
+                {
+                    btnTA.Enabled = false;
+                }
                 this.flpn_ThucAn.Controls.Add(btnTA);
             }
             foreach (var x in _iDoChoiServices.GetAll())
@@ -235,7 +243,12 @@ namespace _3.PL.Views
                 btnDC.Tag = string.Format(x.Id.ToString());
                 btnDC.BackColor = SystemColors.Control;
                 btnDC.ForeColor = Color.Black;
+                if (x.SoLuongTon == 0)
+                {
+                    btnDC.Enabled = false;
+                }
                 btnDC.DoubleClick += new EventHandler(btnDC_Click);
+                
                 this.flpn_DoChoi.Controls.Add(btnDC);
             }
             foreach (var x in _iHoaDonServices.GetAll())
@@ -252,13 +265,17 @@ namespace _3.PL.Views
 
             id = Guid.Parse((string)((Button)sender).Tag);
             var tc = _iThuCungServices.GetAll().FirstOrDefault(t => t.IdTCCT == id);
-            
+
             if (tc.SoLuong <= 0)
             {
                 MessageBox.Show("Số lượng không đủ");
             }
-            else if (hdct.FirstOrDefault(x => x.IdSp == tc.IdTCCT) != null)
+            if (hdct.FirstOrDefault(x => x.IdSp == tc.IdTCCT) != null)
             {
+                if(hdct.FirstOrDefault(x => x.IdSp == tc.IdTCCT).SoLuong == tc.SoLuong)
+                {
+                    MessageBox.Show("Số lượng không đủ");
+                }
                 hdct.FirstOrDefault(x => x.IdSp == tc.IdTCCT).SoLuong += 1;
                 LoadHDCT();
             }
@@ -267,6 +284,7 @@ namespace _3.PL.Views
                 HoaDonChiTietView hdctv = new HoaDonChiTietView();
                 hdctv.Id = Guid.NewGuid();
                 hdctv.IdSp = tc.IdTCCT;
+                hdctv.IdHoaDon = Guid.Empty;
                 hdctv.SoLuong = 1;
                 hdctv.DonGia = tc.GiaBan;
                 hdctv.TongTien = tc.GiaBan * hdctv.SoLuong;
@@ -274,7 +292,6 @@ namespace _3.PL.Views
                 hdct.Add(hdctv);
                 LoadHDCT();
             }
-
         }
         private void btnTA_Click(object sender, EventArgs e)
         {
@@ -295,6 +312,7 @@ namespace _3.PL.Views
                 HoaDonChiTietView hdctv = new HoaDonChiTietView();
                 hdctv.Id = Guid.NewGuid();
                 hdctv.IdSp = x.Id;
+                hdctv.IdHoaDon = Guid.Empty;
                 hdctv.SoLuong = 1;
                 hdctv.DonGia = x.GiaBan;
                 hdctv.TongTien = x.GiaBan * hdctv.SoLuong;
@@ -302,7 +320,6 @@ namespace _3.PL.Views
                 hdct.Add(hdctv);
                 LoadHDCT();
             }
-
         }
         private void btnDC_Click(object sender, EventArgs e)
         {
@@ -323,6 +340,7 @@ namespace _3.PL.Views
                 HoaDonChiTietView hdctv = new HoaDonChiTietView();
                 hdctv.Id = Guid.NewGuid();
                 hdctv.IdSp = x.Id;
+                hdctv.IdHoaDon = Guid.Empty;
                 hdctv.SoLuong = 1;
                 hdctv.DonGia = x.GiaBan;
                 hdctv.Ten = x.Ten;
@@ -363,6 +381,34 @@ namespace _3.PL.Views
         {
             if (hdct.Count != 0)
             {
+                if (idhd != Guid.Empty)
+                {
+                    var idsp = dtgv_HoaDonCt.CurrentRow.Cells[0].Value.ToString();
+                    var dc = _iHDDCCTServices.GetAll().FirstOrDefault(x => x.IdHoaDon == idhd && x.IdSp.ToString() == idsp);
+                    var ta = _iHDTACTServices.GetAll().FirstOrDefault(x => x.IdHoaDon == idhd && x.IdSp.ToString() == idsp);
+                    var tc = _iHoaDonChiTietServices.GetAll().FirstOrDefault(x => x.IdHoaDon == idhd && x.IdSp.ToString() == idsp);
+                    if (dc != null)
+                    {
+                        var z = _iDoChoiServices.GetAll().FirstOrDefault(x => x.Id.ToString() == idsp);
+                        z.SoLuongTon += dc.SoLuong;
+                        _iDoChoiServices.Update(z);
+                        _iHDDCCTServices.Delete(_iHDDCCTServices.GetAll().FirstOrDefault(x => x.IdHoaDon == idhd));
+                    }
+                    if (ta != null)
+                    {
+                        var z = _iThucAnServices.GetAll().FirstOrDefault(x => x.Id.ToString() == idsp);
+                        z.SoLuongTon += ta.SoLuong;
+                        _iThucAnServices.Update(z);
+                        _iHDTACTServices.Delete(_iHDTACTServices.GetAll().FirstOrDefault(x => x.IdHoaDon == idhd));
+                    }
+                    if (tc != null)
+                    {
+                        var z = _iThuCungServices.GetAll().FirstOrDefault(x => x.IdTCCT.ToString() == idsp);
+                        z.SoLuong += tc.SoLuong;
+                        _iThuCungServices.Update(z);
+                        _iHoaDonChiTietServices.Delete(_iHoaDonChiTietServices.GetAll().FirstOrDefault(x => x.IdHoaDon == idhd));
+                    }
+                }
                 hdct.RemoveAt(dtgv_HoaDonCt.CurrentRow.Index);
                 LoadHDCT();
             }
@@ -422,7 +468,7 @@ namespace _3.PL.Views
                                 z.SoLuong -= i.SoLuong;
                                 _iThuCungServices.Update(z);
                             }
-                            
+
                         }
                     }
                     Clear();
@@ -478,7 +524,7 @@ namespace _3.PL.Views
                     tbt_TienKhachDua.Enabled = true;
                     tbt_PTGiamGia.Enabled = true;
                     btn_ThanhToan.Enabled = true;
-
+                    btn_Sua.Enabled = true;
                 }
             }
         }
@@ -487,7 +533,7 @@ namespace _3.PL.Views
         {
             if (tbt_PTGiamGia.Texts != "" && tbt_TienKhachDua.Texts != "")
             {
-                if (Convert.ToDecimal(tbt_TienKhachDua.Texts) >= thanhtien)
+                if (Convert.ToDecimal(tbt_TienKhachDua.Texts)+Convert.ToDecimal(tbt_TienChuyenKhoan.Texts) >= thanhtien)
                 {
                     var hd = _iHoaDonServices.GetAll().FirstOrDefault(x => x.Id == idhd);
                     if (hd.TinhTrang == 0)
@@ -499,6 +545,7 @@ namespace _3.PL.Views
                         _iHoaDonServices.Update(hd);
                         MessageBox.Show("Thanh toán thành công");
                         LoadData();
+                        Clear();
                     }
                     else
                     {
@@ -517,7 +564,6 @@ namespace _3.PL.Views
                 MessageBox.Show("Chưa nhập tiền khách đưa");
             }
         }
-
         private void tbt_PTGiamGia__TextChanged(object sender, EventArgs e)
         {
             if (tbt_PTGiamGia.Texts != "")
@@ -535,7 +581,7 @@ namespace _3.PL.Views
         private void tbt_TienKhachDua__TextChanged(object sender, EventArgs e)
         {
             lbl_errTkd.Text = vld.CheckNumber(tbt_TienKhachDua.Texts);
-            if(lbl_errTkd.Text == "")
+            if (lbl_errTkd.Text == "")
             {
                 if (tbt_TienKhachDua.Texts != "" && tbt_TienChuyenKhoan.Texts != "")
                 {
@@ -619,7 +665,71 @@ namespace _3.PL.Views
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
+           
+            if (idhd != Guid.Empty)
+            {
+                Guid idn = idhd;
+                foreach (var hd in hdct.ToList())
+                {
+                    if (hd != null)
+                    {
+                        if (hd.IdHoaDon == Guid.Empty)
+                        {
+                            hd.IdHoaDon = idn;
+                            if (_iDoChoiServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp) != null)
+                            {
+                                _iHDDCCTServices.Add(hd);
+                                var z = _iDoChoiServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp);
+                                z.SoLuongTon -= hd.SoLuong;
+                                _iDoChoiServices.Update(z);
+                                Clear();
+                            }
+                            else if (_iThucAnServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp) != null)
+                            {
+                                _iHDTACTServices.Add(hd);
+                                var z = _iThucAnServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp);
+                                z.SoLuongTon -= hd.SoLuong;
+                                _iThucAnServices.Update(z);
+                                Clear();
+                            }
+                            else
+                            {
+                                _iHoaDonChiTietServices.Add(hd);
+                                var z = _iThuCungServices.GetAll().FirstOrDefault(x => x.IdTCCT == hd.IdSp);
+                                z.SoLuong -= hd.SoLuong;
+                                _iThuCungServices.Update(z);
+                                Clear();
+                            }
+                        }
+                        else
+                        {
+                            if (_iDoChoiServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp) != null)
+                            {
 
+                                _iHDDCCTServices.Update(hd);
+                                var z = _iDoChoiServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp);
+                                _iDoChoiServices.Update(z);
+                                Clear();
+                            }
+                            else if (_iThucAnServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp) != null)
+                            {
+                                _iHDTACTServices.Update(hd);
+                                var z = _iThucAnServices.GetAll().FirstOrDefault(x => x.Id == hd.IdSp);
+                                _iThucAnServices.Update(z);
+                                Clear();
+                            }
+                            else
+                            {
+
+                                _iHoaDonChiTietServices.Update(hd);
+                                var z = _iThuCungServices.GetAll().FirstOrDefault(x => x.IdTCCT == hd.IdSp);
+                                _iThuCungServices.Update(z);
+                                Clear();
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         private void Clear()
@@ -636,6 +746,7 @@ namespace _3.PL.Views
             tbt_TongTien.Texts = "";
             tbt_Barcode.Text = "";
             tbt_TienChuyenKhoan.Texts = "";
+            btn_Sua.Enabled = false;
         }
         private void btn_Clear_Click(object sender, EventArgs e)
         {
@@ -694,7 +805,6 @@ namespace _3.PL.Views
         {
             if (idsp != Guid.Empty)
             {
-                
                 var x = hdct.FirstOrDefault(x => x.IdSp == idsp);
                 x.SoLuong += 1;
                 x.TongTien = x.DonGia * x.SoLuong;
@@ -719,7 +829,7 @@ namespace _3.PL.Views
         private void tbt_TienChuyenKhoan__TextChanged(object sender, EventArgs e)
         {
             lbl_errTck.Text = vld.CheckNumber(tbt_TienChuyenKhoan.Texts);
-            if(lbl_errTck.Text == "")
+            if (lbl_errTck.Text == "")
             {
                 if (tbt_TienKhachDua.Texts != "" && tbt_TienChuyenKhoan.Texts != "")
                 {

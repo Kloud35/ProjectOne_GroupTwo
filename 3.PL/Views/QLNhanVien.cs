@@ -143,7 +143,7 @@ namespace _3.PL.Views
                 MessageBox.Show("Thêm thành công");
                 LoadData();
                 Clear();
-                SendMail(tbt_Email.Texts, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
+                SendMail(x.Email, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
             }
             else
             {
