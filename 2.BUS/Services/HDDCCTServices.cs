@@ -42,10 +42,11 @@ namespace _2.BUS.Services
 
         public bool Delete(HoaDonChiTietView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iHoaDonDoChoiCTRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            _iHoaDonDoChoiCTRepository.Delete(x);
+            return true;
         }
-
-       
 
         public List<HoaDonChiTietView> GetAll()
         {
@@ -68,7 +69,11 @@ namespace _2.BUS.Services
 
         public bool Update(HoaDonChiTietView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iHoaDonDoChoiCTRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            x.SoLuong = obj.SoLuong;
+            _iHoaDonDoChoiCTRepository.Update(x);
+            return true;
         }
     }
 }

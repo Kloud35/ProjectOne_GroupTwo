@@ -37,6 +37,7 @@
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_In = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_HoaDon)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -127,14 +128,33 @@
             this.TongTien.Name = "TongTien";
             this.TongTien.Width = 125;
             // 
+            // btn_In
+            // 
+            this.btn_In.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_In.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_In.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_In.BorderRadius = 0;
+            this.btn_In.BorderSize = 0;
+            this.btn_In.FlatAppearance.BorderSize = 0;
+            this.btn_In.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_In.ForeColor = System.Drawing.Color.White;
+            this.btn_In.Location = new System.Drawing.Point(981, 12);
+            this.btn_In.Name = "btn_In";
+            this.btn_In.Size = new System.Drawing.Size(188, 50);
+            this.btn_In.TabIndex = 2;
+            this.btn_In.Text = "Xuất hóa đơn";
+            this.btn_In.TextColor = System.Drawing.Color.White;
+            this.btn_In.UseVisualStyleBackColor = false;
+            this.btn_In.Click += new System.EventHandler(this.btn_In_Click);
+            // 
             // QLHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_In);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-       //     this.Name = "QLHoaDon";
             this.Size = new System.Drawing.Size(1227, 727);
             this.Load += new System.EventHandler(this.QLHoaDon_Load);
             this.groupBox1.ResumeLayout(false);
@@ -156,5 +176,6 @@
         private DataGridViewTextBoxColumn SoLuong;
         private DataGridViewTextBoxColumn DonGia;
         private DataGridViewTextBoxColumn TongTien;
+        private RJCodeAdvance.RJControls.RJButton btn_In;
     }
 }

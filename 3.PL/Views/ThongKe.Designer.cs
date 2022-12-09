@@ -46,6 +46,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtp_daytoday = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pn_hoadon.SuspendLayout();
             this.pn_doanhthu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_thucung)).BeginInit();
@@ -225,6 +228,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.dtg_thucung);
             this.groupBox2.Controls.Add(this.dtg_thucan);
             this.groupBox2.Controls.Add(this.dtg_dochoi);
@@ -234,6 +240,36 @@
             this.groupBox2.TabIndex = 35;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Số lượng sản phẩm đã bán";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(193, 93);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 20);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Thú cưng";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(737, 93);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Thức ăn";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(1258, 93);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 20);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "Đồ chơi";
             // 
             // ThongKe
             // 
@@ -255,6 +291,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -278,5 +315,8 @@
         private Label label1;
         private DateTimePicker dtp_daytoday;
         private GroupBox groupBox2;
+        private Label label6;
+        private Label label5;
+        private Label label4;
     }
 }
