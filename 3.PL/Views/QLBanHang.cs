@@ -22,6 +22,10 @@ using RJCodeAdvance.RJControls;
 using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 using _2.BUS.Utilities;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using Font = iTextSharp.text.Font;
+using Rectangle = System.Drawing.Rectangle;
 
 namespace _3.PL.Views
 {
@@ -494,6 +498,7 @@ namespace _3.PL.Views
                 tbt_TenNhanVien.Texts = x.TenNv;
                 tbt_PTGiamGia.Texts = x.PhanTramGiamGia.ToString();
                 tbt_TienKhachDua.Texts = x.TienCoc.ToString();
+                tbt_TienChuyenKhoan.Texts = x.TienShip.ToString();
                 var dcct = _iHDDCCTServices.GetAll().Where(p => p.IdHoaDon == idhd).ToList();
                 foreach (var dc in dcct)
                 {
@@ -528,7 +533,142 @@ namespace _3.PL.Views
                 }
             }
         }
+        private void XuatHoaDon()
+        {
+            PdfPTable pdfTable = new PdfPTable(dtgv_HoaDonCt.ColumnCount - 1);
+            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\fonts\ARIAL.TTF", BaseFont.IDENTITY_H, true);
+            Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK);
+            Font headerFont = new iTextSharp.text.Font(bf, 15, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.RED);
+            Font foooterFont = new iTextSharp.text.Font(bf, 15, iTextSharp.text.Font.BOLDITALIC, iTextSharp.text.BaseColor.RED);
+            pdfTable.DefaultCell.Padding = 3;
+            pdfTable.WidthPercentage = 90;
+            pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdfTable.DefaultCell.BorderWidth = 1;
 
+            foreach (DataGridViewColumn column in dtgv_HoaDonCt.Columns)
+            {
+                if (column.Index != 0)
+                {
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, normalFont));
+                    cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                    cell.Border = 0;
+                    cell.PaddingLeft = 10;
+                    pdfTable.AddCell(cell);
+                }
+            }
+            foreach (DataGridViewRow row in dtgv_HoaDonCt.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.ColumnIndex != 0)
+                    {
+                        if (cell.Value != null)
+                        {
+                            PdfPCell pdfcell = new PdfPCell(new Phrase(cell.Value.ToString(), normalFont));
+                            pdfcell.Border = 0;
+                            pdfcell.PaddingLeft = 10;
+                            pdfTable.AddCell(pdfcell);
+                        }
+
+                    }
+                }
+
+            }
+
+            var path = "E:\\Pic\\HoaDon\\";
+            var x = _iHoaDonServices.GetAll().FirstOrDefault(x => x.Id == idhd);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            using (FileStream stream = new FileStream(path + $"{x.Ma}.pdf", FileMode.Create))
+            {
+                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+                //Create a base font object making sure to specify IDENTITY-H
+                Paragraph header = new Paragraph("Hóa đơn thanh toán", headerFont);
+                header.Alignment = Element.ALIGN_CENTER;
+                Paragraph ma = new Paragraph($"Mã hóa đơn: {x.Ma}", normalFont);
+                ma.Alignment = Element.ALIGN_LEFT;
+                Paragraph ngaythanhtoan = new Paragraph($"Ngày thanh toán: {x.NgayThanhToan}", normalFont);
+                ngaythanhtoan.Alignment = Element.ALIGN_LEFT;
+                pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+                Paragraph phanTramGiamGia = new Paragraph($"Giảm giá: ", normalFont);
+                Paragraph giatriptgg = new Paragraph($"{x.PhanTramGiamGia}%", normalFont);
+
+                Paragraph tongTien = new Paragraph($"Tổng cộng:", headerFont);
+                Paragraph giatritt = new Paragraph($"{ChangeFormatMoney(thanhtien)}", headerFont);
+
+                Paragraph khachdua = new Paragraph($"Khách đưa:", normalFont);
+                Paragraph giatrikd = new Paragraph($"{ChangeFormatMoney(x.TienCoc)}", normalFont);
+                Paragraph khachchuyenkhoan = new Paragraph($"Khách chuyển khoản:", normalFont);
+                Paragraph giatrikck = new Paragraph($"{ChangeFormatMoney(x.TienShip)}", normalFont);
+                Paragraph trakhach = new Paragraph($"Trả khách:", normalFont);
+                Paragraph giatritk = new Paragraph($"{ChangeFormatMoney(x.TienCoc + x.TienShip - thanhtien)}", normalFont);
+
+                PdfPTable table = new PdfPTable(4);
+
+                PdfPCell cell = new PdfPCell(phanTramGiamGia);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatriptgg);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(tongTien);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatritt);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(khachdua);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatrikd);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(khachchuyenkhoan);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatrikck);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(trakhach);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatritk);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+
+                Paragraph camon = new Paragraph("XIN CẢM ƠN - HẸN GẶP LẠI!!", foooterFont);
+                camon.Alignment = Element.ALIGN_CENTER;
+                Paragraph chia = new Paragraph("--------------------------------------------------------------", normalFont);
+                chia.Alignment = Element.ALIGN_CENTER;
+                chia.SpacingAfter = 10;
+                //Create a specific font object
+                PdfWriter.GetInstance(pdfDoc, stream);
+                pdfDoc.Open();
+                pdfDoc.Add(header);
+                pdfDoc.Add(ma);
+                pdfDoc.Add(ngaythanhtoan);
+                pdfDoc.Add(chia);
+                pdfDoc.Add(pdfTable);
+                pdfDoc.Add(chia);
+                pdfDoc.Add(table);
+                pdfDoc.Add(chia);
+                pdfDoc.Add(camon);
+                pdfDoc.Close();
+            }
+            MessageBox.Show("Xuất hóa đơn thành công");
+        }
         private void btn_ThanhToan_Click(object sender, EventArgs e)
         {
             if (tbt_PTGiamGia.Texts != "" && tbt_TienKhachDua.Texts != "")
@@ -544,6 +684,11 @@ namespace _3.PL.Views
                         hd.TienShip = Convert.ToDecimal(tbt_TienChuyenKhoan.Texts);
                         _iHoaDonServices.Update(hd);
                         MessageBox.Show("Thanh toán thành công");
+                        DialogResult result = MessageBox.Show("Bạn có muốn in hóa đơn không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if(result == DialogResult.Yes)
+                        {
+                            XuatHoaDon();
+                        }
                         LoadData();
                         Clear();
                     }
