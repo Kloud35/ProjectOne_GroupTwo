@@ -3,6 +3,7 @@ using _2.BUS.Services;
 using _2.BUS.ViewModels;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,7 @@ namespace _3.PL.Views
         private void LoadData()
         {
             //Hóa đơn
+            dtgv_HoaDon.Rows.Clear();
             dtgv_HoaDon.ColumnCount = 6;
             dtgv_HoaDon.Columns[0].Name = "ID";
             dtgv_HoaDon.Columns[0].Visible = false;
@@ -47,7 +49,8 @@ namespace _3.PL.Views
             dtgv_HoaDon.Columns[3].Name = "Ngày tạo";
             dtgv_HoaDon.Columns[4].Name = "Ngày thanh toán";
             dtgv_HoaDon.Columns[5].Name = "Trạng thái";
-            foreach (var x in _iHoaDonServices.GetAll())
+            var list = _iHoaDonServices.GetAll().Where(x => x.NgayThanhToan.Day == dtp_Time.Value.Day && x.NgayThanhToan.Month == dtp_Time.Value.Month && x.NgayThanhToan.Year == dtp_Time.Value.Year).ToList();
+            foreach (var x in list)
             {
                 dtgv_HoaDon.Rows.Add(x.Id, x.Ma, x.TenNv, x.NgayTao,x.NgayThanhToan, x.TinhTrang == 0 ? "Chưa thanh toán" : "Đã thanh toán");
             }
@@ -112,6 +115,10 @@ namespace _3.PL.Views
         {
            
             PdfPTable pdfTable = new PdfPTable(dtgv_HoaDonCt.ColumnCount-1);
+            BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\fonts\ARIAL.TTF", BaseFont.IDENTITY_H, true);
+            Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK);
+            Font headerFont = new iTextSharp.text.Font(bf, 15, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.RED);
+            Font foooterFont = new iTextSharp.text.Font(bf, 15, iTextSharp.text.Font.BOLDITALIC, iTextSharp.text.BaseColor.RED);
             pdfTable.DefaultCell.Padding = 3;
             pdfTable.WidthPercentage = 90;
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -121,8 +128,10 @@ namespace _3.PL.Views
             {
                 if (column.Index != 0)
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText));
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText,normalFont));
                     cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
+                    cell.Border = 0;
+                    cell.PaddingLeft = 10;
                     pdfTable.AddCell(cell);
                 }
             }
@@ -134,13 +143,17 @@ namespace _3.PL.Views
                     {
                         if (cell.Value != null)
                         {
-                            pdfTable.AddCell(cell.Value.ToString());
+                            PdfPCell pdfcell = new PdfPCell(new Phrase(cell.Value.ToString(), normalFont));
+                            pdfcell.Border = 0;
+                            pdfcell.PaddingLeft = 10;
+                            pdfTable.AddCell(pdfcell);
                         }
                         
                     }
                 }
                 
             }
+            
             var path = "E:\\Pic\\HoaDon\\";
             var x = _iHoaDonServices.GetAll().FirstOrDefault(x => x.Id == idhd);
             if (!Directory.Exists(path))
@@ -150,21 +163,98 @@ namespace _3.PL.Views
             using (FileStream stream = new FileStream(path + $"{x.Ma}.pdf", FileMode.Create))
             {
                 Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
-                string ARIALUNI_TFF = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arialbd.ttf");
-
                 //Create a base font object making sure to specify IDENTITY-H
-                BaseFont bf = BaseFont.CreateFont(ARIALUNI_TFF, BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+                Paragraph header = new Paragraph("Hóa đơn thanh toán", headerFont);
+                header.Alignment = Element.ALIGN_CENTER;
+                Paragraph ma = new Paragraph($"Mã hóa đơn: {x.Ma}", normalFont);
+                ma.Alignment = Element.ALIGN_LEFT;
+                Paragraph ngaythanhtoan = new Paragraph($"Ngày thanh toán: {x.NgayThanhToan}", normalFont);
+                ngaythanhtoan.Alignment = Element.ALIGN_LEFT;
+                pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
+                Paragraph phanTramGiamGia = new Paragraph($"Giảm giá: ", normalFont);
+                Paragraph giatriptgg = new Paragraph($"{x.PhanTramGiamGia}%",normalFont);
+                
+                Paragraph tongTien = new Paragraph($"Tổng cộng:", headerFont);
+                Paragraph giatritt = new Paragraph($"{ChangeFormatMoney(thanhtien)}", headerFont);
 
+                Paragraph khachdua = new Paragraph($"Khách đưa:", normalFont);
+                Paragraph giatrikd = new Paragraph($"{ChangeFormatMoney(x.TienCoc)}", normalFont);
+                Paragraph khachchuyenkhoan = new Paragraph($"Khách chuyển khoản:", normalFont);
+                Paragraph giatrikck = new Paragraph($"{ChangeFormatMoney(x.TienShip)}", normalFont);
+                Paragraph trakhach = new Paragraph($"Trả khách:", normalFont);
+                Paragraph giatritk = new Paragraph($"{ChangeFormatMoney(x.TienCoc + x.TienShip - thanhtien)}", normalFont);
+
+                PdfPTable table = new PdfPTable(4);
+
+                PdfPCell cell = new PdfPCell(phanTramGiamGia);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatriptgg);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(tongTien);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatritt);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(khachdua);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatrikd);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(khachchuyenkhoan);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatrikck);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(trakhach);
+                cell.Colspan = 3;
+                cell.Border = 0;
+                table.AddCell(cell);
+                cell = new PdfPCell(giatritk);
+                cell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cell.Border = 0;
+                table.AddCell(cell);
+
+
+
+
+                Paragraph camon = new Paragraph("XIN CẢM ƠN - HẸN GẶP LẠI!!",foooterFont);
+                camon.Alignment = Element.ALIGN_CENTER;
+                Paragraph chia = new Paragraph("--------------------------------------------------------------",normalFont);
+                chia.Alignment = Element.ALIGN_CENTER;
+                chia.SpacingAfter = 10;
                 //Create a specific font object
-                Font f = new Font(bf, 12, iTextSharp.text.Font.NORMAL);
                 PdfWriter.GetInstance(pdfDoc, stream);
                 pdfDoc.Open();
-                pdfDoc.Add(new Paragraph("Hóa đơn"));
+                pdfDoc.Add(header);
+                pdfDoc.Add(ma);
+                pdfDoc.Add(ngaythanhtoan);
+                pdfDoc.Add(chia);
                 pdfDoc.Add(pdfTable);
-                pdfDoc.Add(new Paragraph($"Tổng tiền: {thanhtien}"));
+                pdfDoc.Add(chia);
+                pdfDoc.Add(table);
+                pdfDoc.Add(chia);
+                pdfDoc.Add(camon);
                 pdfDoc.Close();
             }
             MessageBox.Show("Xuất hóa đơn thành công");
+        }
+
+        private void dtp_Time_ValueChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
