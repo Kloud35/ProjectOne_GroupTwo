@@ -38,6 +38,14 @@
             this.tbt_Search = new RJCodeAdvance.RJControls.RJTextBox();
             this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lb_Checkquocgia = new System.Windows.Forms.Label();
+            this.lb_Checkthanhpho = new System.Windows.Forms.Label();
+            this.lb_Checkdiachi = new System.Windows.Forms.Label();
+            this.lb_Checksdt = new System.Windows.Forms.Label();
+            this.lb_Checkten = new System.Windows.Forms.Label();
+            this.lb_checktendem = new System.Windows.Forms.Label();
+            this.lb_Checkho = new System.Windows.Forms.Label();
+            this.lb_Checkma = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -232,10 +240,18 @@
             this.dtgv_Show.RowTemplate.Height = 29;
             this.dtgv_Show.Size = new System.Drawing.Size(1209, 167);
             this.dtgv_Show.TabIndex = 0;
-            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick);
+            this.dtgv_Show.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_Show_CellClick_1);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lb_Checkquocgia);
+            this.groupBox1.Controls.Add(this.lb_Checkthanhpho);
+            this.groupBox1.Controls.Add(this.lb_Checkdiachi);
+            this.groupBox1.Controls.Add(this.lb_Checksdt);
+            this.groupBox1.Controls.Add(this.lb_Checkten);
+            this.groupBox1.Controls.Add(this.lb_checktendem);
+            this.groupBox1.Controls.Add(this.lb_Checkho);
+            this.groupBox1.Controls.Add(this.lb_Checkma);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
@@ -264,10 +280,74 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
+            // lb_Checkquocgia
+            // 
+            this.lb_Checkquocgia.AutoSize = true;
+            this.lb_Checkquocgia.Location = new System.Drawing.Point(819, 104);
+            this.lb_Checkquocgia.Name = "lb_Checkquocgia";
+            this.lb_Checkquocgia.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checkquocgia.TabIndex = 35;
+            // 
+            // lb_Checkthanhpho
+            // 
+            this.lb_Checkthanhpho.AutoSize = true;
+            this.lb_Checkthanhpho.Location = new System.Drawing.Point(829, 37);
+            this.lb_Checkthanhpho.Name = "lb_Checkthanhpho";
+            this.lb_Checkthanhpho.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checkthanhpho.TabIndex = 34;
+            // 
+            // lb_Checkdiachi
+            // 
+            this.lb_Checkdiachi.AutoSize = true;
+            this.lb_Checkdiachi.Location = new System.Drawing.Point(420, 254);
+            this.lb_Checkdiachi.Name = "lb_Checkdiachi";
+            this.lb_Checkdiachi.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checkdiachi.TabIndex = 33;
+            // 
+            // lb_Checksdt
+            // 
+            this.lb_Checksdt.AutoSize = true;
+            this.lb_Checksdt.Location = new System.Drawing.Point(398, 36);
+            this.lb_Checksdt.Name = "lb_Checksdt";
+            this.lb_Checksdt.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checksdt.TabIndex = 32;
+            // 
+            // lb_Checkten
+            // 
+            this.lb_Checkten.AutoSize = true;
+            this.lb_Checkten.Location = new System.Drawing.Point(65, 254);
+            this.lb_Checkten.Name = "lb_Checkten";
+            this.lb_Checkten.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checkten.TabIndex = 31;
+            // 
+            // lb_checktendem
+            // 
+            this.lb_checktendem.AutoSize = true;
+            this.lb_checktendem.Location = new System.Drawing.Point(97, 179);
+            this.lb_checktendem.Name = "lb_checktendem";
+            this.lb_checktendem.Size = new System.Drawing.Size(0, 20);
+            this.lb_checktendem.TabIndex = 30;
+            // 
+            // lb_Checkho
+            // 
+            this.lb_Checkho.AutoSize = true;
+            this.lb_Checkho.Location = new System.Drawing.Point(61, 106);
+            this.lb_Checkho.Name = "lb_Checkho";
+            this.lb_Checkho.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checkho.TabIndex = 29;
+            // 
+            // lb_Checkma
+            // 
+            this.lb_Checkma.AutoSize = true;
+            this.lb_Checkma.Location = new System.Drawing.Point(61, 36);
+            this.lb_Checkma.Name = "lb_Checkma";
+            this.lb_Checkma.Size = new System.Drawing.Size(0, 20);
+            this.lb_Checkma.TabIndex = 28;
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(872, 112);
+            this.label13.Location = new System.Drawing.Point(744, 106);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(69, 20);
             this.label13.TabIndex = 27;
@@ -276,7 +356,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(872, 43);
+            this.label12.Location = new System.Drawing.Point(744, 37);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 20);
             this.label12.TabIndex = 26;
@@ -285,7 +365,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(487, 260);
+            this.label11.Location = new System.Drawing.Point(359, 254);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 20);
             this.label11.TabIndex = 25;
@@ -294,7 +374,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(487, 185);
+            this.label8.Location = new System.Drawing.Point(359, 179);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 20);
             this.label8.TabIndex = 22;
@@ -303,7 +383,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(487, 112);
+            this.label7.Location = new System.Drawing.Point(359, 106);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 20);
             this.label7.TabIndex = 21;
@@ -312,7 +392,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(489, 43);
+            this.label5.Location = new System.Drawing.Point(361, 37);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 20);
             this.label5.TabIndex = 19;
@@ -321,7 +401,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(155, 260);
+            this.label4.Location = new System.Drawing.Point(27, 254);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 20);
             this.label4.TabIndex = 18;
@@ -330,7 +410,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(153, 185);
+            this.label3.Location = new System.Drawing.Point(25, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 17;
@@ -339,7 +419,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(153, 112);
+            this.label2.Location = new System.Drawing.Point(25, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 20);
             this.label2.TabIndex = 16;
@@ -348,7 +428,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 43);
+            this.label1.Location = new System.Drawing.Point(23, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(30, 20);
             this.label1.TabIndex = 15;
@@ -363,7 +443,7 @@
             this.tbt_QuocGia.BorderSize = 2;
             this.tbt_QuocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_QuocGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_QuocGia.Location = new System.Drawing.Point(872, 134);
+            this.tbt_QuocGia.Location = new System.Drawing.Point(744, 128);
             this.tbt_QuocGia.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_QuocGia.Multiline = false;
             this.tbt_QuocGia.Name = "tbt_QuocGia";
@@ -375,6 +455,7 @@
             this.tbt_QuocGia.TabIndex = 13;
             this.tbt_QuocGia.Texts = "";
             this.tbt_QuocGia.UnderlinedStyle = false;
+            this.tbt_QuocGia._TextChanged += new System.EventHandler(this.tbt_QuocGia__TextChanged);
             // 
             // tbt_ThanhPho
             // 
@@ -385,7 +466,7 @@
             this.tbt_ThanhPho.BorderSize = 2;
             this.tbt_ThanhPho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_ThanhPho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_ThanhPho.Location = new System.Drawing.Point(872, 67);
+            this.tbt_ThanhPho.Location = new System.Drawing.Point(744, 61);
             this.tbt_ThanhPho.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_ThanhPho.Multiline = false;
             this.tbt_ThanhPho.Name = "tbt_ThanhPho";
@@ -397,6 +478,7 @@
             this.tbt_ThanhPho.TabIndex = 12;
             this.tbt_ThanhPho.Texts = "";
             this.tbt_ThanhPho.UnderlinedStyle = false;
+            this.tbt_ThanhPho._TextChanged += new System.EventHandler(this.tbt_ThanhPho__TextChanged);
             // 
             // tbt_DiaChi
             // 
@@ -407,7 +489,7 @@
             this.tbt_DiaChi.BorderSize = 2;
             this.tbt_DiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_DiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_DiaChi.Location = new System.Drawing.Point(489, 284);
+            this.tbt_DiaChi.Location = new System.Drawing.Point(361, 278);
             this.tbt_DiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_DiaChi.Multiline = false;
             this.tbt_DiaChi.Name = "tbt_DiaChi";
@@ -419,12 +501,13 @@
             this.tbt_DiaChi.TabIndex = 11;
             this.tbt_DiaChi.Texts = "";
             this.tbt_DiaChi.UnderlinedStyle = false;
+            this.tbt_DiaChi._TextChanged += new System.EventHandler(this.tbt_DiaChi__TextChanged);
             // 
             // rbn_GtNu
             // 
             this.rbn_GtNu.AutoSize = true;
             this.rbn_GtNu.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbn_GtNu.Location = new System.Drawing.Point(613, 220);
+            this.rbn_GtNu.Location = new System.Drawing.Point(485, 214);
             this.rbn_GtNu.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbn_GtNu.Name = "rbn_GtNu";
             this.rbn_GtNu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -439,7 +522,7 @@
             // 
             this.rbn_GtNam.AutoSize = true;
             this.rbn_GtNam.CheckedColor = System.Drawing.Color.MediumSlateBlue;
-            this.rbn_GtNam.Location = new System.Drawing.Point(487, 220);
+            this.rbn_GtNam.Location = new System.Drawing.Point(359, 214);
             this.rbn_GtNam.MinimumSize = new System.Drawing.Size(0, 21);
             this.rbn_GtNam.Name = "rbn_GtNam";
             this.rbn_GtNam.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -455,7 +538,7 @@
             this.dtp_NgaySinh.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.dtp_NgaySinh.BorderSize = 0;
             this.dtp_NgaySinh.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dtp_NgaySinh.Location = new System.Drawing.Point(489, 135);
+            this.dtp_NgaySinh.Location = new System.Drawing.Point(361, 129);
             this.dtp_NgaySinh.MinimumSize = new System.Drawing.Size(0, 35);
             this.dtp_NgaySinh.Name = "dtp_NgaySinh";
             this.dtp_NgaySinh.Size = new System.Drawing.Size(259, 35);
@@ -472,7 +555,7 @@
             this.tbt_Sdt.BorderSize = 2;
             this.tbt_Sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_Sdt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_Sdt.Location = new System.Drawing.Point(489, 67);
+            this.tbt_Sdt.Location = new System.Drawing.Point(361, 61);
             this.tbt_Sdt.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_Sdt.Multiline = false;
             this.tbt_Sdt.Name = "tbt_Sdt";
@@ -484,6 +567,7 @@
             this.tbt_Sdt.TabIndex = 4;
             this.tbt_Sdt.Texts = "";
             this.tbt_Sdt.UnderlinedStyle = false;
+            this.tbt_Sdt._TextChanged += new System.EventHandler(this.tbt_Sdt__TextChanged);
             // 
             // tbt_Ten
             // 
@@ -494,7 +578,7 @@
             this.tbt_Ten.BorderSize = 2;
             this.tbt_Ten.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_Ten.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_Ten.Location = new System.Drawing.Point(155, 284);
+            this.tbt_Ten.Location = new System.Drawing.Point(27, 278);
             this.tbt_Ten.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_Ten.Multiline = false;
             this.tbt_Ten.Name = "tbt_Ten";
@@ -506,6 +590,7 @@
             this.tbt_Ten.TabIndex = 3;
             this.tbt_Ten.Texts = "";
             this.tbt_Ten.UnderlinedStyle = false;
+            this.tbt_Ten._TextChanged += new System.EventHandler(this.tbt_Ten__TextChanged);
             // 
             // tbt_TenDem
             // 
@@ -516,7 +601,7 @@
             this.tbt_TenDem.BorderSize = 2;
             this.tbt_TenDem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_TenDem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_TenDem.Location = new System.Drawing.Point(151, 209);
+            this.tbt_TenDem.Location = new System.Drawing.Point(23, 203);
             this.tbt_TenDem.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_TenDem.Multiline = false;
             this.tbt_TenDem.Name = "tbt_TenDem";
@@ -528,6 +613,7 @@
             this.tbt_TenDem.TabIndex = 2;
             this.tbt_TenDem.Texts = "";
             this.tbt_TenDem.UnderlinedStyle = false;
+            this.tbt_TenDem._TextChanged += new System.EventHandler(this.tbt_TenDem__TextChanged);
             // 
             // tbt_Ho
             // 
@@ -538,7 +624,7 @@
             this.tbt_Ho.BorderSize = 2;
             this.tbt_Ho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_Ho.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_Ho.Location = new System.Drawing.Point(151, 134);
+            this.tbt_Ho.Location = new System.Drawing.Point(23, 128);
             this.tbt_Ho.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_Ho.Multiline = false;
             this.tbt_Ho.Name = "tbt_Ho";
@@ -550,6 +636,7 @@
             this.tbt_Ho.TabIndex = 1;
             this.tbt_Ho.Texts = "";
             this.tbt_Ho.UnderlinedStyle = false;
+            this.tbt_Ho._TextChanged += new System.EventHandler(this.tbt_Ho__TextChanged);
             // 
             // tbt_Ma
             // 
@@ -560,7 +647,7 @@
             this.tbt_Ma.BorderSize = 2;
             this.tbt_Ma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbt_Ma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbt_Ma.Location = new System.Drawing.Point(151, 67);
+            this.tbt_Ma.Location = new System.Drawing.Point(23, 61);
             this.tbt_Ma.Margin = new System.Windows.Forms.Padding(4);
             this.tbt_Ma.Multiline = false;
             this.tbt_Ma.Name = "tbt_Ma";
@@ -572,6 +659,7 @@
             this.tbt_Ma.TabIndex = 0;
             this.tbt_Ma.Texts = "";
             this.tbt_Ma.UnderlinedStyle = false;
+            this.tbt_Ma._TextChanged += new System.EventHandler(this.tbt_Ma__TextChanged);
             // 
             // QLKhachHang
             // 
@@ -624,5 +712,13 @@
         private RJCodeAdvance.RJControls.RJTextBox tbt_TenDem;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Ho;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Ma;
+        private Label lb_Checkquocgia;
+        private Label lb_Checkthanhpho;
+        private Label lb_Checkdiachi;
+        private Label lb_Checksdt;
+        private Label lb_Checkten;
+        private Label lb_checktendem;
+        private Label lb_Checkho;
+        private Label lb_Checkma;
     }
 }

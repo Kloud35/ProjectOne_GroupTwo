@@ -183,7 +183,7 @@
             this.btn_ChonAnh.FlatAppearance.BorderSize = 0;
             this.btn_ChonAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ChonAnh.ForeColor = System.Drawing.Color.White;
-            this.btn_ChonAnh.Location = new System.Drawing.Point(1116, 256);
+            this.btn_ChonAnh.Location = new System.Drawing.Point(1116, 282);
             this.btn_ChonAnh.Name = "btn_ChonAnh";
             this.btn_ChonAnh.Size = new System.Drawing.Size(81, 50);
             this.btn_ChonAnh.TabIndex = 38;
@@ -198,7 +198,7 @@
             this.ptb_Image.Image = global::_3.PL.Properties.Resources.illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010;
             this.ptb_Image.Location = new System.Drawing.Point(1027, 67);
             this.ptb_Image.Name = "ptb_Image";
-            this.ptb_Image.Size = new System.Drawing.Size(170, 165);
+            this.ptb_Image.Size = new System.Drawing.Size(188, 209);
             this.ptb_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptb_Image.TabIndex = 29;
             this.ptb_Image.TabStop = false;

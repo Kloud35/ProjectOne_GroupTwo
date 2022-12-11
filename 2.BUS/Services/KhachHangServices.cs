@@ -62,7 +62,7 @@ namespace _2.BUS.Services
                             Sdt = a.Sdt,
                             DiaChi = a.DiaChi,
                             ThanhPho = a.ThanhPho,
-                            QuocGia = a.QuocGia
+                            QuocGia = a.QuocGia,
                         }).ToList();
             return list;
         }

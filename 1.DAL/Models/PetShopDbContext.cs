@@ -10,7 +10,7 @@ namespace _1.DAL.Models
 {
     public class PetShopDbContext : DbContext
     {
-        string connectionString = "Data Source=DESKTOP-ABEN704\\SQLEXPRESS;Initial Catalog=PetShop;Persist Security Info=True;User ID=kloud35;Password=123123;";
+        string connectionString = "Data Source=HUYAN;Initial Catalog=PetShop;Persist Security Info=True;User ID=huyddph28122;Password=anhhung0122;";
         public PetShopDbContext()
         {
         }
