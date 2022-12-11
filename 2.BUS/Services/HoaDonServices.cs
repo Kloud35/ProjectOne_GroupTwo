@@ -16,7 +16,7 @@ namespace _2.BUS.Services
         IHoaDonRepository _iHoaDonRepository;
         IKhachHangRepository _iKhachHangRepository;
         INhanVienRepository _iNhanVienRepository;
-        IHoaDonChiTietRepository _iHoaDonChiTietRepository;
+        IHoaDonThuCungCTepository _iHDTCCTRepository;
         IHoaDonDoChoiCTRepository _iHoaDonDoChoiCTRepository;
         IHoaDonThucAnCTRepository _iHoaDonThucAnCTRepository;
         public HoaDonServices()
@@ -24,7 +24,7 @@ namespace _2.BUS.Services
             _iHoaDonRepository = new HoaDonRepository();
             _iKhachHangRepository = new KhachHangRepository();
             _iNhanVienRepository = new NhanVienRepository();
-            _iHoaDonChiTietRepository = new HoaDonChiTietRepository();
+            _iHDTCCTRepository = new HoaDonThuCungCTRepository();
             _iHoaDonDoChoiCTRepository = new HoaDonDoChoiCTRepository();
             _iHoaDonThucAnCTRepository = new HoaDonThucAnCTRepository();
         }
@@ -67,6 +67,7 @@ namespace _2.BUS.Services
             var list = (from a in _iHoaDonRepository.GetAll()
                         join b in _iNhanVienRepository.GetAll() on a.IdNhanVien equals b.Id
                         join c in _iKhachHangRepository.GetAll() on a.IdKhachHang equals c.Id
+
                         select new HoaDonView()
                         {
                             Id = a.Id,
@@ -84,11 +85,12 @@ namespace _2.BUS.Services
                             DiaChi = a.DiaChi,
                             Sdt = a.Sdt,
                             PhanTramGiamGia = a.PhanTramGiamGia,
-                            TenNv = b.Ho + " " + b.TenDem + " " + b.Ten
+                            TenNv = b.Ho + " " + b.TenDem + " " + b.Ten,
                         }).ToList();
             return list;
         }
 
+        
         public bool Update(HoaDonView obj)
         {
             if (obj == null) return false;

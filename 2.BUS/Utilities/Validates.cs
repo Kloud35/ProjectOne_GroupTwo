@@ -47,5 +47,15 @@ namespace _2.BUS.Utilities
             }
             return "Vui lòng nhập đúng định dạng email";
         }
+        public string CheckNumber(string s)
+        {
+            string strRegex = @"^[0-9]*$";
+            Regex r = new Regex(strRegex);
+            if (r.IsMatch(s))
+            {
+                return "";
+            }
+            return "Vui lòng nhập số";
+        }
     }
 }

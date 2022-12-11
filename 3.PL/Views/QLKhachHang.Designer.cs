@@ -38,8 +38,6 @@
             this.tbt_Search = new RJCodeAdvance.RJControls.RJTextBox();
             this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_ChonAnh = new RJCodeAdvance.RJControls.RJButton();
-            this.ptb_Image = new System.Windows.Forms.PictureBox();
             this.lb_Checkquocgia = new System.Windows.Forms.Label();
             this.lb_Checkthanhpho = new System.Windows.Forms.Label();
             this.lb_Checkdiachi = new System.Windows.Forms.Label();
@@ -73,7 +71,6 @@
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Image)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -232,6 +229,7 @@
             this.tbt_Search.TabIndex = 1;
             this.tbt_Search.Texts = "";
             this.tbt_Search.UnderlinedStyle = false;
+            this.tbt_Search._TextChanged += new System.EventHandler(this.tbt_Search__TextChanged);
             // 
             // dtgv_Show
             // 
@@ -246,8 +244,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_ChonAnh);
-            this.groupBox1.Controls.Add(this.ptb_Image);
             this.groupBox1.Controls.Add(this.lb_Checkquocgia);
             this.groupBox1.Controls.Add(this.lb_Checkthanhpho);
             this.groupBox1.Controls.Add(this.lb_Checkdiachi);
@@ -283,37 +279,6 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
-            // 
-            // btn_ChonAnh
-            // 
-            this.btn_ChonAnh.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_ChonAnh.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_ChonAnh.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_ChonAnh.BorderRadius = 0;
-            this.btn_ChonAnh.BorderSize = 0;
-            this.btn_ChonAnh.FlatAppearance.BorderSize = 0;
-            this.btn_ChonAnh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_ChonAnh.ForeColor = System.Drawing.Color.White;
-            this.btn_ChonAnh.Location = new System.Drawing.Point(1074, 254);
-            this.btn_ChonAnh.Name = "btn_ChonAnh";
-            this.btn_ChonAnh.Size = new System.Drawing.Size(81, 50);
-            this.btn_ChonAnh.TabIndex = 39;
-            this.btn_ChonAnh.Text = "Chọn ảnh";
-            this.btn_ChonAnh.TextColor = System.Drawing.Color.White;
-            this.btn_ChonAnh.UseVisualStyleBackColor = false;
-            this.btn_ChonAnh.Click += new System.EventHandler(this.btn_ChonAnh_Click);
-            // 
-            // ptb_Image
-            // 
-            this.ptb_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptb_Image.Image = global::_3.PL.Properties.Resources.illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010;
-            this.ptb_Image.Location = new System.Drawing.Point(1027, 61);
-            this.ptb_Image.Name = "ptb_Image";
-            this.ptb_Image.Size = new System.Drawing.Size(170, 165);
-            this.ptb_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptb_Image.TabIndex = 30;
-            this.ptb_Image.TabStop = false;
-            this.ptb_Image.Click += new System.EventHandler(this.ptb_Image_Click);
             // 
             // lb_Checkquocgia
             // 
@@ -710,7 +675,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Show)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ptb_Image)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -756,7 +720,5 @@
         private Label lb_checktendem;
         private Label lb_Checkho;
         private Label lb_Checkma;
-        private PictureBox ptb_Image;
-        private RJCodeAdvance.RJControls.RJButton btn_ChonAnh;
     }
 }

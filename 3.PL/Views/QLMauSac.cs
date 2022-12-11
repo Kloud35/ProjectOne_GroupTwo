@@ -18,7 +18,7 @@ namespace _3.PL.Views
     public partial class QLMauSac : UserControl
     {
         IMauSacService _imauSacService;
-        private Guid _id;
+        Guid _id;
         public QLMauSac()
         {
             InitializeComponent();
@@ -46,6 +46,13 @@ namespace _3.PL.Views
             }
         }
 
+        private void Clear()
+        {
+            tbt_Ma.Texts = "";
+            tbt_Search.Texts = "";
+            tbt_Ten.Texts = "";
+            _id = Guid.Empty;
+        }
         private void btn_Them_Click(object sender, EventArgs e)
         {
             var x = new MauSacView()
@@ -57,6 +64,7 @@ namespace _3.PL.Views
             if (_imauSacService.Add(x))
             {
                 MessageBox.Show("Thêm thành công");
+                Clear();
                 LoadData();
             }
             else
@@ -75,41 +83,12 @@ namespace _3.PL.Views
             LoadData();
         }
 
-        private void btn_Xoa_Click(object sender, EventArgs e)
-        {
-            _imauSacService.Delete(_id);
-            LoadData();
-        }
-
-        private void btn_Sua_Click(object sender, EventArgs e)
-        {
-            MauSacView a = new MauSacView()
-            {
-                Id = _id,
-                Ma = tbt_Ma.Texts,
-                Ten = tbt_Ten.Texts
-
-            };
-            _imauSacService.Update(a);
-            LoadData();
-        }
-
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             tbt_Ma.Texts = "";
             tbt_Ten.Texts = "";
-
-        }
-
-        private void tbt_Search__TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
-
-        private void dtg_MauSac_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            tbt_Search.Texts = "";
+            dtgv_Show.Rows.Clear();
         }
 
         private void dtg_MauSac_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -126,6 +105,68 @@ namespace _3.PL.Views
             var x = _imauSacService.GetAll().FirstOrDefault(x => x.Id == _id);
             tbt_Ma.Texts = x.Ma;
             tbt_Ten.Texts = x.Ten;
+        }
+
+        private void tbt_Search__TextChanged_1(object sender, EventArgs e)
+        {
+            int stt = 1;
+            dtgv_Show.ColumnCount = 4;
+            dtgv_Show.Columns[0].Name = "STT";
+            dtgv_Show.Columns[1].Name = "Id";
+            dtgv_Show.Columns[1].Visible = false;
+            dtgv_Show.Columns[2].Name = "Mã";
+            dtgv_Show.Columns[3].Name = "Tên";
+            dtgv_Show.Rows.Clear();
+            var lstMauSac = _imauSacService.GetAll();
+            if (tbt_Search.Texts != "")
+            {
+                lstMauSac = lstMauSac.Where(x => x.Ten.ToLower().Contains(tbt_Search.Text.ToLower())).ToList();
+            }
+            foreach (var x in lstMauSac)
+            {
+                dtgv_Show.Rows.Add(stt++, x.Id, x.Ma, x.Ten);
+            }
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn sửa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                var x = _imauSacService.GetAll().FirstOrDefault(x => x.Id == _id);
+                x.Ten = tbt_Ten.Texts;
+                x.Ma = tbt_Ma.Texts;
+
+                if (_imauSacService.Update(x))
+                {
+                    MessageBox.Show("Sửa thành công");
+                    LoadData();
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại");
+                }
+            }
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn chắc chắn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                var x = _imauSacService.GetAll().FirstOrDefault(x => x.Id == _id);
+                if (_imauSacService.Delete(x))
+                {
+                    MessageBox.Show("Xóa thành công");
+                    LoadData();
+                    Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
+                }
+            }
         }
     }
 }

@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Repository
 {
-    public class HoaDonChiTietRepository : IHoaDonChiTietRepository
+    public class HoaDonThuCungCTRepository : IHoaDonThuCungCTepository
     {
         PetShopDbContext _dbContext;
-        public HoaDonChiTietRepository()
+        public HoaDonThuCungCTRepository()
         {
             _dbContext = new PetShopDbContext();
         }
 
-        public bool Add(HoaDonChiTiet obj)
+        public bool Add(HoaDonThuCungChiTiet obj)
         {
             if (obj == null) return false;
             _dbContext.Add(obj);
@@ -24,7 +24,7 @@ namespace _1.DAL.Repository
             return true;
         }
 
-        public bool Delete(HoaDonChiTiet obj)
+        public bool Delete(HoaDonThuCungChiTiet obj)
         {
             if (obj == null) return false;
             _dbContext.Remove(obj);
@@ -32,12 +32,12 @@ namespace _1.DAL.Repository
             return true;
         }
 
-        public List<HoaDonChiTiet> GetAll()
+        public List<HoaDonThuCungChiTiet> GetAll()
         {
-            return _dbContext.HoaDonChiTiet.ToList();
+            return _dbContext.HoaDonThuCungChiTiet.ToList();
         }
 
-        public bool Update(HoaDonChiTiet obj)
+        public bool Update(HoaDonThuCungChiTiet obj)
         {
             if (obj == null) return false;
             _dbContext.Update(obj);

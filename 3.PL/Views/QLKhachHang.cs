@@ -74,7 +74,6 @@ namespace _3.PL.Views
                     DiaChi = tbt_DiaChi.Texts,
                     ThanhPho = tbt_ThanhPho.Texts,
                     QuocGia = tbt_QuocGia.Texts,
-                    Image = imgLocation
 
                 };
                 _iKhachHangServices.Add(x);
@@ -99,7 +98,6 @@ namespace _3.PL.Views
                 DiaChi = tbt_DiaChi.Texts,
                 ThanhPho = tbt_ThanhPho.Texts,
                 QuocGia = tbt_QuocGia.Texts,
-                Image = imgLocation
             };
             _iKhachHangServices.Update(a);
             LoadData();
@@ -140,7 +138,6 @@ namespace _3.PL.Views
             tbt_DiaChi.Texts = "";
             tbt_ThanhPho.Texts = "";
             tbt_QuocGia.Texts = "";
-            ptb_Image.Image = Resources.illustration_profile_icon_avatar_inhabitant_male_illustration_profile_icon_avata_237916010;
         }
 
         private void btn_Show_Click(object sender, EventArgs e)
@@ -232,26 +229,39 @@ namespace _3.PL.Views
                 tbt_DiaChi.Texts = x.DiaChi;
                 tbt_ThanhPho.Texts = x.ThanhPho;
                 tbt_QuocGia.Texts = x.QuocGia;
-                ptb_Image.Image = Image.FromFile(x.Image);
-                imgLocation = x.Image;
             }
         }
 
-        private void ptb_Image_Click(object sender, EventArgs e)
+        private void tbt_Search__TextChanged(object sender, EventArgs e)
         {
-            
-        }
 
-        private void btn_ChonAnh_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *png";
-            if (fileDialog.ShowDialog() == DialogResult.OK)
+            dtgv_Show.Rows.Clear();
+            int stt = 1;
+            dtgv_Show.ColumnCount = 12;
+            dtgv_Show.Columns[0].Name = "STT";
+            dtgv_Show.Columns[1].Name = "ID";
+            dtgv_Show.Columns[1].Visible = false;
+            dtgv_Show.Columns[2].Name = "Mã";
+            dtgv_Show.Columns[3].Name = "Họ";
+            dtgv_Show.Columns[4].Name = "Tên đệm";
+            dtgv_Show.Columns[5].Name = "Tên";
+            dtgv_Show.Columns[6].Name = "Ngày sinh";
+            dtgv_Show.Columns[7].Name = "Giới tính";
+            dtgv_Show.Columns[8].Name = "Sđt";
+            dtgv_Show.Columns[9].Name = "Địa chỉ";
+            dtgv_Show.Columns[10].Name = "Thành phố";
+            dtgv_Show.Columns[11].Name = "Quốc gia";
+            var list = _iKhachHangServices.GetAll();
+            if (tbt_Search.Texts != "")
             {
-                ptb_Image.Image = Image.FromFile(fileDialog.FileName);
-                imgLocation = fileDialog.FileName;
+                list = _iKhachHangServices.GetAll().Where(x => x.Ten.ToLower().Contains(tbt_Search.Texts.ToLower())).ToList();
+            }
+            foreach (var item in list)
+            {
+                dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.Ho, item.TenDem, item.Ten, item.NgaySinh, item.GioiTinh, item.Sdt, item.DiaChi, item.ThanhPho, item.QuocGia);
             }
         }
+       
     }
 }
 

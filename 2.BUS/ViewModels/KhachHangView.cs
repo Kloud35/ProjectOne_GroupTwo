@@ -20,6 +20,5 @@ namespace _2.BUS.ViewModels
         public string ThanhPho { get; set; }
         public string QuocGia { get; set; }
         public string HoVaTen { get; set; }
-        public string Image { get; set; }
     }
 }

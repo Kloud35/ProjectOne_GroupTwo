@@ -43,6 +43,10 @@ namespace _3.PL.Views
             dtgv_Show.Columns[7].Name = "Giá Bán";
             dtgv_Show.Columns[8].Name = "NSX";
             var list = _iDoChoiServices.GetAll();
+            if (tbt_search.Texts != "")
+            {
+                list = _iDoChoiServices.GetAll().Where(x => x.Ten.ToLower().Contains(tbt_search.Texts.ToLower())).ToList();
+            }
             foreach (var item in list)
             {
                 dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.Ten, item.Loai, item.SoLuongTon, item.GiaNhap, item.GiaBan,item.Nsx);
@@ -94,6 +98,7 @@ namespace _3.PL.Views
             tbt_SoLuong.Texts = "";
             tbt_GiaNhap.Texts = "";
             tbt_GiaBan.Texts = "";
+            dtgv_Show.Rows.Clear();
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -175,6 +180,11 @@ namespace _3.PL.Views
                 ptb_Barcode.Image = Image.FromFile(fileDialog.FileName);
                 barcodeLocation = fileDialog.FileName;
             }
+        }
+
+        private void tbt_search__TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

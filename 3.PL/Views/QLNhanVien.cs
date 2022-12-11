@@ -142,11 +142,13 @@ namespace _3.PL.Views
             {
                 MessageBox.Show("Thêm thành công");
                 LoadData();
-                SendMail(tbt_Email.Texts, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
+                Clear();
+                SendMail(x.Email, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
             }
             else
             {
                 MessageBox.Show("Thêm thất bại");
+                Clear();
             }
         }
 
@@ -176,6 +178,7 @@ namespace _3.PL.Views
                 if (_iNhanVienServices.Update(x))
                 {
                     MessageBox.Show("Sửa thành công");
+                    Clear();
                     LoadData();
                 }
                 else
@@ -196,6 +199,7 @@ namespace _3.PL.Views
                 {
                     MessageBox.Show("Xóa thành công");
                     LoadData();
+                    Clear();
                 }
                 else
                 {
@@ -278,6 +282,39 @@ namespace _3.PL.Views
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             Clear();
+            dtgv_Show.Rows.Clear();
+        }
+
+        private void tbt_Search__TextChanged(object sender, EventArgs e)
+        {
+            dtgv_Show.Rows.Clear();
+            int stt = 1;
+            dtgv_Show.ColumnCount = 15;
+            dtgv_Show.Columns[0].Name = "STT";
+            dtgv_Show.Columns[1].Name = "ID";
+            dtgv_Show.Columns[1].Visible = false;
+            dtgv_Show.Columns[2].Name = "Mã";
+            dtgv_Show.Columns[3].Name = "Họ và tên";
+            dtgv_Show.Columns[4].Name = "Ngày sinh";
+            dtgv_Show.Columns[5].Name = "Giới tính";
+            dtgv_Show.Columns[6].Name = "Sđt";
+            dtgv_Show.Columns[7].Name = "Email";
+            dtgv_Show.Columns[8].Name = "Mật khẩu";
+            dtgv_Show.Columns[9].Name = "Chức vụ";
+            dtgv_Show.Columns[10].Name = "Cửa hàng";
+            dtgv_Show.Columns[11].Name = "Địa chỉ";
+            dtgv_Show.Columns[12].Name = "Thành phố";
+            dtgv_Show.Columns[13].Name = "Quốc gia";
+            dtgv_Show.Columns[14].Name = "Trạng thái";
+            var list = _iNhanVienServices.GetAll();
+            if (tbt_Search.Texts != "")
+            {
+                list = _iNhanVienServices.GetAll().Where(x => x.Ten.ToLower().Contains(tbt_Search.Texts.ToLower())).ToList();
+            }
+            foreach (var item in list)
+            {
+                dtgv_Show.Rows.Add(stt++, item.Id, item.Ma, item.HoVaTen, item.NgaySinh, item.GioiTinh, item.Sdt, item.Email, item.MatKhau, item.ChucVu, item.CuaHang, item.DiaChi, item.ThanhPho, item.QuocGia, item.TrangThai == 0 ? "Hoạt động" : "Không hoạt động");
+            }
         }
     }
 }

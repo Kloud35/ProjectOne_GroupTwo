@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.IServices
 {
-    public interface IMauSacService
+    public interface IThongKeServices
     {
-        bool Add(MauSacView obj);
-        bool Delete(MauSacView obj);
-        bool Update(MauSacView obj);
-        List<MauSacView> GetAll();
+        List<ThongKeView> GetAll();
+        List<ThongKeView> GetHD();
     }
 }

@@ -144,6 +144,7 @@
             this.Name = "FrmThongTinTaiKhoan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmThongTinTaiKhoan";
+            this.Load += new System.EventHandler(this.FrmThongTinTaiKhoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Avata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

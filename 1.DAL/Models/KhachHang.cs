@@ -19,7 +19,6 @@ namespace _1.DAL.Models
         public string DiaChi { get; set; }
         public string ThanhPho { get; set; }
         public string QuocGia { get; set; }
-        public string Image { get; set; }
 
     }
 }

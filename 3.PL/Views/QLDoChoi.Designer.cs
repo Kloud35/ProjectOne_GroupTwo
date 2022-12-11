@@ -55,7 +55,7 @@
             this.btn_Sua = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Xoa = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.rjTextBox2 = new RJCodeAdvance.RJControls.RJTextBox();
+            this.tbt_search = new RJCodeAdvance.RJControls.RJTextBox();
             this.dtgv_Show = new System.Windows.Forms.DataGridView();
             this.btn_Show = new RJCodeAdvance.RJControls.RJButton();
             this.groupBox1.SuspendLayout();
@@ -505,7 +505,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.rjTextBox2);
+            this.groupBox3.Controls.Add(this.tbt_search);
             this.groupBox3.Controls.Add(this.dtgv_Show);
             this.groupBox3.Controls.Add(this.btn_Show);
             this.groupBox3.Location = new System.Drawing.Point(3, 409);
@@ -515,27 +515,28 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Data";
             // 
-            // rjTextBox2
+            // tbt_search
             // 
-            this.rjTextBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.rjTextBox2.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjTextBox2.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.rjTextBox2.BorderRadius = 0;
-            this.rjTextBox2.BorderSize = 2;
-            this.rjTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rjTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.rjTextBox2.Location = new System.Drawing.Point(24, 41);
-            this.rjTextBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.rjTextBox2.Multiline = false;
-            this.rjTextBox2.Name = "rjTextBox2";
-            this.rjTextBox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.rjTextBox2.PasswordChar = false;
-            this.rjTextBox2.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.rjTextBox2.PlaceholderText = "Nhập tên để tìm kiếm";
-            this.rjTextBox2.Size = new System.Drawing.Size(312, 35);
-            this.rjTextBox2.TabIndex = 5;
-            this.rjTextBox2.Texts = "";
-            this.rjTextBox2.UnderlinedStyle = false;
+            this.tbt_search.BackColor = System.Drawing.SystemColors.Window;
+            this.tbt_search.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.tbt_search.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.tbt_search.BorderRadius = 0;
+            this.tbt_search.BorderSize = 2;
+            this.tbt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbt_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbt_search.Location = new System.Drawing.Point(24, 41);
+            this.tbt_search.Margin = new System.Windows.Forms.Padding(4);
+            this.tbt_search.Multiline = false;
+            this.tbt_search.Name = "tbt_search";
+            this.tbt_search.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.tbt_search.PasswordChar = false;
+            this.tbt_search.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.tbt_search.PlaceholderText = "Nhập tên để tìm kiếm";
+            this.tbt_search.Size = new System.Drawing.Size(312, 35);
+            this.tbt_search.TabIndex = 5;
+            this.tbt_search.Texts = "";
+            this.tbt_search.UnderlinedStyle = false;
+            this.tbt_search._TextChanged += new System.EventHandler(this.tbt_search__TextChanged);
             // 
             // dtgv_Show
             // 
@@ -613,7 +614,7 @@
         private RJCodeAdvance.RJControls.RJButton btn_Sua;
         private RJCodeAdvance.RJControls.RJButton btn_Xoa;
         private GroupBox groupBox3;
-        private RJCodeAdvance.RJControls.RJTextBox rjTextBox2;
+        private RJCodeAdvance.RJControls.RJTextBox tbt_search;
         private DataGridView dtgv_Show;
         private RJCodeAdvance.RJControls.RJButton btn_Show;
         private RJCodeAdvance.RJControls.RJButton btn_ChonAnh;

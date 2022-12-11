@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _1.DAL.Models
 {
-    public class HoaDonChiTiet
+    public class HoaDonThuCungChiTiet
     {
         public Guid Id { get; set; }
         public Guid IdHoaDon { get; set; }

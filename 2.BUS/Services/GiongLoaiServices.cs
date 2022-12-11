@@ -38,18 +38,10 @@ namespace _2.BUS.Services
 
         public bool Delete(GiongLoaiView obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-            var GL = new GiongLoai()
-            {
-                Id = obj.Id,
-                Ma = obj.Ma,
-                Ten = obj.Ten,
-                XuatXu = obj.XuatXu
-            };
-            _iGiongLoaiRepository.Delete(GL); return true;
+            if (obj == null) return false;
+            var x = _iGiongLoaiRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            _iGiongLoaiRepository.Delete(x);
+            return true;
 
         }
 
@@ -69,18 +61,13 @@ namespace _2.BUS.Services
 
         public bool Update(GiongLoaiView obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-            var GL = new GiongLoai()
-            {
-                Id = obj.Id,
-                Ma = obj.Ma,
-                Ten = obj.Ten,
-                XuatXu = obj.XuatXu
-            };
-            _iGiongLoaiRepository.Update(GL); return true;
+            if (obj == null) return false;
+            var x = _iGiongLoaiRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            x.Ten = obj.Ten;
+            x.Ma = obj.Ma;
+            x.XuatXu = obj.XuatXu;
+            _iGiongLoaiRepository.Update(x);
+            return true;
         }
     }
 }

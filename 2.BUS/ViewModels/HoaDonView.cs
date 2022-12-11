@@ -24,6 +24,5 @@ namespace _2.BUS.ViewModels
         public string Sdt { get; set; }
         public decimal PhanTramGiamGia { get; set; }
         public string TenNv { get; set; }
-        
     }
 }

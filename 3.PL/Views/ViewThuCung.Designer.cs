@@ -45,7 +45,7 @@
             this.tsmi_MauSac});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1227, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1518, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,7 +74,7 @@
             // 
             this.pn_Desktop.Location = new System.Drawing.Point(0, 31);
             this.pn_Desktop.Name = "pn_Desktop";
-            this.pn_Desktop.Size = new System.Drawing.Size(1227, 696);
+            this.pn_Desktop.Size = new System.Drawing.Size(1515, 859);
             this.pn_Desktop.TabIndex = 2;
             // 
             // ViewThuCung
@@ -84,7 +84,7 @@
             this.Controls.Add(this.pn_Desktop);
             this.Controls.Add(this.menuStrip1);
             this.Name = "ViewThuCung";
-            this.Size = new System.Drawing.Size(1227, 727);
+            this.Size = new System.Drawing.Size(1518, 893);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

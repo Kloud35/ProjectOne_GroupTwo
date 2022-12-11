@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace _2.BUS.Services
 {
-    public class HoaDonChiTietServices : IHoaDonChiTietServices
+    public class HDTCCTServices : IHDTCCTServices
     {
-        IHoaDonChiTietRepository _iHoaDonChiTietRepository;
+        IHoaDonThuCungCTepository _iHoaDonChiTietRepository;
         IHoaDonRepository _iHoaDonRepository;
         IThuCungChiTietRepository _iThuCungChiTietRepository;
         IThuCungRepository _iThuCungRepository;
-        public HoaDonChiTietServices()
+        public HDTCCTServices()
         {
-            _iHoaDonChiTietRepository = new HoaDonChiTietRepository();
+            _iHoaDonChiTietRepository = new HoaDonThuCungCTRepository();
             _iHoaDonRepository = new HoaDonRepository();
             _iThuCungChiTietRepository = new ThuCungChiTietRepository();
             _iThuCungRepository = new ThuCungRepository();
@@ -28,7 +28,7 @@ namespace _2.BUS.Services
         public bool Add(HoaDonChiTietView obj)
         {
             if (obj == null) return false;
-            var x = new HoaDonChiTiet()
+            var x = new HoaDonThuCungChiTiet()
             {
                 Id = obj.Id,
                 IdHoaDon = obj.IdHoaDon,
@@ -42,7 +42,10 @@ namespace _2.BUS.Services
 
         public bool Delete(HoaDonChiTietView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iHoaDonChiTietRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            _iHoaDonChiTietRepository.Delete(x);
+            return true;
         }
 
         public List<HoaDonChiTietView> GetAll()
@@ -66,7 +69,11 @@ namespace _2.BUS.Services
 
         public bool Update(HoaDonChiTietView obj)
         {
-            throw new NotImplementedException();
+            if (obj == null) return false;
+            var x = _iHoaDonChiTietRepository.GetAll().FirstOrDefault(x => x.Id == obj.Id);
+            x.SoLuong = obj.SoLuong;
+            _iHoaDonChiTietRepository.Update(x);
+            return true;
         }
     }
 }

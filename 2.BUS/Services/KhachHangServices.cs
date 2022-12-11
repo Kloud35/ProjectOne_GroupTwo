@@ -34,7 +34,6 @@ namespace _2.BUS.Services
                 DiaChi = obj.DiaChi,
                 ThanhPho = obj.ThanhPho,
                 QuocGia = obj.QuocGia,
-                Image = obj.Image
             };
             _iKhachHangRepository.Add(x);
             return true;
@@ -64,7 +63,6 @@ namespace _2.BUS.Services
                             DiaChi = a.DiaChi,
                             ThanhPho = a.ThanhPho,
                             QuocGia = a.QuocGia,
-                            Image = a.Image
                         }).ToList();
             return list;
         }
@@ -83,7 +81,6 @@ namespace _2.BUS.Services
             x.DiaChi = obj.DiaChi;
             x.ThanhPho = obj.ThanhPho;
             x.QuocGia = obj.QuocGia;
-            x.Image = obj.Image;
             _iKhachHangRepository.Update(x);
             return true;
         }
