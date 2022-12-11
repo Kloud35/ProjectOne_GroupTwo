@@ -25,6 +25,7 @@ namespace _1.DAL.Configuations
             builder.Property(x => x.DiaChi).HasColumnName("DiaChi").HasColumnType("nvarchar(max)").IsRequired();
             builder.Property(x => x.ThanhPho).HasColumnName("ThanhPho").HasColumnType("nvarchar(100)").IsRequired();
             builder.Property(x => x.QuocGia).HasColumnName("QuocGia").HasColumnType("nvarchar(max)").IsRequired();
+            builder.Property(x => x.Image).HasColumnType("nvarchar(max)").IsRequired();
         }
     }
 }

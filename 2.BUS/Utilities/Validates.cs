@@ -9,7 +9,7 @@ namespace _2.BUS.Utilities
 {
     public class Validates
     {
-        public string CheckEmpty(string s)
+        public static string CheckEmpty(string s)
         {
             if (s.Trim().Length == 0)
             {
@@ -17,7 +17,7 @@ namespace _2.BUS.Utilities
             }
             return "";
         }
-        public string CheckSdt(string s)
+        public static string CheckSdt(string s)
         {
             string strRegex = @"(^0[0-9]{9})";
             Regex r = new Regex(strRegex);
