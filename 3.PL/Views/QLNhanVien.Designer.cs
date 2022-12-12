@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lbl_errorSdt = new System.Windows.Forms.Label();
             this.cbb_TrangThai = new RJCodeAdvance.RJControls.RJComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbt_Email = new RJCodeAdvance.RJControls.RJTextBox();
@@ -71,6 +72,7 @@
             this.btn_Xoa = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Sua = new RJCodeAdvance.RJControls.RJButton();
             this.btn_Them = new RJCodeAdvance.RJControls.RJButton();
+            this.lbl_errorMa = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptb_Image)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -80,6 +82,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_errorMa);
+            this.groupBox1.Controls.Add(this.lbl_errorSdt);
             this.groupBox1.Controls.Add(this.cbb_TrangThai);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.tbt_Email);
@@ -119,6 +123,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // lbl_errorSdt
+            // 
+            this.lbl_errorSdt.AutoSize = true;
+            this.lbl_errorSdt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lbl_errorSdt.ForeColor = System.Drawing.Color.Red;
+            this.lbl_errorSdt.Location = new System.Drawing.Point(341, 42);
+            this.lbl_errorSdt.Name = "lbl_errorSdt";
+            this.lbl_errorSdt.Size = new System.Drawing.Size(0, 20);
+            this.lbl_errorSdt.TabIndex = 42;
             // 
             // cbb_TrangThai
             // 
@@ -777,6 +791,16 @@
             this.btn_Them.UseVisualStyleBackColor = false;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
+            // lbl_errorMa
+            // 
+            this.lbl_errorMa.AutoSize = true;
+            this.lbl_errorMa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lbl_errorMa.ForeColor = System.Drawing.Color.Red;
+            this.lbl_errorMa.Location = new System.Drawing.Point(97, 44);
+            this.lbl_errorMa.Name = "lbl_errorMa";
+            this.lbl_errorMa.Size = new System.Drawing.Size(0, 20);
+            this.lbl_errorMa.TabIndex = 43;
+            // 
             // QLNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -842,5 +866,7 @@
         private Label label15;
         private RJCodeAdvance.RJControls.RJTextBox tbt_Email;
         private RJCodeAdvance.RJControls.RJComboBox cbb_TrangThai;
+        private Label lbl_errorSdt;
+        private Label lbl_errorMa;
     }
 }
