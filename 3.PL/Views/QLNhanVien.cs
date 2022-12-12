@@ -74,7 +74,7 @@ namespace _3.PL.Views
                 cbb_CuaHang.Items.Add(item.Ten);
             }
         }
-        
+
         public void SendMail(string sendTo, string body)
         {
             try
@@ -86,7 +86,7 @@ namespace _3.PL.Views
                 client.Port = 587;
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
-                client.Credentials = new NetworkCredential(mail,"Kh@nhlazy2033");
+                client.Credentials = new NetworkCredential(mail, "Kh@nhlazy2033");
                 //converte string to MailAdress
 
                 MailAddress to = new MailAddress(sendTo);
@@ -110,7 +110,7 @@ namespace _3.PL.Views
                 MessageBox.Show("Unexpected Error: " + error);
             }
         }
-        
+
         private void btn_Show_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -118,37 +118,53 @@ namespace _3.PL.Views
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            var x = new NhanVienView()
+            var nvsdt = _iNhanVienServices.GetAll().FirstOrDefault(n => n.Sdt == tbt_Sdt.Texts);
+            var nvma = _iNhanVienServices.GetAll().FirstOrDefault(n => n.Ma == tbt_Ma.Texts);
+            lbl_errorSdt.Text = "";
+            lbl_errorMa.Text = "";
+            if (nvsdt != null)
             {
-                Id = Guid.NewGuid(),
-                Ma = tbt_Ma.Texts,
-                Ho = tbt_Ho.Texts,
-                TenDem = tbt_TenDem.Texts,
-                Ten = tbt_Ten.Texts,
-                NgaySinh = dtp_NgaySinh.Value,
-                GioiTinh = rbn_GtNam.Checked ? "Nam" : "Nữ",
-                Sdt = tbt_Sdt.Texts,
-                Email = tbt_Email.Texts,
-                DiaChi = tbt_DiaChi.Texts,
-                ThanhPho = tbt_ThanhPho.Texts,
-                QuocGia = tbt_QuocGia.Texts,
-                MatKhau = tbt_MatKhau.Texts,
-                TrangThai = cbb_TrangThai.SelectedIndex,
-                IdCh = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_CuaHang.Texts)).Id,
-                IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id,
-                Image = imgLocation,
-            };
-            if (_iNhanVienServices.Add(x))
-            {
-                MessageBox.Show("Thêm thành công");
-                LoadData();
-                Clear();
-                SendMail(x.Email, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
+                lbl_errorSdt.Text = "Số điện thoại đã tồn tại";
             }
-            else
+            if (nvma != null)
             {
-                MessageBox.Show("Thêm thất bại");
-                Clear();
+                lbl_errorMa.Text = "Mã đã tồn tại";
+            }
+            if (lbl_errorMa.Text == "" && lbl_errorSdt.Text == "")
+            {
+                
+                var x = new NhanVienView()
+                {
+                    Id = Guid.NewGuid(),
+                    Ma = tbt_Ma.Texts,
+                    Ho = tbt_Ho.Texts,
+                    TenDem = tbt_TenDem.Texts,
+                    Ten = tbt_Ten.Texts,
+                    NgaySinh = dtp_NgaySinh.Value,
+                    GioiTinh = rbn_GtNam.Checked ? "Nam" : "Nữ",
+                    Sdt = tbt_Sdt.Texts,
+                    Email = tbt_Email.Texts,
+                    DiaChi = tbt_DiaChi.Texts,
+                    ThanhPho = tbt_ThanhPho.Texts,
+                    QuocGia = tbt_QuocGia.Texts,
+                    MatKhau = tbt_MatKhau.Texts,
+                    TrangThai = cbb_TrangThai.SelectedIndex,
+                    IdCh = _iCuaHangServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_CuaHang.Texts)).Id,
+                    IdCv = _iChucVuServices.GetAll().FirstOrDefault(x => x.Ten.Equals(cbb_ChucVu.Texts)).Id,
+                    Image = imgLocation,
+                };
+                if (_iNhanVienServices.Add(x))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    LoadData();
+                    Clear();
+                    SendMail(x.Email, $"Tài khoản của nhân viên:\n SĐT: {x.Sdt} \n Mật khẩu : {x.MatKhau}");
+                }
+                else
+                {
+                    MessageBox.Show("Thêm thất bại");
+                    Clear();
+                }
             }
         }
 
