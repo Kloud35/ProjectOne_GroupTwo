@@ -135,7 +135,7 @@ namespace _3.PL.Views
             var tc = _iHDTCCTServices.GetAll();
             var ta = _iHDTACTServices.GetAll();
             var dc = _iHDDCCTServices.GetAll();
-            var list = _iHoaDonServices.GetAll().Where(x => x.NgayThanhToan.Day >= dtp_day.Value.Day && x.NgayThanhToan.Month >= dtp_day.Value.Month && x.NgayThanhToan.Year >= dtp_day.Value.Year && x.NgayThanhToan.Day <= dtp_daytoday.Value.Day && x.NgayThanhToan.Month <= dtp_daytoday.Value.Month && x.NgayThanhToan.Year <= dtp_daytoday.Value.Year).ToList();
+            var list = _iHoaDonServices.GetAll().Where(x => x.NgayThanhToan.Day >= dtp_day.Value.Day && x.NgayThanhToan.Month >= dtp_day.Value.Month && x.NgayThanhToan.Year >= dtp_day.Value.Year && x.NgayThanhToan.Day <= dtp_daytoday.Value.Day && x.NgayThanhToan.Month <= dtp_daytoday.Value.Month && x.NgayThanhToan.Year <= dtp_daytoday.Value.Year && x.TinhTrang == 1).ToList();
 
             Load_Data_ThuCung();
             Load_Data_ThucAn();
