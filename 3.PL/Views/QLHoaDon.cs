@@ -49,10 +49,10 @@ namespace _3.PL.Views
             dtgv_HoaDon.Columns[3].Name = "Ngày tạo";
             dtgv_HoaDon.Columns[4].Name = "Ngày thanh toán";
             dtgv_HoaDon.Columns[5].Name = "Trạng thái";
-            var list = _iHoaDonServices.GetAll().Where(x => x.NgayThanhToan.Day == dtp_Time.Value.Day && x.NgayThanhToan.Month == dtp_Time.Value.Month && x.NgayThanhToan.Year == dtp_Time.Value.Year).ToList();
+            var list = _iHoaDonServices.GetAll().Where(x => x.NgayThanhToan.Day == dtp_Time.Value.Day && x.NgayThanhToan.Month == dtp_Time.Value.Month && x.NgayThanhToan.Year == dtp_Time.Value.Year && x.TinhTrang == 1).ToList();
             foreach (var x in list)
             {
-                dtgv_HoaDon.Rows.Add(x.Id, x.Ma, x.TenNv, x.NgayTao,x.NgayThanhToan, x.TinhTrang == 0 ? "Chưa thanh toán" : "Đã thanh toán");
+                dtgv_HoaDon.Rows.Add(x.Id, x.Ma, x.TenNv, x.NgayTao, x.NgayThanhToan, x.TinhTrang == 0 ? "Chưa thanh toán" : "Đã thanh toán");
             }
         }
 
@@ -113,8 +113,8 @@ namespace _3.PL.Views
 
         private void btn_In_Click(object sender, EventArgs e)
         {
-           
-            PdfPTable pdfTable = new PdfPTable(dtgv_HoaDonCt.ColumnCount-1);
+
+            PdfPTable pdfTable = new PdfPTable(dtgv_HoaDonCt.ColumnCount - 1);
             BaseFont bf = BaseFont.CreateFont(Environment.GetEnvironmentVariable("windir") + @"\fonts\ARIAL.TTF", BaseFont.IDENTITY_H, true);
             Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL, iTextSharp.text.BaseColor.BLACK);
             Font headerFont = new iTextSharp.text.Font(bf, 15, iTextSharp.text.Font.BOLD, iTextSharp.text.BaseColor.RED);
@@ -123,12 +123,12 @@ namespace _3.PL.Views
             pdfTable.WidthPercentage = 90;
             pdfTable.HorizontalAlignment = Element.ALIGN_LEFT;
             pdfTable.DefaultCell.BorderWidth = 1;
-            
+
             foreach (DataGridViewColumn column in dtgv_HoaDonCt.Columns)
             {
                 if (column.Index != 0)
                 {
-                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText,normalFont));
+                    PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, normalFont));
                     cell.BackgroundColor = new iTextSharp.text.BaseColor(240, 240, 240);
                     cell.Border = 0;
                     cell.PaddingLeft = 10;
@@ -139,7 +139,7 @@ namespace _3.PL.Views
             {
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if(cell.ColumnIndex != 0)
+                    if (cell.ColumnIndex != 0)
                     {
                         if (cell.Value != null)
                         {
@@ -148,12 +148,12 @@ namespace _3.PL.Views
                             pdfcell.PaddingLeft = 10;
                             pdfTable.AddCell(pdfcell);
                         }
-                        
+
                     }
                 }
-                
+
             }
-            
+
             var path = "E:\\Pic\\HoaDon\\";
             var x = _iHoaDonServices.GetAll().FirstOrDefault(x => x.Id == idhd);
             if (!Directory.Exists(path))
@@ -172,8 +172,8 @@ namespace _3.PL.Views
                 ngaythanhtoan.Alignment = Element.ALIGN_LEFT;
                 pdfTable.HorizontalAlignment = Element.ALIGN_CENTER;
                 Paragraph phanTramGiamGia = new Paragraph($"Giảm giá: ", normalFont);
-                Paragraph giatriptgg = new Paragraph($"{x.PhanTramGiamGia}%",normalFont);
-                
+                Paragraph giatriptgg = new Paragraph($"{x.PhanTramGiamGia}%", normalFont);
+
                 Paragraph tongTien = new Paragraph($"Tổng cộng:", headerFont);
                 Paragraph giatritt = new Paragraph($"{ChangeFormatMoney(thanhtien)}", headerFont);
 
@@ -230,9 +230,9 @@ namespace _3.PL.Views
 
 
 
-                Paragraph camon = new Paragraph("XIN CẢM ƠN - HẸN GẶP LẠI!!",foooterFont);
+                Paragraph camon = new Paragraph("XIN CẢM ƠN - HẸN GẶP LẠI!!", foooterFont);
                 camon.Alignment = Element.ALIGN_CENTER;
-                Paragraph chia = new Paragraph("--------------------------------------------------------------",normalFont);
+                Paragraph chia = new Paragraph("--------------------------------------------------------------", normalFont);
                 chia.Alignment = Element.ALIGN_CENTER;
                 chia.SpacingAfter = 10;
                 //Create a specific font object

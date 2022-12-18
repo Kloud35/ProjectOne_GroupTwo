@@ -79,14 +79,14 @@ namespace _3.PL.Views
         {
             try
             {
-                string mail = "khanhnnph28375@fpt.edu.vn";
+                string mail = "mail";
                 SmtpClient client = new SmtpClient();
                 //setup SMTP Host Here
                 client.Host = "smtp.gmail.com";
                 client.Port = 587;
                 client.UseDefaultCredentials = false;
                 client.EnableSsl = true;
-                client.Credentials = new NetworkCredential(mail, "Kh@nhlazy2033");
+                client.Credentials = new NetworkCredential(mail, "pass");
                 //converte string to MailAdress
 
                 MailAddress to = new MailAddress(sendTo);
